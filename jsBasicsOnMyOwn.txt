@@ -1,0 +1,31 @@
+﻿some javascript syntax i learned form odin's foundation:
+ 
+<script>console.log("HelloWorld!");</script>
+
+alert-let-var-const-return-class-function = variable declarations of js/functions.
+
+the variable is a box what's inside is the value.
+you can change the value as mush as u want.
+
+//rule: declare a variable only once 
+  let user;
+  let x=5; 
+  x = 7;   because fuck me. right js!
+  const $;
+  var _;
+  let " ";   white space
+	
+to make a number decimal friendly:
+use .tofix()
+example: variable = variable.tofix(numbersAfter.inIt);
+
+convert string to numbers :-  Number();
+let x='5'; is a string type variable.
+
+unary + is an operator that works linke Number()
+example: let x =1;
+		 +x ; // 1;
+example:let apples=2;oranges=3; 
+		alert( +apples + +oranges ); // 5	
+
+		
