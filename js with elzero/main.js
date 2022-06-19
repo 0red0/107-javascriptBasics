@@ -107,6 +107,8 @@ let dd = "Programming";
  console.log(`${aa} ${bb}
  ${cc} ${dd}`);
 
+ //creating html elements from js file
+
 let title = "Elzeroooo";
 let desc = "Elzeroo web school course";
 let markUp = `
@@ -161,7 +163,7 @@ console.log(Number.MIN_SAFE_INTEGER);
 console.log(Number.MAX_VALUE);
 console.log(Number.MIN_VALUE);
 
-console.log(Math.floor(Math.random()* 4) + 1); //random num between big first
+console.log(Math.floor(Math.random()* 4) + 1); //random num between (0)
 
 //#27 
 //index []
@@ -517,4 +519,4 @@ for (let i = 0; i < myAdmins.indexOf("Stop"); i++) {
   }
   document.write(`</div>`);
 }
-//end; continue at file: script.js
+//end; continue at file: main2.js
