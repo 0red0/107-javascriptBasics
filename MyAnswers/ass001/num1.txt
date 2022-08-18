@@ -1,0 +1,3 @@
+https://elzero.org/javascript-bootcamp-assignments-lesson-from-001-to-009/
+
+1. Code one won't work becauze script 1 has been red before the rest of the dom being loaded.

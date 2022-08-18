@@ -1,11 +1,28 @@
+/*
+#001 Introduction
+#002 Study and problem solving
+#003 Setting up Environment
+*/
+#004 Chrome Developer tool
+Google inspector tips:
+// *$_ in chrome console = last console value
+// *screenshot html element ctrl + shift + p >> capture node screenshot
+   or right click menu it to from inspect.
+// #005 <script> place   
+// #006 comments
+// #007 Outputs:
+            window.alert("Hello World"); //stops execute code after it
+            document.write("Hello Helina");
+            document.write("<h1>Hello Helin</h1>");
+            console.log("Hello Helena");
+// #008 console.log + API
+   API = Application Programing Interface
+// Styling Console
+  - Directive %c
+console.log("Hello %cHelena" , "color: pink; font-size: 1.5rem")
+// #009 ECMAScript
 
-//window.onload = function () {
-//window.alert("Hello form JS file");
 
-//creating h1 element from js file
-document.write("<h1> Hello Page</h1>");
-const h1 = document.querySelector("h1");
-console.log(h1.style);
 
 //styling css form js main file
 h1.style.color = "blue";
