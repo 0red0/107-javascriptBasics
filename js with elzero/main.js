@@ -1,148 +1,83 @@
+/* 1- WHY HTML ELEMENTS ARE OBJECTS (TYPEOF ID)?
+*/
 /*
 #001 Introduction
 #002 Study and problem solving
 #003 Setting up Environment
 */
-#004 Chrome Developer tool
-Google inspector tips:
-// *$_ in chrome console = last console value
-// *screenshot html element ctrl + shift + p >> capture node screenshot
+//#004 Chrome Developer tool
+      Google inspector tips:
+  $_ in chrome console = last console value
+  screenshot html element ctrl + shift + p >> capture node screenshot
    or right click menu it to from inspect.
 // #005 <script> place   
 // #006 comments
 // #007 Outputs:
-            window.alert("Hello World"); //stops execute code after it
-            document.write("Hello Helina");
-            document.write("<h1>Hello Helin</h1>");
-            console.log("Hello Helena");
+      document.write("Hello Helina");
+      window.alert("Hello World"); //stops execute code after it
+      console.log("Hello Helena");
+      document.write("<h1>Hello Helin</h1>");
 // #008 console.log + API
    API = Application Programing Interface
 // Styling Console
   - Directive %c
 console.log("Hello %cHelena" , "color: pink; font-size: 1.5rem")
-// #009 ECMAScript
+// #009 ECMAScript `${}`
+// #010 data types = 5 types only
+//#011 variables
+-declare without var
+   user = "Osama";
+-multi vars on same line
+   user = "os" , age = 33;
+-<div id="#"> = var
+   html element with id = variable
+id.innerHTML = "theChangeUwant";
+// #012 Identifiers Name
+// #013 let vs const vs var
+   -Block scope vs function scope //var win
+   -reDeceleration ability //var win
 
+// #014 strings [escape operator]
+console.log("Elzero \web \\school\""); // {\} is escape op
+console.log("Elzero\nweb\nSchool");  // {\n} newLine op
 
+// #015 concatenate strings
+   console.log(a + " " + b); = console.log(a,b);
+   console.log(`${a} ${b}`);
 
-//styling css form js main file
-h1.style.color = "blue";
-h1.style.fontSize = "80px";
-h1.style.fontWeight ="bold";
-h1.style.textAlign = "center";
-h1.style.fontFamily = "sans-serif";
-h1.style.border = "4px solid blue";
-
-console.log("Hello form JS file");
-
-console.error("error");
-
-console.table(["Osama","Elzero","Ahmed","Gamal","Fathy"]);
-
-//didn't style cuz no %c Parameter
-console.log("Hello form Js file","color:red;font-size:40px"); 
-
-document.write("<h1>Elzero</h1>");
-
-//styling console.log output
-
-console.log("%cElzero%c Web%c School","color:red;font-size:40px;",
-"color:blue;font-size:40px;font-weight:bold;",
-"color:green;font-size:40px;");
-
-//console grouping practice
-
-console.group('Group One');
-console.log('Message One');
-console.log('Message Two');
-
-console.group('Child Group');
-console.log('Message One');
-console.log('Message Two');
-
-console.group('Grand Child Group');
-console.log('Message One');
-console.log('Message Two');
-
-console.groupEnd();
-console.groupEnd();
-console.groupEnd();
-
-console.group('Group 2');
-console.log('Message One');
-console.log('Message Two');
-console.groupEnd();
-
-console.log("Osam Mohamed");
-//= string
-console.log(typeof "Osam Mohamed"); 
-
-//= number
-console.log(typeof 2000);
-
-//= Array => Object
-console.log(typeof [20,94,203]);
-console.log(typeof ["Os","Ah","Sa"]);
-
-//= Object
-console.log(typeof {name:"Othman",age:17,country:"Eg"});
-
-//= boolean
-console.log(typeof true);
-
-console.log(typeof undefined); //undefined
-console.log(typeof null); // object
-
-var user = "Sayed";
-console.log(user);
-
-console.log(hello);
-// change the value of this variable
-hello.innerHTML = "Option";
-
-console.log("Elzero \
-web \
-school");
-
-// \n to print it in new line
-console.log("Elzero\nweb\nSchool");
-
-//concatenate strings
-
-let a = "We love";
-let b = "Javascript";
-document.write(a + " " + b);
-
-//Template Literals (ECMAscript6 {E6})
-let aa = "We love";
-let bb = "Javascript";
-let cc = "And";
-let dd = "Programming";
-
- console.log(aa + " " + bb +
- "\n" + cc + " " +dd);
-
- console.log(`${aa} ${bb}
- ${cc} ${dd}`);
-
- //creating html elements from js file
-
+// #016 Template Literals vs Legacy code
 let title = "Elzeroooo";
 let desc = "Elzeroo web school course";
 let markUp = `
     <div class="card">
-     <div class="child">
+      <div class="child">
         <h2>${title}</h2>
         <p>${desc}</p>
-     </div>
+      </div>
     </div>
  `;
-
 document.write(markUp);
+// #017 String challenge
+//numbers to strings:
+String(n)
+n.toString()
+""+n
+n+""
 
-console.log((100).toString());
-console.log(100.4.toString());
+// #018 Arithmetic Operators:(+,-,*,/,**,%,++,--)
+division remainder,Increment,decrement.
+// #019 Unary plus, Unary Negation
+   +"100" -ture +null -0xff -"-100"
+// #020 Type Coercion 
+   true  = 1     "" - 2= -2;
+   false = 0     "1" + 2 + true = string;
+   null  = 0     +"1" + 2 + true = 4;
+    "" = 0        
 
-console.log(100.55555555.toFixed(2));
+// #021 Assignment Operators: = ,+= ,/= ,*=
+
+
+
 
 //parseInt analyze and give out the number
 console.log(parseInt("100"));

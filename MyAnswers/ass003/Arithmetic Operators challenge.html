@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+   <!-- https://elzero.org/javascript-2021-operators-challenges/ -->
+   <div id="elzero">object</div>
+   </body>
+   <script>
+	//#1
+	let a = 10;
+	let b = "20";
+	let c = 80;
+	console.log(++a + +b++ + +c++ - +a++);
+	console.log(++a + -b + +c++ - -a++ + +a);
+	console.log(--c + +b + --a * +b++ - +b * a + --a - +true);
+	my fault ofc these variables a++ post incremented yet
+	their being used in the same line with their new values.
+	//all 100
+	this is my wrong answer
+	//11 + 20 + 80 - 10 = 101
+	//10 + -20 + 80 - -10 + 11 = 91
+	//79 + 20 + 9 * 20 - 20 * 10 + 9 - 1 = 87
+	
+	
+	//#2
+	let d = "-100";
+	let e = "20";
+	let f = 30;
+	let g = true;
+	
+	console.log(-d * e);
+	console.log((-d * e.length) - --f + ++g  );
+	
+	not my answer:
+	console.log(-d + ++e * ++g + ++f); // 173
+	he used multiplication not just add and subtract u moran!
+   </script>
+</html>

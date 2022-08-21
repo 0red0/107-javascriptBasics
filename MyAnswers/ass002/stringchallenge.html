@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <!-- make an element and repeat it 4 times -->
+      <!-- https://elzero.org/javascript-2021-variable-and-concatenation-challenge/ -->
+   </body>
+   <script>
+      let bigTitle = "Elzero" , myDescription = "Elzero Web School" , myDate = "25/10";
+      let ele = `
+         <div>
+            <h3>${bigTitle}</h3>
+            <p>${myDescription}</p>
+            <span>${myDate}</span>   
+         </div>
+      `
+      document.write(ele.repeat(4));
+   </script>
+</html>
