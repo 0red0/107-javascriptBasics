@@ -75,63 +75,51 @@ division remainder,Increment,decrement.
     "" = 0        
 
 // #021 Assignment Operators: = ,+= ,/= ,*=
+// #022 Operator Challenge
 
-
-
-
-//parseInt analyze and give out the number
+// #023 Numbers
 console.log(parseInt("100"));
 console.log(+"100");
 console.log(+"100 Osama");
 console.log(Number("100"));
 console.log(parseInt("100 Osama"));
-//parseInt remove floats like Math.round
 console.log(parseFloat("100.5555 Osama"));
-
+console.log(+100.3874.toFixed()); //it switches nums to str add U+
+// #024 - Number Methods
 console.log(Number.isInteger("100"));
 console.log(Number.isInteger(100.500));
 console.log(Number.isInteger(100));
-//NaN is a falsy value
 console.log(Number.isNaN('Osama'));//true
-
-//Math Object
+// #025 - Math Object
 console.log(Math.round(99.2));
-
 console.log(Math.ceil(99.2));
-
 console.log(Math.floor(99.9));
-//print the max or min number
 console.log(Math.min(10, 20, 30, 100, -90));
 console.log(Math.max(10, 20, 30, 100, -90));
-
 console.log(Math.pow(2,4));
-
 console.log(Math.random());
-
 console.log(Math.trunc(99.5));
 
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(Number.MIN_SAFE_INTEGER);
 console.log(Number.MAX_VALUE);
 console.log(Number.MIN_VALUE);
+console.log(Math.floor(Math.random()* 4) + 1); //random num between(0)
+// #026 Numbers Challenge
 
-console.log(Math.floor(Math.random()* 4) + 1); //random num between (0)
-
-//#27 
-//index []
+// #027 String Methods:  
 let theName= "Ahmed";
-
 console.log(theName);
 console.log(theName[1]);
-console.log(theName.charAt(1));
+console.log(theName.charAt(2));
 console.log(theName.length);
 console.log(theName.trim());
 console.log(theName.toUpperCase());
 console.log(theName.toLowerCase());
-//chain Methods to get certain output
+//chain Methods:
 console.log(theName.trim().charAt(2).toUpperCase());
 
-//#28 string methods 2
+// #028 string methods 2
 let h = "Elzero Web School";
 
 console.log(h.indexOf("o"));
@@ -142,23 +130,26 @@ console.log(h.slice(-5,-1));
 console.log(h.split(""));     
 console.log(h.split(' '));
 console.log(h.split('',3/*how many times*/)); //= array everytime
-
+/*
+slice accepts negative indexes and negative starts;
+substring doesn't : any -index is 0;
+substr : accept negative start. but end is not index its wanted chars;
+*/
+// #029 Strings Methods 3: 
 console.log(h.substring(2));
 console.log(h.substring(2,7));//its ok if(7,2)
 console.log(h.substring(-2,6));//-num = 0
 console.log(h.substring(a.length -5, a.length -3));
 
-//substring=substr scan form the end
 console.log(h.substr(0));
 console.log(h.substr(-3));
 console.log(h.substr(-5,2//counted chars));
-
 //true || false
-console.log(h.inludes('Web'));//true
-console.log(h.includes('Web',8));//false
-console.log(h.startsWith("E"))//true
+console.log(h.includes('Web'));     //true
+console.log(h.includes('Web',8));   //false
+console.log(h.startsWith("E"));     //true
 console.log(h.startsWith('zero',2));//true
-console.log(h.endsWith("ro",6));//ture
+console.log(h.endsWith("ro",6/*length not index*/));//true
 
 //practice
 let w = "Elzero Web School";
@@ -168,20 +159,20 @@ console.log(w.[13].toUpperCase().repeat(8));
 
  
 //challenge 30 Attempt
-let a = "Elzero Web School";
+// let a = "Elzero Web School";
 
-console.log(a.slice(2,6)[0].toUpperCase()+a.slice(2,6).substring(1));
+// console.log(a.slice(2,6)[0].toUpperCase()+a.slice(2,6).substring(1));
 
-console.log(a.indexOf("h"));
+// console.log(a.indexOf("h"));
 
-console.log(a.charAt(13).toUpperCase().repeat(8));
-console.log(a.[13].toUpperCase().repeat(8));
+// console.log(a.charAt(13).toUpperCase().repeat(8));
+// console.log(a.[13].toUpperCase().repeat(8));
 
-console.log(a.split(" ",1));
+// console.log(a.split(" ",1));
 
-console.log(`${a.substr(0,6)} ${a.substr(11,17)}`);
+// console.log(`${a.substr(0,6)} ${a.substr(11,17)}`);
 
-console.log(a[0].toLowerCase() + a.slice(1,16).toUpperCase() + a[16]);
+// console.log(a[0].toLowerCase() + a.slice(1,16).toUpperCase() + a[16]);
 
 
 //comparison operators
