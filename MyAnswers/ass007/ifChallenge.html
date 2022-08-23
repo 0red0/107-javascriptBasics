@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-2021-if-condition-challenge/
+</body>
+<script>
+   let a = 10;
+   a < 10 ? console.log(10) : a >= 10 && a <= 40 ? console.log("10 To 40") : a > 40 ? console.log('> 40') : console.log("Unknown");
+
+   let st = "Elzero Web School";
+   console.log(st.length)
+   console.log(typeof st.length)
+   
+   if((st[st.indexOf("W")].toLowerCase()) === "w"){
+      console.log("1Good")
+   }
+   if(st !== "string"){
+      console.log("2Good")
+   }
+   if(((st.length)* 2).toString() === "34"){
+      console.log("3Good")
+   }
+   if((typeof st.length).toString() === "number"){
+      console.log("4Good")
+   }
+   if((`${st.slice(0,6)}${st.slice(0,6)}`) === "ElzeroElzero"){
+      console.log("5Good")
+   }
+   
+</script>
+</html>

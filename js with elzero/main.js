@@ -151,47 +151,64 @@ console.log(h.startsWith("E"));     //true
 console.log(h.startsWith('zero',2));//true
 console.log(h.endsWith("ro",6/*length not index*/));//true
 
-//practice
-let w = "Elzero Web School";
-console.log(w.slice(2,6)[0].toUpperCase()+w.slice(2,6).substring(1));
-console.log(w.charAt(13).toUpperCase().repeat(8));
-console.log(w.[13].toUpperCase().repeat(8));
-
- 
-//challenge 30 Attempt
-// let a = "Elzero Web School";
-
-// console.log(a.slice(2,6)[0].toUpperCase()+a.slice(2,6).substring(1));
-
-// console.log(a.indexOf("h"));
-
-// console.log(a.charAt(13).toUpperCase().repeat(8));
-// console.log(a.[13].toUpperCase().repeat(8));
-
-// console.log(a.split(" ",1));
-
-// console.log(`${a.substr(0,6)} ${a.substr(11,17)}`);
-
-// console.log(a[0].toLowerCase() + a.slice(1,16).toUpperCase() + a[16]);
-
-
-//comparison operators
-//== compare values not data type
-//=== compare values and data type
-
-//logical operators
+// #031 Comparison operators
 console.lot(true);
 console.log(!true);
-console.log(10 == "10");
-console.log(!(10 == "10"));
-//All conditions must happen &&
+console.log(10 == "10"); //== compare values only
+console.log(!(10 == "10")); //true or false
+console.log(10 === "10"); //=== compare values and data type
+// In JavaScript, the comparison operators above can also be used to compare strings. In that case, a dictionary (lexicographical) order is applied.
+
+// #032 Logical operators
 console.log(10 == "10" && 10 > 8 && 10 >= 10);
-
 console.log(10 == "10" || 10 > 8 || 10 >= 10);
-
 let gender = "male";
 console.log(gender == male ? "Mr" : "Mrs")
 
+// #033 If Condition:
+let price = 100;
+let discount = true;
+let discountAmount = 30;
+if (discount === true) {
+  price -= discountAmount; // price = price - discountAmount
+} 
+console.log(price);
+// #034 Nested If
+// #35 Conditional Ternary Operator
+let theName = "Mona";
+let theGender = "Female";
+let theAge = 30;
+
+theGender === "Male" ? console.log("Mr") : console.log("Mrs");
+let result = theGender === "Male" ? "Mr" : "Mrs";
+document.write(result);     //stored in a variable.
+console.log(theGender === "Male" ? "Mr" : "Mrs");
+console.log(`Hello ${result} ${theName}`);
+//Ternary if elses
+theAge < 20
+  ? console.log(20)
+  : theAge > 20 && theAge < 60
+  ? console.log("20 To 60")
+  : theAge > 60
+  ? console.log("Larger Than 60")
+  : console.log("Unknown");
+
+// #036 Nullish Coalescing Operator
+/*
+  Logical Or ||
+  -- Null + Undefined + Any Falsy Value
+  Nullish Coalescing Operator ??
+  -- Null + Undefined
+*/
+console.log(Boolean(100)); //true or false test
+console.log(Boolean(-100));
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(null));
+
+let price = 0;
+console.log(`The Price Is ${price || 200}`);
+console.log(`The Price Is ${price ?? 200}`);
 
 
 
