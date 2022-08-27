@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- https://elzero.org/javascript-2021-loop-challenge/ -->
+</body>
+<script>
+   let myAdmins = ["Ahmed", "Osama", "Sayed", "Stop", "Samera"];
+let myEmployees = ["Amgad", "Samah", "Ameer", "Omar", "Othman", "Amany", "Samia", "Anwar"];
+let x = myAdmins.indexOf("Stop");
+document.write(`<h1>We Have ${x} Admins</h1>`);
+
+for(let i=0; i < myAdmins.length; i++){
+   let counter = 1;
+   if(myAdmins[i] === "Stop") break;
+   document.write(`<hr>`);
+   document.write(`<div>Team ${i + 1} - The Admin is ${myAdmins[i]}`);
+      document.write(`<h3>Team Members :</h3>`)
+      for(let j=0; j < myEmployees.length; j++){
+         if(!myEmployees[j].startsWith(myAdmins[i][0])) continue;
+         document.write(`<p>  ${counter++} - ${myEmployees[j]}</p>`);
+         
+      }
+   document.write(`</div>`);
+}
+
+</script>
+
+</html>

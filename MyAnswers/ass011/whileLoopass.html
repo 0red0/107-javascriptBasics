@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-054-to-056/
+</body>
+<script>
+// let friends = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
+// let index = 0;
+// let counter = 0;
+
+// while (index < friends.length) {
+//    if (typeof friends[index] !== "number" && !friends[index].startsWith("A")) {
+//    console.log(`${counter + 1} => ${friends[index]}`);
+//    counter++;
+//    }
+//    index++
+// }
+
+//challenge #56 while loop example:
+let friends = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
+let index = 0;
+let counter = 0;
+let aaa = friends[0][0];
+/*output:
+"1=> Sayed"
+"2=> Mahmoud"*/
+
+while (index < friends.length){
+
+      if (friends[index][0] !== aaa &&
+         typeof friends[index] !== "number"){
+         console.log(`${[++counter]}=> ${friends[index]}`);
+      }
+      index++;
+}
+</script>
+</html>

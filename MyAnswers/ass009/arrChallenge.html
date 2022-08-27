@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-2021-array-challenge/
+</body>
+<script>
+
+let zero = 0;
+let counter = 3;
+let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
+
+// console.log(my); // ["Osama", "Elham", "Mazero", "Ahmed"];
+// console.log(my.slice("????")); // ["Elham", "Mazero"]
+// console.log(); // "Elzero"
+// console.log(); // "rO"
+
+my = my.slice(zero,(counter + true)).reverse();
+console.log(my)
+my = my.slice(true,counter)
+console.log(my)
+my = my[0].slice(0, (counter-true)) + my[1].slice(counter-true);
+console.log(my)
+my = my.slice(-(counter-true))
+my = my.slice(0,+true) + my[+true].toUpperCase()
+console.log(my)
+/*
+my.splice(my.indexOf("Gamal")),my.reverse();
+console.log(my);
+
+let my1 = my.slice(my.indexOf("Elham"),counter);
+console.log(my1);
+
+let my2 = (my1.join(""));
+console.log(my2);
+
+let my3 =`${my2.slice(zero,my2.indexOf("h"))}${my2.slice(my2.indexOf("z"),my2.length)}`;
+console.log(my3);
+
+console.log(`${my3.charAt(my3.indexOf("r"))}${my3.toUpperCase().charAt(my3.indexOf("o"))}`);
+*/
+</script>
+</html>

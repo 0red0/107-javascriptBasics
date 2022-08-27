@@ -133,7 +133,7 @@ console.log(h.split('',3/*how many times*/)); //= array everytime
 /*
 slice accepts negative indexes and negative starts;
 substring doesn't : any -index is 0;
-substr : accept negative start. but end is not index its wanted chars;
+substr : accept negative start. but end is not index its how many chars;
 */
 // #029 Strings Methods 3: 
 console.log(h.substring(2));
@@ -210,158 +210,139 @@ let price = 0;
 console.log(`The Price Is ${price || 200}`);
 console.log(`The Price Is ${price ?? 200}`);
 
+// #038 Switch Statement
+let day = "5";
 
+switch (day) {
+  default:
+    console.log("Unknown Day");
+    break;
+  case 0:
+    console.log("Saturday");
+    break;
+  case 1:
+    console.log("Sunday");
+    break;
+  case 2:
+  case 3:
+    console.log("Monday");
+    break;
+}
 
-//______Arrays________
-let myFriends = ["Ahmed", "Mohamed","Sayed",["Marwan","Ali"]];
+// #040______Arrays________
 
-console.log(`Hello ${myFriends[0]}`);
-console.log(`Hello ${myFriends[2]}`);
-console.log(`${myFriends[1][2]}`);
-console.log(`Hello ${myFriends[3][1]}`);
-console.log(`Hello ${myFriends[3][1][2]}`);
-
-console.log(myFriends);
-myFriends[1] = "Gamal";
-console.log(myFriends);
-myFriends[3] = "Samah";
-console.log(myFriends);
-myFriends[3] = ["Sameh","Amir"];
-console.log(myFriends);
+let arry = ["Ahmed", "Mohamed","Sayed",["Marwan","Ali"]];
+//accessing array elements
+console.log(`Hello ${arry[0]}`);
+console.log(`Hello ${arry[2]}`);
+console.log(`${arry[1][2]}`);
+console.log(`Hello ${arry[3][1]}`);
+console.log(`Hello ${arry[3][1][2]}`);
+//change elements
+console.log(arry);
+arry[1] = "Gamal";
+console.log(arry);
+arry[3] = "Samah";
+console.log(arry);
+arry[3] = ["Sameh","Amir"];
+console.log(arry);
 
 //check is Array or not:
-console.log(Array.isArray(myFriends));
+console.log(Array.isArray(arry));
 
-//Index Start From 0
-let myFriends = ["Ahmed","Mohamed","Sayed","Ali"];
-console.log(myFriends.length);
+// #041 Length with Array =====
 
-//myFriends[6] = "Gamal";
-console.log(myFriends);
-console.log(myFriends.length);
+let arry = ["Ahmed","Mohamed","Sayed","Ali"];
+console.log(arry.length);
+arry[6] = "Gamal";
+console.log(arry);
 
-myFriends[myFriends.length] = "Gamal";
-console.log(myFriends); 
+arry[arry.length - 1] = "Gamal";
+console.log(arry); 
+//control array length
+arry.length = 3;
+console.log(arry);
 
-myFriends.length = 3;
-console.log(myFriends);
+// #042 Arrays Methods ======
+let arry = ["Ahmed","Mohamed","Sayed","Alaa"];
+arry.unshift("Osama","Nabil");
+--add to start//of Array
+console.log(arry);
 
-let myfriends = ["Ahmed","Mohamed","Sayed","Alaa"];
+arry.push("Samah","Eman");
+--add to end //ofArray
+console.log(arry);
 
-myfriends.unshift("Osama","Nabil");
-console.log(myfriends);
+arry.shift();
+--remove from start//u can use the value in a var
+console.log(arry);
+//u can always use ele by index...
+let last = arry.pop();
+--remove from end//u can use the value in a var
+console.log(arry);
 
-myfriends.push("Samah","Eman");
-console.log(myfriends);
-
-let first = myfriends.shift();
-console.log(myfriends);
-console.log(`First name is ${first}`);
-
-let last = myfriends.pop();
-console.log(myfriends);
-console.log(`Last Name is ${first}`);
-
+// #043 Searching Array
 //indexOf(object,fromIndex) = give object index
-console.log(myfriends.indexOf("Ahmed"));
-console.log(myfriends.indexOf("Ahmed",2));
-console.log(myfriends.lastIndexOf("Ahmed"));
-console.log(myfriends.lastIndexOf("Ahmed",-2));
+console.log(arry.indexOf("Ahmed"));// 0 (number)
+console.log(arry.indexOf("Ahmed",2));// index of second one
+console.log(arry.lastIndexOf("Ahmed"));// 4
+console.log(arry.lastIndexOf("Ahmed",-2));// 0
+console.log(arry.includes("Ahmed"));//true
 
-console.log(myfriends.includes("Ahmed"));
-
-if(myfriends.indexOf("EFGFH") === -1){
+if(arry.indexOf("EFGFH") === -1){
    console.log("Not Found")
 }//-1 with indexOf = Not Found
 
+// #044 Sorting ======
 let Africa = [10, "Sayed", "Mohamed", "90", 1000, 100, 20, "10", -20, -10];
 console.log(Africa);
 console.log(Africa.sort());
 console.log(Africa.sort().reverse());
 
-//slice gives new Arrays slice(start,end)
+// #045
+//slice return new Arrays slice(start,end)
 console.log(Africa.slice(1,4));
+console.log(myFriends.slice(1, 3));
+console.log(myFriends.slice(-3));
+console.log(myFriends.slice(1, -2));
+console.log(myFriends.slice(-4, -2));
 
-//splice(start,obj to delete,objs to add)
-Africa.splice(0,2,"Samir","Tamer");
+//splice(start, n objs to delete, objs to add)
+Africa.splice(0, 2, "Samir","Tamer");
 console.log(Africa);
 
+// #046
 //concat() and join(separator) => strings
-let allArrays = myfriends.concat(Africa, myFriends, [1,2,3,4], "Gamal");
+let allArrays = arry.concat(Africa, arry, [1,2,3,4], "Gamal");
 console.log(allArrays);
-
+//return strings
 console.log(allArrays.join());
 console.log(allArrays.join(""));
 console.log(allArrays.join("@"));
 console.log(allArrays.join("|"));
 
-//Arrays practice number 6
-let arr1 = ["A", "C", "X"];
-let arr2 = ["D", "E", "F", "Y"];
-let allArrs = [];
-
-console.log((allArrs.concat(arr1, arr2).sort()).slice(arr2.length).join("").toLowerCase());
-
-//challenge #47 Arrays
-let zero = 0;
-
-let counter = 3;
-
-let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
-
-my.splice(my.indexOf("Gamal")),my.reverse();
-console.log(my);
-
-let my1 = my.slice(my.indexOf("Elham"),counter);
-console.log(my1);
-
-let my2 = (my1.join(""));
-console.log(my2);
-
-let my3 =`${my2.slice(zero,my2.indexOf("h"))}${my2.slice(my2.indexOf("z"),my2.length)}`;
-console.log(my3);
-
-console.log(`${my3.charAt(my3.indexOf("r"))}${my3.toUpperCase().charAt(my3.indexOf("o"))}`);
-
-
 
  
-//-----------LOOPS-----------
+// #048-----------LOOPS-----------
 for (let i = 0; i < 10; i++){
    console.log(i); //example
 }
 
-//#49
+// #049 Looping on sequences
 let myFriends = ["Osama","Ahmed","Sayed","Ali","Amir"];
 console.log(myFriends[0]);
 console.log(myFriends[1]);
 console.log(myFriends[2]);
 console.log(myFriends[3]);
 console.log(myFriends[4]);
-//The above array output same as the below loop;
+====//The above array output same as the below loop;
 for (let i = 0; i < myFriends.length; i++ ){
-
    console.log(myFriends[i]);
-
 }
-//example
+====//new arr strings only
 let myFriends = [1,2,"Osama","Ahmed","Sayed","Ali","Amir"];
 let onlyNames = [];
 
-if (typeof myFriends[0] === "string"){
-   onlyNames.push(myFriends[0]);
-}
-if (typeof myFriends[1] === "string"){
-   onlyNames.push(myFriends[1]);
-}
-if (typeof myFriends[2] === "string"){
-   onlyNames.push(myFriends[2]);
-}
-if (typeof myFriends[3] === "string"){
-   onlyNames.push(myFriends[3]);
-}
-console.log(onlyNames);
-//The above if output = The loop below
 for (let i = 0; i< myFriends.length; i++){
    if (typeof myFriends[i] === "string"){
       onlyNames.push(myFriends[i]);
@@ -369,7 +350,7 @@ for (let i = 0; i< myFriends.length; i++){
 }
 console.log(onlyNames);
 
-//#50-Nested Loops
+// #050-Nested Loops
 let products = ["Keyboard","Mouse","Pen","Monitor"];
 let colors = ["Red","Green","Black"];
 let models = [2020,2021];
@@ -386,28 +367,28 @@ for (let i = 0; i< products.length; i++){
       console.log(`**${models[k]}`);
    }
 }
+// #051 Loop Control - Break, Continue, Label
 
-//Break loop at condition
 let products = ["Keyboard","Mouse","Pen","Monitor"];
-
 for (let i = 0; i < products.length; i++){
    if (products[i] === "Pen"){
       break;
    }
    console.log(products[i]);
 }
-//Continue loop, skipping the condition
 let products = ["Keyboard",10,3,"Mouse","Pen",49,30,"Monitor"];
-
-for (let i = 0; i < products.length; i++){
-   if (typeof products[i] === "number"){
-      continue;
-   }
+let colors = ["Red", "Green", "Black"];
+mainLoop: for (let i = 0; i < products.length; i++) {
    console.log(products[i]);
-}
-//Label ; mainLoop: nestedLoop: break mainLoop;
+   nestedLoop: for (let j = 0; j < colors.length; j++) {
+     console.log(`- ${colors[j]}`);
+     if (colors[j] === "Green") {
+       break mainLoop;
+     }
+   }
+ }
 
-//Loop for Advanced Example
+// #052 for-Loop Advanced Example
 let products = ["Keyboard","Mouse","Pen","Monitor"];
 let i = 0;
 for(;;){
@@ -416,7 +397,7 @@ for(;;){
    if(i === products.length) break;
 }
 
-//#53-Add products to page;
+// #053-Add products to page;
 let products = ["Keyboard","Mouse","Pen","Monitor","iPhone"];
 let colors = ["Red","Green","Black"];
 let showCount = 5;
@@ -432,51 +413,21 @@ for (let i = 0; i < showCount; i++){
    document.write(`/<div>`);
 
 }
-
-//challenge #56 while loop example:
-let friends = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
+// #054 While Loop
+let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
 let index = 0;
-let counter = 0;
-let aaa = friends[0][0];
-/*output:
-"1=> Sayed"
-"2=> Mahmoud"*/
 
-while (index < friends.length){
-
-      if (friends[index][0] !== aaa && 
-         typeof friends[index] !== "number"){
-         console.log(`${[++counter]}=> ${friends[index]}`);
-      }
-      index++;
+while (index < products.length) {
+  console.log(products[index]);
+  index += 1;
 }
+// #055 Do While Loop
+let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (false);
+console.log(i);
 
-//challenge #57
-let myAdmins = ["Ahmed", "Osama", "Sayed", "Stop", "Samera"];
-let myEmployees = [
-  "Amgad",
-  "Samah",
-  "Ameer",
-  "Omar",
-  "Othman",
-  "Amany",
-  "Samia",
-  "Anwar",
-];
 
-document.write(`<h2>We Have X Admins</h2>`);
-
-for (let i = 0; i < myAdmins.indexOf("Stop"); i++) {
-  document.write(`<div>`);
-  document.write(`<h3>${"The admin for this team is"} - ${myAdmins[i]}</h3>`);
-
-  document.write(`<div>${"Team Members :"}</div>`);
-
-  for (let j = 0; j < myEmployees.length; j++) {
-    if (myEmployees[j][0] === myAdmins[i][0]) {
-      document.write(`<p>${myEmployees[j]}</p>`);
-    }
-  }
-  document.write(`</div>`);
-}
-//end; continue at file: main2.js

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-040-to-047/
+</body>
+<script>
+   let myFriends = ["Ahmed", "Elham", "Osama", "Gamal"];
+let num = 3;
+// myFriends.length = num;
+// myFriends.splice(num,1);
+myFriends.pop();
+
+console.log(myFriends)
+
+let friends = ["Ahmed", "Eman", "Osama", "Gamal"];
+friends.pop();
+friends.shift();
+
+console.log(friends); 
+
+let arrOne = ["C", "D", "X"];
+let arrTwo = ["A", "B", "Z"];
+let finalArr = [];
+
+finalArr = finalArr.concat(arrOne , arrTwo).sort().reverse();
+console.log(finalArr)
+
+
+let website = "Go";
+let words = [`${website}ogle`, "Facebook", ["Elzero", "Web", "School"]];
+
+console.log(words[website.length][0].slice(website.length).toUpperCase());
+
+
+let needle = "JS";
+let haystack = ["PHP", "JS", "Python"];
+
+if(haystack.includes(needle)){
+   console.log("Found")
+}
+
+if(haystack.indexOf(needle) !== -1){
+   console.log("Found 2")
+}
+if(haystack.lastIndexOf(needle) !== -1){
+   console.log("Found 2")
+}
+
+let arr1 = ["A", "C", "X"];
+let arr2 = ["D", "E", "F", "Y"];
+let allArrs = [];
+
+allArrs = allArrs.concat(arr1, arr2).sort().slice(4).join("").toLowerCase();
+console.log(allArrs)
+
+</script>
+</html>

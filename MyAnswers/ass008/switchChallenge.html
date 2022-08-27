@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    https://elzero.org/javascript-2021-switch-and-if-condition-challenge/
+  </body>
+  <script>
+    let job = "Designer";
+    let salary = 0;
+
+    switch (job) {
+      case "Manager":
+        salary = 8000;
+        console.log(salary);
+        break;
+      case "IT":
+      case "Support":
+        salary = 6000;
+        console.log(salary);
+        break;
+      case "Developer":
+      case "Designer":
+        salary = 7000;
+        console.log(salary);
+        break;
+      default:
+        salary = 4000;
+        console.log(salary);
+    }
+
+    let holidays = 4;
+    let money = 0;
+
+    if (holidays === 0) {
+      money = 5000;
+    } else if (holidays === 1 || holidays === 2) {
+      money = 3000;
+    } else if (holidays === 3) {
+      money = 2000;
+    } else if (holidays === 4) {
+      money = 1000;
+    } else {
+      money = 0;
+    }
+    console.log(`My Money is ${money}`);
+  </script>
+</html>
