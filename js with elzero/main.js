@@ -430,4 +430,93 @@ do {
 } while (false);
 console.log(i);
 
+// #057 functions intro ========func
+//Function deceleration:
 
+function sayHello(username) {
+   console.log(`Hello ${username}`);
+ }
+ sayHello("Osama");
+ sayHello("Sayed");
+ sayHello("Bora3y");
+ 
+// #058 functions add Arguments
+ function sayHello(username, age) {
+   if (age < 20) {
+     console.log(`App is not suitable for you`);
+   } else {
+     console.log(`Hello ${username} Your Age is ${age}`);
+   }
+ }
+ sayHello("Osama, 38");
+ sayHello("Sayed, 40");
+ sayHello("Bora3y, 18");
+ 
+// function example 
+ function generateYears(start, end, exclude) {
+   for (let i = start; i <= end; i++) {
+     if (i === exclude) {
+       continue;
+     }
+     console.log(i);
+   }
+ }
+ generateYears(1991, 2022, 2020);
+ 
+/* #059 Function return: == break in this example
+(nothing comes after it, stops execution)*/
+
+function generate(start, end) {
+   for (let i = start; i <= end; i++) {
+     console.log(i);
+     if (i === 15) {
+       return `Interrupting`;
+     }
+   }
+ }
+ console.log(10, 20);
+ 
+ //example 2:
+ function calc(num1, num2) {
+   return num1 + num2;
+ }
+ console.log(calc(1, 2));
+
+// #060 Function default parameters:(in-case of missing para)
+
+function sayHi(userName, age = "Unknown") {
+   /*  if (age === undefined){
+         age = "Unknown"; }
+       age = age || "Unknown"; //Logical or default */
+   return `Hi ${username} Your age is ${age}`;
+ }
+ console.log(sayHi("Osama"));
+ 
+// #061 Rest Parameters:(in-case unknown numbers of paras)
+function calc(...numbers) {
+   let result = 0;
+   for (let i = 0; i < numbers.length; i++) {
+     result += numbers[i];
+   }
+   return result;
+ }
+console.log(calc(10, 20, 10, 30, 50, 30));
+
+// #061 practice:
+function showInfo(us = "un", ag = "un", rt = 0, show = "Yes", ...sk) {
+   document.write(`<div>`);
+   document.write(`<h2>Welcome, ${us}</h2>`);
+   document.write(`<p>Age ${ag}</p>`);
+   document.write(`<p>Hour rate: $${rt}</p>`);
+   if (show === "Yes") {
+     if (sk.length > 0) {
+       document.write(`<p>Skills ${sk.join(" | ")}</p>`);
+     } else {
+       document.write(`<p>No Skills</p>`);
+     }
+   } else {
+     document.write(`<p>Skills are hidden</p>`);
+   }
+   document.write(`</div>`);
+ }
+showInfo("Osama", 38, 20, "Yes", "Html", "CSS");

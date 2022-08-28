@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-057-to-063/ -->
+</body>
+<script>
+   function sayHello(theName, theGender) {
+      if(theGender === 'Male') return `Hello Mr ${theName}`;
+      if(theGender === 'Female') return `Hello Miss ${theName}`;
+      else return `Hello ${theName}`;
+}
+console.log(sayHello("Osama", "Male"));
+console.log(sayHello("Eman", "Female")); 
+console.log(sayHello("Sameh")); 
+
+
+function calculate(firstNum, secondNum , operation) {
+  if( operation === "subtract") return firstNum - secondNum ;
+  if( operation === "multiply") return firstNum * secondNum ;
+  if(secondNum === undefined) return `Second Number Not Found`;
+   return firstNum + secondNum;
+
+}
+console.log(calculate(20)); // Second Number Not Found
+console.log(calculate(20, 30)); // 50
+console.log(calculate(20, 30, 'add')); // 50
+console.log(calculate(20, 30, 'subtract')); // -10
+console.log(calculate(20, 30, 'multiply')); // 600
+
+function ageInTime(theAge) {
+   if(theAge < 10 && theAge > 100) return `Age out of range`;
+   else return `Your age = ${theAge * 12} Months,
+   ${theAge * 12 * 4} Weeks,
+   ${theAge * 12 * 4 * 7} Days,
+   ${theAge * 12 * 4 * 7 * 24} Hours,
+   ${theAge * 12 * 4 * 7 * 24 * 60} Minutes,
+   ${theAge * 12 * 4 * 7 * 24 * 60 * 60} Seconds`;
+}
+console.log(ageInTime(31))
+
+
+function createSelectBox(startYear, endYear) {
+  document.write(`<select>`);
+   for(let i=startYear; i <= endYear; i++){
+      document.write(`<option value="${i}">${i}</option>`);
+   }
+  document.write(`</select>`);
+}
+createSelectBox(2000, 2021);
+
+function mult(...paras){
+   let result = 1;
+   for(let i=0; i < paras.length; i++){
+      if(typeof paras[i] === "string"){
+         continue;
+      }else{
+         // result *= parseInt(paras[i]);
+         result *= Math.trunc(paras[i]);
+      }
+   }
+   return result;
+}
+console.log(mult(10, 20)); // 200
+console.log(mult("A", 10, 30)); // 300
+console.log(mult(100.5, 10, "B")); // 1000
+</script>
+</html>
