@@ -520,3 +520,101 @@ function showInfo(us = "un", ag = "un", rt = 0, show = "Yes", ...sk) {
    document.write(`</div>`);
  }
 showInfo("Osama", 38, 20, "Yes", "Html", "CSS");
+
+// #064 Anonymous Function: declared in a variable
+//Function Expression: like a var
+
+let calculator = function (num1, num2) {
+  return num1 + num2;
+};
+console.log(calculator(10, 20));
+
+//show ggGood in console after 2 sec;
+setTimeout(function () {
+  console.log("ggGood");
+}, 2000);
+
+document.getElementById("show").onclick = function(){
+  console.log(`show in console`);
+};
+//'or'
+function sayHello(){console.log("Hello Osama")};
+document.getElementById("show").onclick = sayHello;
+
+// #065 Nested functions:
+//example 1:
+function sayMessage(fName, lName) {
+  let message = `Hello`;
+  //Nested function
+  function concatMsg() {
+    message = `${message} ${fName} ${lName}`;
+  }
+  concatMsg();
+  return message;
+}
+console.log(sayMessage("Osama", "Mohamed"));
+
+//example 2: Same output as example 1;
+function sayMessage(fName, lName) {
+  let message = `Hello`;
+  //Nested function
+  function concatMsg() {
+    return `${message} ${fName} ${lName}`;
+  }
+  return concatMsg();
+}
+console.log(sayMessage("Osama", "Mohamed"));
+
+//example 3: Same output as 1&2 with more nested funcs
+
+function sayMessage(fName, lName) {
+  let message = `Hello`;
+  //Nested function
+  function concatMsg() {
+    //Nested func
+    function getFullName() {
+      return `${fName} ${lName}`;
+    }
+    return `${message} ${getFullName()}`;
+  }
+  return concatMsg();
+}
+console.log(sayMessage("Osama", "Mohamed"));
+
+// #066 Arrow Function : =>
+let print = () => 10;
+console.log(print());
+
+ -- example 2: one para
+let print = num => num;
+console.log(print(100));
+
+ -- example 3: more parameters
+let print = (num1,num2) => num1,num2;
+console.log(print(100,50));
+
+// #067 Global and Local scope
+var a = 1;
+let b = 2;
+
+function showText() {
+  var a = 10;
+  let b = 20;
+  console.log(`Function - From Local ${a}`);
+  console.log(`Function - From Local ${b}`);
+}
+console.log(`From Global ${a}`);
+console.log(`From Global ${b}`);
+
+showText();
+
+// #068 Block scope
+var x = 10;
+
+if (10 === 10) {
+  let x = 50;
+  console.log(`From If Block ${x}`);
+}
+console.log(`From Global ${x}`);
+
+// #069 - Scope – Lexical (Static)

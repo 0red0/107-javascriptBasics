@@ -1,79 +1,9 @@
 
 
 
-//#64 Anonymous Function: Has no name or in a variable
-//Function Expression: like a var
-let calculator = function (num1, num2) {
-  return num1 + num2;
-};
-console.log(calculator(10, 20));
 
-//show ggGood in console after 2 sec;
-setTimeout(function () {
-  console.log("ggGood");
-}, 2000);
 
-//#65 Nested functions:
-//example 1:
-function sayMessage(fName, lName) {
-  let message = `Hello`;
-  //Nested function
-  function concatMsg() {
-    message = `${message} ${fName} ${lName}`;
-  }
-  concatMsg();
-  return message;
-}
-console.log(sayMessage("Osama", "Mohamed"));
 
-//example 2: Same output as example 1;
-function sayMessage(fName, lName) {
-  let message = `Hello`;
-  //Nested function
-  function concatMsg() {
-    return `${message} ${fName} ${lName}`;
-  }
-  return concatMsg();
-}
-console.log(sayMessage("Osama", "Mohamed"));
-
-//example 3: Same output as 1&2 with more nested funcs
-
-function sayMessage(fName, lName) {
-  let message = `Hello`;
-  //Nested function
-  function concatMsg() {
-    //Nested func
-    function getFullName() {
-      return `${fName} ${lName}`;
-    }
-    return `${message} ${getFullName()}`;
-  }
-  return concatMsg();
-}
-console.log(sayMessage("Osama", "Mohamed"));
-
-//#66 Arrow Function : =>
-let print = () or _ => 10;
-console.log(print());
-
-//example 2: one para
-let print = num => num;
-console.log(print(100));
-
-//example 3: more parameters
-let print = (num1,num2) => num1,num2;
-console.log(print(100,50));
-
-//example 4:
-function itsMe() {
-  return `Iam A Normal Function`;
-}
-console.log(itsMe()); // Iam A Normal Function
-^^^^^^^^^^
-
-let itsMe = () => `Iam A Normal Function`;
-console.log(itsMe()); // Iam A Normal Function
 
 //#70 Assignment#4 
 
