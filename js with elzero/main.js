@@ -617,4 +617,4 @@ if (10 === 10) {
 }
 console.log(`From Global ${x}`);
 
-// #069 - Scope – Lexical (Static)
+// #069 - Lexical scope (Static)
