@@ -10,7 +10,7 @@
     https://elzero.org/javascript-bootcamp-assignments-lesson-from-064-to-070/
   </body>
   <script>
-
+/*
 // ass 1;
     function getDetails(zName, zAge, zCountry) {
       function namePattern(zName) {
@@ -60,23 +60,47 @@
     };
     console.log(checker("Osama")("Available")(4000)); // Osama, My Salary Is 4000
     console.log(checker("Ahmed")("Not Available")()); // Iam Not Avaialble
-
+*/
 
 //ass 4;
 
-    function specialMix(...data) {
-      let sum = 0;
-      for(let i=0; i < data.length; i++){
-        if(!isNaN(parseInt(data[i]))){
-          sum += parseInt(data[i]);
-        }       
-      }
-      return sum == 0 ? `All strings` : sum;
-}
+//     function specialMix(...data) {
+//       let sum = 0;
+//       for(let i=0; i < data.length; i++){
+//         if(!isNaN(parseInt(data[i]))){
+//           sum += parseInt(data[i]);
+//         }       
+//       }
+//       return sum == 0 ? `All strings` : sum;
+// }
 
+// console.log(specialMix(10, 20, 30)); // 60
+// console.log(specialMix("10Test", "Testing", "20Cool")); // 30
+// console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
+// console.log(specialMix("Test", "Cool", "Test")); // All Is Strings
+
+
+function specialMix(...data) {
+  let result = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (parseInt(data[i])) {
+      let x = data[i];
+      let y = parseInt(x);
+      result += y;
+    } 
+  }
+  if (result === 0) {
+    return `All strings`;
+  } else {
+    return result;
+  }
+}
+console.log(specialMix("10Test", "Testing", "20Cool"));
 console.log(specialMix(10, 20, 30)); // 60
 console.log(specialMix("10Test", "Testing", "20Cool")); // 30
 console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
 console.log(specialMix("Test", "Cool", "Test")); // All Is Strings
+
+
   </script>
 </html>

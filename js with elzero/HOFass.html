@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-071-to-078/
+</body>
+<script>
+   let mix = [1, 2, 3, "E", 4, "l", "z", "e", "r", 5, "o"];
+   let word = mix.map(function(ele){
+      return isNaN(ele) ? ele : "";
+   }).reduce(function(acc,cur){
+      return acc+cur;
+   })
+   console.log(word);
+
+
+   let myString = "EElllzzzzzzzeroo";
+   let logo = myString.split("").filter(function(ele,i){
+      return myString.indexOf(ele) === i;
+   }).join("")
+   console.log(logo)
+
+
+   // let myArray = ["E", "l", "z", ["e", "r"], "o"];
+   // let newArr = myArray.map(function(el){
+   //    return Array.isArray(el) ? el.reduce(function(acc,ele){
+   //       return acc.concat(ele);
+   //    }) : el;
+   // }).join("")
+   // console.log(newArr)
+   
+   let myArray = ["E", "l", "z", ["e", "r"], "o"];
+   let newArr = myArray.reduce(function(acc,ele){
+      return acc.concat(ele);
+   },[]).join("")
+   console.log(newArr)
+
+
+   let numsAndStrings = [1, 10, -10, -20, 5, "A", 3, "B", "C"];
+   let numsOnly = numsAndStrings.filter(function(ele){
+      return !isNaN(ele);
+   }).map(function(el){
+      return -el;
+   })
+   console.log(numsOnly)
+
+
+   let nums = [2, 12, 11, 5, 10, 1, 99];
+   let total = nums.reduce(function(ac , cr){
+      return cr % 2 === 0 ? ac * cr : ac + cr; 
+   },1)
+   console.log(total)
+
+</script>
+</html>

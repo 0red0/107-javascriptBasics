@@ -57,6 +57,7 @@ let markUp = `
     </div>
  `;
 document.write(markUp);
+
 // #017 String challenge
 //numbers to strings:
 String(n)
@@ -430,7 +431,7 @@ do {
 } while (false);
 console.log(i);
 
-// #057 functions intro =+=+=+=+=+=+=+=+=+=+=+=func
+// #057 functions intro =+=+=+=+=+=+=+=+=+First order Functions
 //Function deceleration:
 
 function sayHello(username) {
@@ -618,3 +619,132 @@ if (10 === 10) {
 console.log(`From Global ${x}`);
 
 // #069 - Lexical scope (Static)
+
+// #071 - Higher Order Function 
+/*_____ _ __MAP_(Array Method)____*/
+
+let myNums = [1,2,3,4,5,6];
+let newArray = [];
+for (let i=0; i< myNums.length; i++){
+  newArray.push(myNums[i] + myNums[i]);
+}  //making traditional newArray
+console.log(newArray);
+
+//newArray with Map
+let addSelf = myNums.map(function(element,index,arr){
+  return element + element;
+},10);
+console.log(addSelf);
+
+//newArray with Map => Arrow function
+let addSelf = myNums.map((el) => el + el);
+console.log(addSelf);
+
+//Declare/express any function first if u want
+function addition(ele) {
+  return ele + ele;
+}
+let add = myNums.map(addition);
+console.log(add);
+
+
+// #072 Map Practice;
+let swappingCases = "elZERo"; //invert string cases
+let sw = swappingCases
+  .split("")
+  .map((a) => (a === a.toUpperCase() ? a.toLowerCase() : a.toUpperCase()))
+  .join("");
+console.log(sw);
+
+let invertedNumbers = [1, -10, -20, 15, 100, -30]; //invert numbers
+let inv = invertedNumbers.map(function (ele) {
+  return -ele;
+});
+console.log(inv);
+
+let ignoreNumbers = "Elz123er4o";//remove numbers
+let ign = ignoreNumbers
+  .split("")
+  .map(function (ele) {
+    return isNaN(parseInt(ele)) ? ele : "";
+  })
+  .join("");
+
+console.log(ign);
+
+// #073 - Filter
+let friends= ["Ahmed","Samah","Sayed","Asaho","Amgd","kola"];
+
+let filteredFriends = friends.filter(function(el){
+  return el.startsWith("A") //return only true outputs
+});
+console.log(filteredFriends);
+
+// Get Even Numbers Only
+let numbers = [11, 20, 2, 5, 17, 10];
+let evenNumbers = numbers.filter(function (el) {
+  return el % 2 === 0;
+});
+console.log(evenNumbers);
+
+// #074 Filter Practice:
+// Filter Words More Than 4 Characters
+let sentence = "I Love Foood Code Too Playing Much";
+let smallWords = sentence
+  .split(" ")
+  .filter(function (ele) {
+    return ele.length <= 4;
+  })
+  .join(" ");
+console.log(smallWords);
+
+// Ignore Numbers
+let ignoreNumbers = "Elz123er4o";
+let ign = ignoreNumbers
+  .split("")
+  .filter(function (ele) {
+    return isNaN(parseInt(ele));
+  })
+  .join("");
+console.log(ign);
+
+// Filter Strings + Multiply
+let mix = "A13BS2ZX";
+let mixedContent = mix
+  .split("")
+  .filter(function (ele) {
+    return !isNaN(parseInt(ele));
+  })
+  .map(function (ele) {
+    return ele * ele;
+  })
+  .join("");
+console.log(mixedContent);
+
+// #075 <<___ Reduce ___>>
+let nums = [10, 20, 15, 30];
+let add = nums.reduce(function (acc, current, index, arr) {
+  console.log(`Accumulator => ${acc}`);
+  console.log(`Current Element => ${current}`);
+  console.log(`Current Element index => ${index}`);
+  console.log(`Array => ${arr}`);
+  console.log(acc + current);
+  console.log(`###########`);
+  return acc + current;
+}, 5 /*initial value (optional)*/);
+console.log(add);
+
+// #076 Reduce Practice:
+let theBigest = ["Bla",  "Propaganda",  "Other",  "AAA",  "Battery",  "Test", "PropagandaTwo",];
+let bigest = theBigest.reduce((acc, cur) => acc.length > cur.length ? acc : cur
+);
+console.log(bigest);
+
+//Filter + Reduce (instead of join);
+let removeChars = ["E", "@", "@", "L", "Z", "@", "E", "@", "R", "O"];
+let remo = removeChars.filter(function (ele) {
+    return ele !== "@";
+  }).reduce(function (acc, curr) {
+    return `${acc}${curr}`;
+  });
+console.log(remo);
