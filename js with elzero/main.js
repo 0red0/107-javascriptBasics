@@ -82,14 +82,14 @@ console.log(parseInt("100"));
 console.log(+"100");
 console.log(+"100 Osama");
 console.log(Number("100"));
-console.log(parseInt("100 Osama"));
+console.log(parseInt("100 Osama")); //100
 console.log(parseFloat("100.5555 Osama"));
 console.log(+100.3874.toFixed()); //it switches nums to str add U+
 // #024 - Number Methods
 console.log(Number.isInteger("100"));
 console.log(Number.isInteger(100.500));
 console.log(Number.isInteger(100));
-console.log(Number.isNaN('Osama'));//true
+console.log(Number.isNaN('Osama'));//true cuz NaN != NaN this the only way to check for NaN.
 // #025 - Math Object
 console.log(Math.round(99.2));
 console.log(Math.ceil(99.2));
@@ -430,7 +430,7 @@ do {
 } while (false);
 console.log(i);
 
-// #057 functions intro ========func
+// #057 functions intro =+=+=+=+=+=+=+=+=+=+=+=func
 //Function deceleration:
 
 function sayHello(username) {
@@ -492,7 +492,7 @@ function sayHi(userName, age = "Unknown") {
  }
  console.log(sayHi("Osama"));
  
-// #061 Rest Parameters:(in-case unknown numbers of paras)
+// #061 Rest Parameters:(spread operator [...])
 function calc(...numbers) {
    let result = 0;
    for (let i = 0; i < numbers.length; i++) {

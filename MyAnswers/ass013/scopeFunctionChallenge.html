@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-2021-arrow-function-challenge/
+</body>
+<script>
+//    let names = function (...names) {
+//   return `Strings [${names.join("], [")}] => Done !`;
+// };
+
+let names = (...names) => `Strings [${names.join("], [")}] => Done !`;
+
+console.log(names("Osama", "Mohamed", "Ali", "Ibrahim"));
+// String [Osama], [Mohamed], [Ali], [Ibrahim] => Done !
+
+
+
+
+let myNumbers = [20, 50, 10, 60];
+
+let calc = (one, two, ...nums) => one + two + parseInt(nums);
+
+console.log(calc(10, myNumbers[2], myNumbers[3])); // 80
+
+
+
+</script>
+</html>
