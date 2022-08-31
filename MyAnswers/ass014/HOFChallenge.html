@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-2021-higher-order-functions-challenge/
+</body>
+<script>
+   let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+
+// let solution = myString.split(",").filter(function(el){
+//    return isNaN(el);
+// }).map(function(el){
+//    return el !== "_" ? el[+''] : " ";
+// }).join("").slice(+"",-true);
+
+let solution = myString.split(",").filter((el) => isNaN(el)).map((el) => el !== "_" ? el[+''] : " ").join('').slice(+'',-true)
+
+console.log(solution); // Elzero Web School
+
+</script>
+</html>

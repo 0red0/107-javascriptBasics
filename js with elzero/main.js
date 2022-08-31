@@ -748,3 +748,23 @@ let remo = removeChars.filter(function (ele) {
     return `${acc}${curr}`;
   });
 console.log(remo);
+
+// #077 ForEach(function())
+
+let allLis = document.querySelectorAll("ul li");
+let allDivs = document.querySelectorAll(".content div");
+
+allLis.forEach(function(ele){
+  ele.onclick = function(){
+    //Remove active class from all elements
+    allLis.forEach(function(ele){
+      ele.classList.remove("active");
+    });
+    //Add active class to this element
+    this.classList.add("active");
+    //Hide all Divs
+    allDivs.forEach(function(ele){
+      ele.style.display = "none";
+    });  
+  };
+});
