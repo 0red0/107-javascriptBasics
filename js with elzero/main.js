@@ -768,3 +768,154 @@ allLis.forEach(function(ele){
     });  
   };
 });
+              {}{}{}{}{}{}{OBJECT}{}{}{}{}{}
+// #079 Object
+// #080 .Dot Notation & Bracket Notation[]
+// Dynamic Property Name by var
+let myVar = "country";
+let user = {
+  theName: "Osama",
+  theAge: 39,
+  height: 955,
+  country: "Egypt",
+  sayWords: function(){//object's method
+    return `Good Morning, MinaSan`;
+  },
+};
+console.log(user.theAge);
+console.log(user.sayWords());
+console.log(user["country of"]);
+console.log(user[myVar]);
+
+let objArrV = Object.values(finalObject);//turn object into array of properties' values
+let objArrK = Object.keys(finalObject);//turn object into array of properties' names
+let objArrE = Object.entries(finalObject);//turn object into array of properties
+
+// #081 - Nested Object
+let client = {
+  theName: "Osama",
+  theAge: 39,
+  skills: ["HTML","CSS","JS"],
+  available: false,
+  addresses: {
+    ksa: "Ryad",
+    Egypt: {
+      one: "Cairo",
+      two: "Giza",
+    },
+  },
+  checkAv: function(){
+    if (client.available === true){//client in the local scope
+      return `Free for work`;
+    }else{
+      return `Not free`;
+    }
+  },
+};
+console.log(client.name);
+console.log(client.skills);
+console.log(client.skills.join(" | "));
+console.log(client.skills[2]);
+console.log(client.addresses.Egypt.one);
+console.log(client["addresses"]["Egypt"]);
+console.log(client["addresses"]["Egypt"]["one"]);
+console.log(client.checkAv());
+
+// #082 Create Objects and Update its properties
+let customer = {};
+customer.age = 20;              //...
+customer["country"] = "Egypt";  //[][]
+console.log(customer);
+
+// Create Object With New Keyword => new Object()
+let user = new Object({
+  age: 20,
+});
+console.log(user);
+user.age = 38;
+user["country"] = "Egypt";
+user.sayHello = function () {
+  return `Hello`;
+};
+console.log(user);
+console.log(user.age);
+console.log(user.country);
+console.log(user.sayHello());
+
+// #083 - THIS this:
+console.log(this); //window
+console.log(this === window); //true
+myVar = 100;
+console.log(window.myVar);
+console.log(this.myVar);
+
+function sayHello() {
+  console.log(this);
+  return this;
+}
+sayHello();//window
+console.log(sayHello() === window);//true
+
+document.getElementById("cl").onclick = function () {
+  console.log(this);//the Element <button id="cl"></button>
+};
+//this is the object
+let user = {
+  age: 38,
+  ageInDays: function () {
+    console.log(this);
+    return this.age * 365;
+  },
+};
+console.log(user.ageInDays());
+
+//strict mode usefulness:
+  1- catch/defining errors more accurately.
+  2- avoid some of the sloppy mode mistakes like using reserved words.
+
+// #084 - Create method to create object (proto)
+let user ={
+  age: 20,
+  doubleAge: function(){
+    return this.age * 2;
+  },
+} ;
+console.log(user);
+console.log(user.age);
+console.log(user.doubleAge());
+
+let obj = Object.create({}); //empty create method
+   obj.a = 100; //add a property to obj
+   console.log(obj);
+
+let copyObj = Object.create(user);//user is Prototype
+copyObj.age = 50;
+console.log(copyObj);
+console.log(copyObj.age);
+console.log(copyObj.doubleAge());
+
+// #085 - Create object with assign Method
+let obj1= {
+  prop: 1,
+  meth1: function(){
+    return this.prop1;
+  },
+};
+let obj2= {
+  prop: 2,
+  meth2: function(){
+    return this.prop2;
+  },
+};
+let targetObject = {
+  prop1: 100,
+  prop3: 3,
+};
+let finalObject = Object.assign(targetObject, obj1, obj2);//take their properties 
+finalObject.prop1 = 200;//update
+finalObject.prop4 = 4;//create props
+console.log(finalObject);
+
+//assign props to new empty object
+let newObject =Object.assign({}, obj1, {prop5:5, prop6: 6});
+console.log(newObject);

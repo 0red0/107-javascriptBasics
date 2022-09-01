@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-079-to-085/
+</body>
+<script>
+let member = {
+   name: "Elzero",
+   age: 38,
+   country: "Egypt",
+   fullDetails: function(){
+      return `My Name is ${this.name}, My Age is ${this.age}, I live in ${this.country}.`;
+   }
+}
+console.log(member.name); // Elzero
+console.log(member.age); // 38
+console.log(member.country); // Egypt
+console.log(member.fullDetails());
+// My Name Is Elzero, My Age Is 38, I Live in Egypt
+
+
+// Method One
+let objMethodOne = {property: "prop 1"}
+console.log(objMethodOne.property); // "Method One"
+
+// Method Two
+let objMethodTwo = {};
+objMethodTwo.property = "prop 2";
+console.log(objMethodTwo.property); // "Method Two"
+
+// Method Three
+let objMethodThree = new Object({property: "prop 3"});
+console.log(objMethodThree.property); // "Method Three"
+
+// Method Four
+let objMethodFour = Object.create({property: "prop 4"})
+console.log(objMethodFour.property); // "Method Four"
+
+// Method Five
+let objMethodFive = Object.assign({},{property: "prop 5"})
+console.log(objMethodFive.property); // "Method Five"
+
+
+
+let a = 1;
+
+let threeNums = {
+  b: 2,
+  c: 3,
+  d: 4,
+};
+
+let twoNums = {
+  e: 5,
+  f: 6,
+};
+
+let finalObject = Object.assign({},{a},threeNums,twoNums)
+let size = Object.keys(finalObject).length;//array length
+let objArrV = Object.values(finalObject);//turn object into array of properties' values
+let objArrK = Object.keys(finalObject);//turn object into array of properties' names
+let objArrE = Object.entries(finalObject);//turn object into array of properties
+console.log(objArrV)
+console.log(objArrK)
+console.log(objArrE)
+// console.log(finalObject);
+
+/*
+  a: 1
+  b: 2
+  c: 3
+  d: 4
+  e: 5
+  f: 6
+*/
+
+
+
+// The Object To Work With
+let myFavGames = {
+  "Trinity Universe": {
+    publisher: "NIS America",
+    price: 40,
+  },
+  "Titan Quest": {
+    publisher: "THQ",
+    bestThree: {
+      one: "Immortal Throne",
+      two: "Ragnarök",
+      three: "Atlantis",
+    },
+    price: 50,
+  },
+  YS: {
+    publisher: "Falcom",
+    bestThree: {
+      one: "Oath in Felghana",
+      two: "Ark Of Napishtim",
+      three: "origin",
+    },
+    price: 40,
+  },
+};
+console.log(myFavGames);
+
+// Code One => How To Get Object Length ?
+let objectLength = Object.keys(myFavGames).length;
+let objectIntoArr = Object.keys(myFavGames);
+
+for (let i = 0; i < objectLength; i++) {
+  console.log(`The Game Name Is ${objectIntoArr[i]}`);
+  console.log(`The Publisher Is ${myFavGames[objectIntoArr[i]].publisher}`);
+  console.log(`The Price Is ${myFavGames[objectIntoArr[i]]["price"]}`);
+
+//  Check If Nested Object Has Property (bestThree)
+  if (myFavGames[objectIntoArr[i]]["bestThree"]) {
+    console.log("--- Game Has Releases");
+    console.log(`First => ${myFavGames[objectIntoArr[i]]["bestThree"].one}`);
+    console.log(`Second => ${myFavGames[objectIntoArr[i]]["bestThree"].two}`);
+    console.log(`Third => ${myFavGames[objectIntoArr[i]]["bestThree"].three}`);
+  }
+  console.log("#".repeat(20));
+}
+
+// Ouput
+
+"The Game Name Is Trinity Universe"
+"The Publisher Is NIS America"
+"The Price Is 40"
+"####################"
+"The Game Name Is Titan Quest"
+"The Publisher Is THQ"
+"The Price Is 50"
+"- Game Has Releases"
+"First => Immortal Throne"
+"Second => Ragnarök"
+"Third => Atlantis"
+"####################"
+"The Game Name Is YS"
+"The Publisher Is Falcom"
+"The Price Is 40"
+"- Game Has Releases"
+"First => Oath in Felghana"
+"Second => Ark Of Napishtim"
+"Third => origin"
+"####################"
+
+//Assignment 4 iteration 2:
+
+let myFavGames = {
+  "Trinity Universe": {
+    publisher: "NIS America",
+    price: 40
+  },
+  "Titan Quest": {
+    publisher: "THQ",
+    bestThree: {
+      one: "Immortal Throne",
+      two: "Ragnarök",
+      three: "Atlantis"
+    },
+    price: 50
+  },
+  YS: {
+    publisher: "Falcom",
+    bestThree: {
+      one: "Oath in Felghana",
+      two: "Ark Of Napishtim",
+      three: "origin"
+    },
+    price: 30
+  }
+};
+
+let objectLength = Object.keys(myFavGames).length;
+for (let i = 0; i < objectLength; i++) {
+  let fprop = Object.keys(myFavGames)[i];
+
+  console.log(`The Game Name Is ${fprop}`);
+  console.log(`The Publisher Is ${myFavGames[fprop].publisher}`);
+  console.log(`The Price Is ${myFavGames[fprop].price}`);
+
+  if (myFavGames[fprop].bestThree) {
+    console.log("- Game Has Releases");
+    console.log(`First => ${myFavGames[fprop].bestThree.one}`);
+    console.log(`Second => ${myFavGames[fprop].bestThree.two}`);
+    console.log(`Third => ${myFavGames[fprop].bestThree.three}`);
+  }
+  console.log("#".repeat(20));
+}
+
+</script>
+</html>
