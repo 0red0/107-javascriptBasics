@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
+   <style>
+    form{
+      padding: 20px;
+      background: #eee;
+      font-size: 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      width: fit-content;
+    }
+    input{
+      margin: 10px;
+      width: 300px;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border-color: violet;
+    }
+   </style>
+</head>
+<body>
+  <form action="">
+    <input type="number" name="dollar" placeholder="USD Dollar" />
+    <div class="result">{0} USD Dollar = {0} Egyptian Pound</div>
+  </form>
+</body>
+<script>
+  let userInput = document.querySelector("[type='number']");
+  let inputValue = document.querySelector("[type='number']").textContent;
+  let myDiv = document.querySelector(".result");
+  
+  userInput.onclick = function(){
+    myDiv.innerHTML = `{${inputValue}} USD Dollar = {0} Egyptian Pound`;
+  }
+
+</script>
+</html>

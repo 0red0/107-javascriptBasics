@@ -919,3 +919,172 @@ console.log(finalObject);
 //assign props to new empty object
 let newObject =Object.assign({}, obj1, {prop5:5, prop6: 6});
 console.log(newObject);
+
+DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM
+
+// #086 Document Object Module:
+-- The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
+-- The DOM was designed to be independent of any particular programming language
+
+let myIdElement = document.getElementById("my-div");
+console.log(myIdElement);
+
+let myTagElement = document.getElementsByTagName("p");
+console.log(myTagElement[0]);
+
+let myClassElement = document.getElementsByClassName("my-span");
+console.log(myClassElement);
+
+let myQueryElement = document.querySelector(".special");
+let myQueryElement2 = document.querySelector("#my-div");
+console.log(myQueryElement);
+console.log(myQueryElement2);
+
+let myQueryElements = document.querySelectorAll(".my-span");
+console.log(myQueryElements);
+
+let myQueryElements = document.querySelectorAll("[attribute = 'value']");
+console.log(myQueryElements);
+
+console.log(document.title);
+console.log(document.body);
+console.log(document.forms[0].one.value);
+console.log(document.links[1].href);
+
+// #087 textContent - Get and Set Attributes
+
+let myElement = document.querySelector(".js");
+
+console.log(myElement.innerHTML);
+console.log(myElement.textContent);
+
+myElement.innerHTML = "Text From <span>Main.js</span> File";
+myElement.textContent = "Text From <span>Main.js</span> File";
+
+//Accessing the element and change it directly:
+
+document.images[0].src = "https://placebear.com/150/150";
+document.images[0].alt = "cat pic"; //change alt
+document.images[0].title = "cool catsssss"; // set attribute
+document.images[0].id = "pic"; //add id
+document.images[0].className = "i"; //add/set class
+
+//getAttribute("['name']")
+//setAttribute("name","value")
+let myLink = document.querySelector(".linko");
+
+console.log(myLink.getAttribute("class"));
+console.log(myLink.getAttribute("href"));
+
+myLink.setAttribute("href", "https://twitter.com"); //change old
+myLink.setAttribute("title", "Twitter");//set new title
+
+/* #088 DOM [Check Attributes]
+        Element.attributes    -> shows ele's attributes
+        Element.hasAttribute() ->check el has attribute(this)
+        Element.hasAttributes -> true or false
+        Element.removeAttribute() 
+<body>
+<div>Div</div>
+<p class="para" title="Paragraph" data-src="Testing">Paragraph</p>
+<script src="main2.js"></script>
+</body>
+*/
+console.log(document.getElementsByTagName("p")[0].attributes)
+
+let myP = document.getElementsByTagName("p")[0];
+
+if (myP.hasAttribute("data-src")) {
+  if (myP.getAttribute("data-src") === "") {
+    myP.removeAttribute("data-src");
+  } else {
+    myP.setAttribute("data-src", "New value");
+  }
+} else {
+  console.log(`Not found`);
+}
+
+if (myP.hasAttributes()) {
+  console.log(`Has Attributes`);
+}
+// #089 Create And Append Elements
+let myElement = document.createElement("div");
+myElement.className = "product";              //create class
+let myAttr = document.createAttribute("data");//create attribute1
+myElement.setAttributeNode(myAttr);         //set Attribute to element
+myElement.setAttribute("d-test","testing");//create & set Attribute2
+let myText = document.createTextNode("Product One");//create text
+myElement.appendChild(myText);
+let myComment = document.createComment("This Is Div");
+myElement.appendChild(myComment);
+
+document.body.appendChild(myElement);//append element to document body
+console.log(myElement);
+
+// #090 Products Practice:
+for(let i=0;i < 10; i++){
+  let myMainElement = document.createElement("div");
+  let myHeading = document.createElement("h2");
+  let myParagraph = document.createElement("p");
+  let myHeadingText = document.createTextNode(`Product Title ${i+1}`);
+  let myParagraphText = document.createTextNode("Product Description");
+  myHeading.appendChild(myHeadingText);
+  myMainElement.appendChild(myHeading);
+  myParagraph.appendChild(myParagraphText);
+  myMainElement.appendChild(myParagraph);
+  myMainElement.className = "product";
+  document.body.appendChild(myMainElement);
+  }
+// #091 Children
+//<div><!-- Osama -->Hello Div<p>Hello P</p><span>Hello Span</span><!-- Comment -->Hello</div>
+let myElement = document.querySelector("div");
+console.log(myElement);
+console.log(myElement.children);//elements
+console.log(myElement.children[0]);//first element
+console.log(myElement.childNodes);//all children
+console.log(myElement.childNodes[0]);
+
+console.log(myElement.firstChild);
+console.log(myElement.lastChild);
+console.log(myElement.firstElementChild);
+console.log(myElement.lastElementChild);
+
+// #092 Events
+<button id="btn" onclick="console.log('clicked')">
+  Button
+</button>;
+let myBtn = document.getElementById("btn");
+myBtn.onclick = function () {
+  console.log("clicked");
+};
+//body {height:5000px;}
+window.onscroll = function () {
+  console.log("Scroll");
+};
+
+// #093 Validate - Prevent Default (forms)
+// <form action="">
+//   <input type="text" name="username" placeholder="Max 10 chars only" />
+//   <input type="text" name="age" placeholder="Cant be empty" />
+//   <input type="submit" value="Submit Data" />
+// </form>;
+// <a href="https://twitter.com">Twitter</a>;
+
+let userInput = document.querySelector("[name='username']");
+let ageInput = document.querySelector("[name='age']");
+
+document.forms[0].onsubmit = function (e) {
+  let userValid = false;
+  let ageValid = false;
+
+  if (userInput !== "" && userInput.value.length <= 10) {
+    userValid = true;
+  }
+  if (ageInput !== "") {
+    ageValid = true;
+  }
+
+  if (userValid === false || ageValid === false) {
+    e.preventDefault();
+  }
+};
