@@ -1,54 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
-</head>
-<body>
-   <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-    <div>
-      <img src="#" alt="" />
-    </div>
-</body>
-<script>
-   let myDiv = document.querySelectorAll("img");
-   let applyToAll = myDiv.forEach(function(e){
-      return e.setAttribute("src","https://elzero.org/wp-content/themes/elzero/imgs/logo.png"); 
-   })
-   let applyAlt = myDiv.forEach(function(el){
-      return el.setAttribute("alt", "Elzero Logo"); 
-   })
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
+  </head>
+  <body>
+    <div class="one" title="two">Two</div>
+    <div class="two" title="one">One</div>
+  </body>
+  <script>
+    let divOne = document.querySelector(".one");
+    let divTwo = document.querySelector(".two");
 
-  console.log(myDiv)
-
-</script>
+    divOne.setAttribute("title", "one");
+    let textOne = divOne.className;
+    let numOne = divOne.hasAttributes();
+    divOne.innerHTML = `${
+      textOne.charAt(numOne - numOne).toUpperCase() + textOne.slice(numOne)
+    }`;
+    divTwo.setAttribute("title", "two");
+    let textTwo = divTwo.className;
+    divTwo.innerHTML = `${
+      textTwo.charAt(numOne - numOne).toUpperCase() + textTwo.slice(numOne)
+    } ${divTwo.attributes.length}`;
+  </script>
 </html>

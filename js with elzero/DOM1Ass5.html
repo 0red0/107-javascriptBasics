@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
+  </head>
+  <body>
+    <img src="#" alt="One" />
+    <img src="#" />
+    <img src="#" alt="Three" />
+    <img src="#" />
+    <img src="#" />
+  </body>
+  <script>
+    let myImage = document.querySelectorAll("img");
+    console.log(myImage);
+
+    myImage.forEach(function (el) {
+      if (el.hasAttribute("alt")) {
+        el.setAttribute("alt", "old");
+      } else {
+        el.setAttribute("alt", "Elzero new");
+      }
+    });
+  </script>
+</html>
