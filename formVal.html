@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form Validation practice</title>
+   <!-- <script defer src="formVal.js"></script> -->
+</head>
+<body>
+   <div id="error" style="color: red;"></div>
+   <div>
+      <form action="">
+         <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name"> 
+         </div>
+         <div>
+            <label for="password">Password:</label> 
+            <input type="password" name="password" id="password"> 
+         </div>
+         <div>
+            <input type="submit" value="SUBMIT">
+         </div>
+      </form>
+   </div>
+</body>
+<script>
+   let theForm = document.querySelector("[action]");
+let submitBtn = document.querySelector('[type="submit"]');
+let nameInput = document.getElementById("name");
+let passwordInput = document.getElementById("password");
+let errorMessage = document.getElementById("error");
+
+// submitBtn.onclick = function(e){
+//    let message = "";
+//    if(nameInput.value === ""){
+//       errorMessage.innerText = message += " Enter Name Please..."
+//       e.preventDefault()
+//    } 
+//    if(passwordInput.value <= 5){
+//       errorMessage.innerHTML = message += " Password must be > 5chrs..."
+//       e.preventDefault()
+   
+// }
+// }
+
+form.onsubmit = function(e){
+   let message = [];
+   if(nameInput.value === "" || nameInput.value == null){
+      message.push(' Enter Name Please..');
+   }
+   if(passwordInput.value <= 5){
+      message.push(" Password must be more than 5 characters..")
+   }
+   if(passwordInput.value === "password"){
+      message.unshift(" Password can't be 'password'...")
+   }
+   if(message.length > 0){
+      e.preventDefault()
+      errorMessage.innerHTML = message.join(",");
+
+   }
+}
+</script>
+</html>

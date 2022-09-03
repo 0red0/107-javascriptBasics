@@ -25,18 +25,17 @@
   </head>
   <body>
     <form action="">
-      <input type="number" name="dollar" placeholder="USD Dollar" />
+      <input type="number" id="dollar" name="dollar" placeholder="USD Dollar" />
       <div class="result">{0} USD Dollar = {0} Egyptian Pound</div>
     </form>
   </body>
   <script>
-    let userInput = document.querySelector("[type='number']");
+    let userInput = document.querySelector("#dollar");
+    let myDiv = document.querySelector(".result");
 
     userInput.oninput = function () {
-      let inputValue = document.querySelector("[type='number']").value;
-      let myDiv = document.querySelector(".result");
-      myDiv.innerHTML = `{${inputValue}} USD Dollar = {${(
-        inputValue * 19.25
+      myDiv.innerText = `{${userInput.value}} USD Dollar = {${(
+        userInput.value * 19.25
       ).toFixed(2)}} Egyptian Pound`;
     };
   </script>

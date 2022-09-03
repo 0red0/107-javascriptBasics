@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
+  </head>
+  <body>
+    <div class="one" title="two">Two</div>
+    <div class="two" title="one">One</div>
+  </body>
+  <script>
+    // let divOne = document.querySelector(".one");
+    // let divTwo = document.querySelector(".two");
+
+    // divOne.setAttribute("title", "one");
+    // let textOne = divOne.className;
+    // let numOne = divOne.hasAttributes();
+    // divOne.innerHTML = `${
+    //   textOne.charAt(numOne - numOne).toUpperCase() + textOne.slice(numOne)
+    // }`;
+    // divTwo.setAttribute("title", "two");
+    // let textTwo = divTwo.className;
+    // divTwo.innerHTML = `${
+    //   textTwo.charAt(numOne - numOne).toUpperCase() + textTwo.slice(numOne)
+    // } ${divTwo.attributes.length}`;
+
+
+
+    let one = document.querySelector("[class = 'one']");
+let two = document.querySelector("[class = 'two']");
+
+one.title = one.className;
+two.title = two.className;
+one.textContent = one.title;
+two.textContent = two.title + " " + two.attributes.length;
+
+console.log(one);
+console.log(two);
+
+
+
+
+//second solution
+// let done = document.body.children[0];
+// let dtwo = document.body.children[1];
+
+// let mytitle = dtwo.title;
+
+// dtwo.title = done.title;
+// done.title = mytitle;
+
+// done.textContent = done.title;
+// dtwo.textContent = `${dtwo.title} ${document.getElementsByTagName("div").length
+// }`;
+// console.log(done);
+// console.log(dtwo);
+  </script>
+</html>

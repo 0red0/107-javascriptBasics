@@ -1,4 +1,6 @@
 /* 1- WHY HTML ELEMENTS ARE OBJECTS (TYPEOF ID)?
+   2- getElementByClassName doesn't work but querySelector works?DOM1Ass3.html
+
 */
 /*
 #001 Introduction
@@ -1088,3 +1090,19 @@ document.forms[0].onsubmit = function (e) {
     e.preventDefault();
   }
 };
+//formVal.html practice: (webDevSimplified.youtube)
+form.onsubmit = function(e){
+  let message = [];
+  if(nameInput.value === "" || nameInput.value == null){
+     message.push(' Enter Name Please..');
+  }
+  if(passwordInput.value <= 5){
+     message.push(" Password must be more than 5 characters..")
+  }
+  if(passwordInput.value === "password"){
+     message.unshift(" Password can't be 'password'...")
+  }
+  if(message.length > 0){
+     e.preventDefault()
+     errorMessage.innerHTML = message.join(",");
+}}

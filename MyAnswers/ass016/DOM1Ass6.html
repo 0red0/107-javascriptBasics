@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-086-to-093/ -->
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .input,
+      input{
+        display: block;
+        width: 350px;
+        margin: 10px 20px;
+        padding: 7px;
+        font-size: 1.2rem;
+        border: none;
+        background-color: #eee;
+        border-radius: 5px;
+        outline: 1px black;
+      }
+      [type="submit"] {
+        background-color: darkslateblue;
+        color: white;
+      }
+      .results{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .results > *{
+        text-align: center;
+        width: 300px;
+        margin: 10px 20px;
+        padding: 7px;
+        border: none;
+        background-color: orange;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <input type="number" name="elements" class="input" placeholder="Number Of Elements"
+      />
+      <input type="text" name="texts" class="input" placeholder="Elements Text"
+      />
+      <select name="type" class="input">
+        <option value="Div">Div</option>
+        <option value="Section">Section</option>
+      </select>
+
+      <input type="submit" name="create" value="Create" />
+      
+      <div class="results"></div>
+    </form>
+  </body>
+  <script>
+    // let myselect = document.querySelector("[name='type']");
+    // let mydiv = document.querySelector("[class='results']");
+    // let mynum = document.querySelector("[name='elements']");
+    // let mytext = document.querySelector("[name='texts']");
+    
+    // document.forms[0].onsubmit = function (e) {
+    //   e.preventDefault();//stop onsubmit from reloading
+    //   //removing previous created elements
+    //   document.querySelectorAll(".box").forEach(function (box) {
+    //     box.remove();
+    //   });
+    //   //create elements as much as user inputted 
+    //   for (let i = 0; i < mynum.value; i++) {
+    //     let myelement = document.createElement(myselect.value);
+    //     myelement.className = "box";
+    //     myelement.title = "Element";
+    //     myelement.id = `id="id-${i + 1}`;
+    //     myelement.textContent = `${mytext.value}`;
+    
+    //     mydiv.appendChild(myelement);
+    //   }
+    // };
+
+
+
+    let btn = document.querySelector("[type='submit']");
+    let myForm = document.querySelector("[action]");
+    let result = document.querySelector(".results");
+    
+    btn.onclick = function(y){
+      if(result.hasChildNodes){
+        result.replaceChildren();
+      }
+      // result.innerHTML = '';
+      let elType = document.querySelector('[name="type"]').value;
+      let myText = document.querySelector("[name='texts']").value;
+      let numOfElements = document.getElementsByClassName("input")[0].value;
+
+      //creating the elements
+      for(let i=0; i< numOfElements; i++){
+      let myDiv = document.createElement(elType);
+      let myDivText = document.createTextNode(myText);
+      result.appendChild(myDiv);
+      myDiv.appendChild(myDivText);
+      myDiv.className = "box";
+      myDiv.id = `id-${i+1}`;
+      myDiv.title = "Element";
+      console.log(myDiv)
+    }
+    }
+    //stopping form from reloading
+    myForm.onsubmit = function(e){
+      e.preventDefault()
+    }
+    
+    
+
+  </script>
+</html>

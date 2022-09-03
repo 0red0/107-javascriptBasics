@@ -40,15 +40,21 @@
     </div>
 </body>
 <script>
-   let myDiv = document.querySelectorAll("img");
-   let applyToAll = myDiv.forEach(function(e){
-      return e.setAttribute("src","https://elzero.org/wp-content/themes/elzero/imgs/logo.png"); 
-   })
-   let applyAlt = myDiv.forEach(function(el){
-      return el.setAttribute("alt", "Elzero Logo"); 
-   })
+  //  let myDiv = document.querySelectorAll("img");
+  //  let applyToAll = myDiv.forEach(function(e){
+  //     return e.setAttribute("src","https://elzero.org/wp-content/themes/elzero/imgs/logo.png"); 
+  //  })
+  //  let applyAlt = myDiv.forEach(function(el){
+  //     return el.setAttribute("alt", "Elzero Logo"); 
+  //  })
 
-  console.log(myDiv)
+  // console.log(myDiv)
+
+// Not my solution and I don't understand it.
+  for (let img of document.images) {
+  img.src = "https://elzero.org/wp-content/themes/elzero/imgs/logo.png";
+  img.alt = "Elzero Logo";
+}
 
 </script>
 </html>
