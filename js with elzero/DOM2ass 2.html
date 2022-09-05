@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .assign {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .assign input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
+    }
+
+    .assign input:focus {
+      outline: none;
+      border-color: #ccc;
+    }
+
+    .assign [title="Current"] {
+      padding: 20px;
+      margin: 10px auto;
+      width: 610px;
+      background-color: #f1f0f0;
+    }
+
+    .assign .classes-list {
+      padding: 20px;
+      margin: 10px auto;
+      width: 610px;
+      background-color: #f1f0f0;
+    }
+
+    .assign .classes-list h5 {
+      margin: 0 0 10px;
+      text-align: left;
+    }
+
+    .assign .classes-list div span {
+      background-color: #2dda2d;
+      padding: 6px 10px 8px;
+      margin-right: 5px;
+      border-radius: 6px;
+      color: white;
+      display: inline-flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="assign">
+    <input type="text" class="classes-to-add" placeholder="Add Classes" />
+    <input type="text" class="classes-to-remove" placeholder="Remove Classes" />
+    <div class="element current" title="Current">Current Element</div>
+    <div class="classes-list">
+      <h5>Current Element Class Lists</h5>
+      <div></div>
+    </div>
+  </div>
+
+  <script>
+    const classAdd = document.querySelector(".classes-to-add");
+    const classRemove = document.querySelector(".classes-to-remove");
+    const classesContainer = document.querySelector(".element");
+    const displayer = document.querySelector(".classes-list > div");
+
+    let newArr = [];
+    classAdd.addEventListener("blur", function (e) {
+      if (classAdd.value === "" || classAdd.value === null) {
+        return "Add Class in input field."
+      } else if (classAdd.value.includes(" ")) {
+        let classesWithSpaces = classAdd.value.split(" ");
+        newArr.push(classesWithSpaces);
+      } else {
+        let classWords = classAdd.value.toLowerCase();
+        newArr.push(classWords);
+      }
+      let finalArr = newArr.reduce(function (acc, ele) {
+        return acc.concat(ele);
+      }, []);
+
+      // add the newArr to the class List
+      function showClasses(finalArr) {
+        for (let i = 0; i < finalArr.length; i++) {
+          classesContainer.classList.add(finalArr[i]);
+        }
+      }
+      showClasses(finalArr)
+      //show classes on the displayer
+      displayer.innerHTML = "";
+
+      finalArr.forEach((el) => {
+        let span = document.createElement("span");
+        span.innerHTML = el;
+        displayer.appendChild(span);
+      })
+    })
+    classAdd.addEventListener("blur", function () {
+      classAdd.value = "";
+    })
+    classRemove.addEventListener("blur", function () {
+      classesContainer.classList.remove(classRemove.value);
+      classRemove.value = "";
+    })
+    classRemove.addEventListener("blur", function () {
+      classRemove.value = "";
+    })
+  </script>
+</body>
+
+</html>
