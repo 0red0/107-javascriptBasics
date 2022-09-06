@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!-- <style>
+      * {
+         margin: 0;
+      }
+   </style> -->
+   <script>
+      //Global Rules
+      const allItems = document.querySelectorAll("*");
+      allItems.forEach((item) => {
+         item.style.cssText = "font-family: Arial; margin: 0; padding: 0";
+      });
+
+      document.styleSheets.boxSizing = "border-box";
+      document.styleSheets.margin = "0px";
+      document.body.style.margin = "0px";
+      document.body.style.fontFamily = "Arial";
+
+      //Header
+      let list = ["Home", "About", "Service", "Contact"];
+      let header = document.createElement("header");
+      let h1 = document.createElement("h1");
+      let h1Text = document.createTextNode("Elzero");
+      h1.id = "logo";
+      h1.appendChild(h1Text);
+      header.appendChild(h1);
+
+      const ul = document.createElement("ul");
+      for (let i = 0; i < list.length; i++) {
+         const li = document.createElement("li");
+         li.innerHTML = list[i];
+         ul.appendChild(li);
+      }
+      ul.style.listStyle = "none"
+      header.appendChild(ul);
+      header.style.display = "flex"
+      document.body.appendChild(header);
+
+      //Content Section
+      const sec = document.createElement("section");
+      sec.style.cssText = "display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background-color: #ececec; padding: 30px;";
+
+      for (let j = 0; j < 15; j++) {
+         const box = document.createElement("div")
+         box.style.textAlign = "center";
+         box.style.background = "white"
+
+         const h2 = document.createElement("h2")
+         h2.textContent = j + 1;
+
+         const p = document.createElement("p");
+         p.textContent = "Product"
+
+         box.appendChild(h2)
+         box.appendChild(p)
+         sec.appendChild(box)
+      }
+
+      document.body.appendChild(sec)
+
+   </script>
+</body>
+
+</html>
