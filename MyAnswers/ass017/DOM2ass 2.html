@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .assign {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .assign input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
+    }
+
+    .assign input:focus {
+      outline: none;
+      border-color: #ccc;
+    }
+
+    .assign [title="Current"] {
+      padding: 20px;
+      margin: 10px auto;
+      width: 610px;
+      background-color: #f1f0f0;
+    }
+
+    .assign .classes-list {
+      padding: 20px;
+      margin: 10px auto;
+      width: 610px;
+      background-color: #f1f0f0;
+    }
+
+    .assign .classes-list h5 {
+      margin: 0 0 10px;
+      text-align: left;
+    }
+
+    .assign .classes-list div span {
+      background-color: #2dda2d;
+      padding: 6px 10px 8px;
+      margin-right: 5px;
+      border-radius: 6px;
+      color: white;
+      display: inline-flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="assign">
+    <input type="text" class="classes-to-add" placeholder="Add Classes" />
+    <input type="text" class="classes-to-remove" placeholder="Remove Classes" />
+    <div class="element current" title="Current">Current Element</div>
+    <div class="classes-list">
+      <h5>Current Element Class Lists</h5>
+      <div></div>
+    </div>
+  </div>
+
+  <script>
+    //third try this time: I know now why spans wouldn't show in my previous
+    // attempts to make it work because the create/show function should be called
+    // once atleast before the whole code so it do its job and create the spans.
+
+    // const addClass = document.querySelector(".classes-to-add");
+    // const remoClass = document.querySelector(".classes-to-remove");
+    // const cContainer = document.querySelector(".element");
+    // const displayer = document.querySelector(".classes-list > div");
+
+    // function createSpans() {
+    //   if (cContainer.classList.value === "") {
+    //     displayer.innerHTML = "No Classes To Show!`!`"
+    //   } else {
+    //     cContainer.classList.value.trim().toLowerCase().split(" ").forEach((x) => {
+    //       let spans = document.createElement("span");
+    //       spans.innerHTML = x;
+    //       displayer.appendChild(spans);
+    //     })
+    //   }
+    // }
+    // createSpans();
+
+    // //add classes to container class list:
+
+    // addClass.addEventListener("blur", () => {
+    //   if (addClass.value === "") {
+    //     return;
+    //   } else {
+    //     addClass.value.trim().toLowerCase().split(" ").forEach((t) => {
+    //       cContainer.classList.add(t);
+    //     })
+    //     addClass.value = "";
+    //     displayer.innerHTML = "";
+    //     createSpans();
+    //   }
+    // })
+
+    // //remove classes from container class list:
+    // remoClass.addEventListener("blur", () => {
+    //   if (remoClass.value === "") {
+    //     return;
+    //   } else {
+    //     remoClass.value.trim().toLowerCase().split(" ").forEach((t) => {
+    //       cContainer.classList.remove(t);
+    //     })
+    //     remoClass.value = "";
+    //     displayer.innerHTML = "";
+    //     createSpans();
+    //   }
+    // })
+
+    //------------------------------------------------------------------
+
+    //  my half assed attempt with the help of a real programmer's code
+    //  [https://codepen.io/Zaher-aa/pen/zYzRRaZ?editors=0010]
+    const inputs = document.querySelectorAll('input');
+    const cContainer = document.querySelector("[title='Current']");
+    const displayer = document.querySelector(".classes-list > div");
+
+    function dealWithClassContainer() {
+      cContainer.classList.value.trim().split(" ").forEach((ele) => {
+        let spans = document.createElement("span");
+        spans.innerHTML = ele;
+        displayer.appendChild(spans);
+      }
+      )
+    }
+    dealWithClassContainer();
+
+
+    inputs.forEach(input => {
+      input.onblur = function () {
+        if (input.value !== "") {
+          let addClass = input.value.trim().split(" ").forEach((el) => {
+            if (input.classList.contains("classes-to-add")) {
+              cContainer.classList.add(el);
+            } else {
+              cContainer.classList.remove(el);
+            }
+            input.value = "";
+            displayer.innerHTML = "";
+            dealWithClassContainer();
+          }
+          )
+        }
+      }
+    });
+
+
+
+//------------------------------------------------------------------
+
+      //my poor attempt at it:P i spit on u(me)
+    // const addClass = document.querySelector(".classes-to-add");
+    // const remoClass = document.querySelector(".classes-to-remove");
+    // const cContainer = document.querySelector(".element");
+    // const displayer = document.querySelector(".classes-list > div");
+
+    // let newArr = [];
+    // addClass.addEventListener("blur", function (e) {
+    //   if (addClass.value === "") {
+    //     return "Add Class in input field."
+    //   } else if (addClass.value.includes(" ")) {
+    //     let classesWithSpaces = addClass.value.split(" ");
+    //     newArr.push(classesWithSpaces);
+    //   } else {
+    //     let classWords = addClass.value.toLowerCase();
+    //     newArr.push(classWords);
+    //   }
+    //   let finalArr = newArr.reduce(function (acc, ele) {
+    //     return acc.concat(ele);
+    //   }, []);
+
+    //   // add to the class List
+    //   displayer.innerHTML = "";
+    //   function showClasses(finalArr) {
+    //     for (let i = 0; i < finalArr.length; i++) {
+    //       cContainer.classList.add(finalArr[i]);
+    //       let span = document.createElement("span");
+    //       span.innerHTML = finalArr[i];
+    //       displayer.appendChild(span);
+    //     }
+    //   }
+    //   showClasses(finalArr)
+    //   addClass.value = "";
+    // })
+    // // addClass.addEventListener("blur", function () {
+    // // })
+    // remoClass.addEventListener("blur", function () {
+    //   cContainer.classList.remove(remoClass.value);
+    //   remoClass.value = "";
+    // })
+    // remoClass.addEventListener("blur", function () {
+    //   remoClass.value = "";
+    // })
+
+  </script>
+</body>
+
+</html>
