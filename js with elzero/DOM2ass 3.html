@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
 </head>
+
 <body>
-   <div style="width: 100px; height:100px; background-color: yellow;"></div>
-   <a class="open" href="https://google.com">Google</a>
-    <a class="open" href="https://elzero.org">Elzero</a>
-    <a class="not" href="https://facebook.com">Facebook</a>
-    <a class="linked" href="https://linkedin.com">Elzero</a>
+   <div class="our-element">Our Element</div>
+   <p>Paragraph</p>
 </body>
-    <script>
-      let myDiv = document.querySelector("div");
-      let myLink = document.querySelectorAll("a");
+<script>
+   const divy = document.querySelector(".our-element");
+   let divBefore = document.createElement("div");
+   divBefore.className = "start";
+   divBefore.title = "Start Element";
+   divBefore.setAttribute("data-value", "Start");
+   divBefore.innerHTML = "Starting";
+   let divAfter = document.createElement("div");
+   divAfter.className = "end";
+   divAfter.title = "End Element";
+   divAfter.setAttribute("data-value", "End");
+   divAfter.textContent = "Ending";
 
-      myDiv.onmouseover = () => {
+   divy.nextElementSibling.remove();
+   divy.before(divBefore);
+   divy.after(divAfter)
 
-      
-    myLink.forEach(function(e){
-       if(e.classList.contains("open") && e.innerHTML === "Elzero"){
-            e.style.backgroundColor = "red";
-            //e.click();
-    }})}
-      
-    
-    </script>
+</script>
+
 </html>

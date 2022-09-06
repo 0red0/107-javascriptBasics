@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
 </head>
+
 <body>
-   <div style="width: 100px; height:100px; background-color: yellow;"></div>
-   <a class="open" href="https://google.com">Google</a>
-    <a class="open" href="https://elzero.org">Elzero</a>
-    <a class="not" href="https://facebook.com">Facebook</a>
-    <a class="linked" href="https://linkedin.com">Elzero</a>
+   <div>Element</div>
+   <span>Element</span>
+   <p>Element</p>
+   <article>Element</article>
+   <section>Element</section>
 </body>
-    <script>
-      let myDiv = document.querySelector("div");
-      let myLink = document.querySelectorAll("a");
+<script>
+   // const e1 = document.querySelector("div");
+   // const e2 = document.querySelector("span");
+   // const e3 = document.querySelector("p");
+   // const e4 = document.querySelector("article");
+   // const e5 = document.querySelector("section");
+   // console.log(e1.nodeName)
+   // console.log(e2.nodeName)
+   // console.log(e3.nodeName)
+   // console.log(e4.nodeName)
+   // console.log(e5.nodeName)
 
-      myDiv.onmouseover = () => {
+   //not my solution;
 
-      
-    myLink.forEach(function(e){
-       if(e.classList.contains("open") && e.innerHTML === "Elzero"){
-            e.style.backgroundColor = "red";
-            //e.click();
-    }})}
-      
-    
-    </script>
+   let nam = document.body.children;
+   for (let i = 0; i < nam.length; i++) {
+      nam[i].onclick = function () {
+         console.log(`This is a ${nam[i].nodeName}`)
+      }
+   }
+
+</script>
+
 </html>
