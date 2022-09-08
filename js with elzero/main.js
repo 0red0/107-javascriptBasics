@@ -1249,3 +1249,109 @@ document.addEventListener("click", e => {
     console.log("hi")
   }
 })
+
+//BOOM
+// #102 BOM ___
+window.document.title = "Hello JS";
+
+// #103 Alert, Confirm, Prompt
+window.alert() = alert() = this.alert()
+
+let confirming = confirm('Hello man')
+console.log(confirming); //return boolean
+
+let promptMsg = prompt('good day or bad day?')
+console.log(promptMsg)
+
+// #104 setTimeout and clearTimeout
+setTimeout(function () {
+  const ele = document.createElement("h1")
+  ele.innerText = "Hello Helina"
+  document.body.appendChild(ele)
+}, 1500)
+
+//separate the func and use more parameters
+let handler = setTimeout(sayHi, 2000, "Helina", 9999)
+function sayHi(user, count) {
+  const ele = document.createElement("h1")
+  ele.innerText = `Hello ${user} ${count} Times`
+  document.body.appendChild(ele)
+}
+//clearTimeout()
+document.onclick = () => clearTimeout(handler)
+
+// #105 setInterval and clearInterval
+setInterval(function () {
+  console.log("Haya")
+}, 1000)
+//clearInterval <div>5</div>
+const divy = document.querySelector("div")
+let decount = setInterval(countDown, 1000)
+function countDown() {
+  divy.innerText -= 1;
+  if (divy.innerText === "0") {
+    clearInterval(decount)
+  }
+}
+
+// #106 window location object
+location.{ Get / Set[URL || Hash || File || Mail] }
+console.log(location)//location info
+console.log(location.href)//page url
+location.href = "google.com";//modify location
+location.href = "/#section";//#s in pages
+location.host
+console.log(location.hostname)//this part: [google.com]
+console.log(location.protocol)//http/https
+location.hash; //checks on # uses
+location.reload();
+location.replace("https://google.com")replaces url with no history
+location.assign("https://google.com")replaces url history intact
+
+// #107 window.open/close
+window.open(url, name / target, windowFeatures, replace)
+setTimeout(function () {
+  window.open("", "_self", "", false < means not pop up window >);
+}, 2000);
+
+setTimeout(function () {
+  window.open("https://google.com", "_blank", "width=400,height=400,left=200,top=10");
+}, 2000);
+
+// #108 window history object
+console.log(history);
+history.length
+history.back()
+history.forward()
+history.go(0)(1)(-2)//position in history index
+history.pushState(state, 'title', [, url])//add entry to history
+replaceState(stateObj, '', url)//modifies the current history entry
+
+// #109   - stop()- print()- focus()- scroll- scrollBy(x, y || Options)
+window.stop();//stop mid-loading
+let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
+window.scroll(1000, 1000);
+window.scrollBy({ left: 1000, top: 1000, behavior: 'smooth' });
+window.scrollTo({ left: 1000, top: 1000, behavior: 'smooth' });
+
+// #110 Scroll To Top Using ScrollY
+- scrollX = PageXOffset]
+- scrollY = PageYOffset]
+
+let btn = document.querySelector("button");
+
+window.onscroll = function () {
+  if (window.scrollY >= 600) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+btn.onclick = function () {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
+};

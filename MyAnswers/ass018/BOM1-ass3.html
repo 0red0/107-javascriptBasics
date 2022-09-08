@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-102-to-110/ -->
+</head>
+<style>
+   div {
+      background-color: lime;
+      width: 100px;
+      height: 100px;
+      font: bold 5rem arial;
+      text-align: center;
+      padding: 20px;
+   }
+</style>
+
+<body>
+   <div>10</div>
+
+</body>
+<script>
+   const divy = document.querySelector("div")
+   const handler = setInterval((decrement), 500)
+   function decrement() {
+      divy.innerText -= 1;
+      if (divy.innerText == 0) {
+         clearInterval(handler)
+         window.location.hostname = "https://elzero.org/"
+         // window.open('https://elzero.org/', "_self")
+         // window.open('https://elzero.org/', "", true)
+      }
+   }
+</script>
+
+</html>

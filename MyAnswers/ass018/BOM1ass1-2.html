@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-102-to-110/ -->
+   <style>
+      nav {
+         display: none;
+         font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+         background-color: #eee;
+         width: 400px;
+         margin: 100px auto;
+         box-shadow: 0 3px 10px #aaa;
+      }
+
+      section {
+         text-align: center;
+         padding: 40px;
+         position: relative;
+      }
+
+      #btn {
+         position: absolute;
+         width: 25px;
+         height: 25px;
+         top: -10px;
+         right: -10px;
+         background-color: red;
+         color: white;
+         font-weight: bold;
+         border-radius: 50%;
+         cursor: pointer;
+      }
+
+      #btn:hover {
+         scale: 1.2;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Assignment 2 -->
+   <nav>
+      <section>
+         <div id="btn">X</div>
+         <h2>Welcome, Here</h2>
+         <p>Welcome To Elzero Web School</p>
+      </section>
+   </nav>
+</body>
+<script>
+
+   // // Assignment 1:
+   //    let myPrompt = prompt("Print Number From – To");
+   //    let bigger = 0;
+   //    let smaller = 0;
+   //    myPrompt.split("-").reduce(function (acc, curr) {
+   //       if (acc > curr) {
+   //          bigger += parseInt(acc);
+   //          smaller += parseInt(curr);
+   //       } else if (curr > acc) {
+   //          bigger += parseInt(curr);
+   //          smaller += parseInt(acc);
+   //       }
+   //    })
+   //    for (let i = smaller; i <= bigger; i++) {
+   //       console.log(i)
+   //    }
+
+   //not my solution. he used ++ inside the HOF as forLoop ((genius)) 
+   // let data = prompt("Print Number From – To", "Example: 5-20")
+   //    .split("-")
+   //    .sort((a, b) => a - b);
+
+   // let counter = setInterval(() => {
+   //    let num = document.createElement("div");
+   //    num.innerHTML = `${data[0]++}`;
+   //    if (num.innerHTML === data[1]) clearInterval(counter);
+   //    document.body.append(num);
+   // }, 0);
+
+
+   //Assignment 2
+   const nav = document.querySelector("nav")
+   const closeBtn = document.getElementById("btn")
+
+   closeBtn.onclick = (() => nav.style.display = "none")
+
+   setTimeout(handler, 2000)
+   function handler() {
+      nav.style.display = "block"
+   }
+
+
+
+
+
+
+
+</script>
+
+</html>
