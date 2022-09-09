@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-111-to-114/ -->
+   <title>Document</title>
+</head>
+
+<body>
+   <form action="">
+      <input type="text" name="" id="text">
+      <input type="number" name="" id="number">
+      <input type="color" name="" id="color">
+      <select name="" id="box">
+         <option value="">opt1</option>
+         <option value="">opt2</option>
+         <option value="">opt3</option>
+         <option value="">opt4</option>
+         <option value="">opt5</option>
+      </select>
+   </form>
+</body>
+<script>
+   const txt = document.getElementById("text")
+   const num = document.getElementById("number")
+   const clr = document.getElementById("color")
+   const sBox = document.getElementById("box")
+
+   if (window.sessionStorage.getItem("xtxt")) {
+      txt.value = window.sessionStorage.getItem("xtxt");
+   }
+   if (window.sessionStorage.getItem("xnum")) {
+      num.value = window.sessionStorage.getItem("xnum");
+   }
+   if (window.sessionStorage.getItem("xtxt")) {
+      clr.value = window.sessionStorage.getItem("xclr");
+   }
+   if (window.sessionStorage.getItem("xsBox")) {
+      sBox.options[sBox.selectedIndex].text = window.sessionStorage.getItem("xsBox");
+   }
+
+   txt.onblur = () => {
+      window.sessionStorage.setItem("xtxt", txt.value)
+      window.sessionStorage.setItem("xnum", num.value)
+      window.sessionStorage.setItem("xclr", clr.value)
+      window.sessionStorage.setItem("xsBox", sBox.options[sBox.selectedIndex].text)
+   }
+
+</script>
+
+</html>

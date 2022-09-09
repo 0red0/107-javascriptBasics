@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- https://elzero.org/javascript-2021-local-storage-color-app-practice/ -->
+</head>
+<style>
+   body {
+      background-color: aqua;
+   }
+
+   ul {
+      margin: 20px auto;
+      list-style: none;
+      display: flex;
+      background-color: #ddd;
+      padding: 20px;
+      width: fit-content;
+      gap: 20px;
+   }
+
+   li {
+      width: 50px;
+      height: 50px;
+      opacity: .5;
+      transition: .2s;
+   }
+
+   li:hover,
+   li.active {
+      opacity: 1;
+   }
+
+   li:first-child {
+      background-color: red;
+   }
+
+   li:nth-child(2) {
+      background-color: blue;
+   }
+
+   li:nth-child(3) {
+      background-color: green;
+   }
+
+   li:nth-child(4) {
+      background-color: black;
+   }
+
+   div {
+      margin: 20px auto;
+      width: 500px;
+      height: 300px;
+      background-image: linear-gradient(to right, red 25%, blue 25%, blue 50%, green 50%, green 75%, black 75%, black 100%);
+   }
+</style>
+
+<body>
+   <ul>
+      <li class="active" data-color="red"></li>
+      <li data-color="blue"></li>
+      <li data-color="green"></li>
+      <li data-color="black"></li>
+   </ul>
+   <div class="experiment"></div>
+</body>
+<script>
+   const lis = document.querySelectorAll("li");
+   const displayor = document.querySelector(".experiment");
+
+   if (window.localStorage.getItem("color")) {
+      displayor.style.background = window.localStorage.getItem("color");
+      removeActive()
+      document.querySelector(`[data-color = '${window.localStorage.getItem("color")}']`).classList.add("active")
+   }
+
+   lis.forEach((li) => {
+      li.addEventListener("click", (e) => {
+         removeActive()
+         e.target.classList.add("active");
+         window.localStorage.setItem("color", e.target.getAttribute('data-color'))
+         window.localStorage.setItem("color", e.target.dataset.color)
+         displayor.style.background = window.localStorage.getItem("color");
+      })
+   })
+   // window.localStorage.clear()
+   function removeActive() {
+      lis.forEach((li) => { li.classList.remove("active"); })
+   }
+</script>
+
+</html>

@@ -1295,7 +1295,7 @@ function countDown() {
 }
 
 // #106 window location object
-location.{ Get / Set[URL || Hash || File || Mail] }
+window.location.{ Get / Set[URL || Hash || File || Mail] }
 console.log(location)//location info
 console.log(location.href)//page url
 location.href = "google.com";//modify location
@@ -1354,4 +1354,78 @@ btn.onclick = function () {
     top: 0,
     behavior: "smooth",
   });
+};
+
+// #111 - Local Storage
+// Set
+window.localStorage.setItem("color", "#F00");
+window.localStorage.fontWeight = "bold";
+window.localStorage["fontSize"] = "20px";
+
+// Get
+console.log(window.localStorage.getItem("color"));
+console.log(window.localStorage.color);
+console.log(window.localStorage["color"]);
+// Remove One
+window.localStorage.removeItem("color");
+// Remove All
+window.localStorage.clear();
+// Get Key
+console.log(window.localStorage.key(0)); like[index]
+// Set Color In Page
+document.body.style.backgroundColor = window.localStorage.getItem("color");
+
+console.log(window.localStorage);
+console.log(typeof window.localStorage);
+
+// #112 - Local Storage Color App Practice
+// <ul>    ref: BOMless112.html in answers folder
+//       <li class="active" data-color="red"></li>
+//       <li data-color="blue"></li>
+//       <li data-color="green"></li>
+//       <li data-color="black"></li>
+// </ul>
+// <div class="experiment"></div>
+
+const lis = document.querySelectorAll("li");
+const displayor = document.querySelector(".experiment");
+
+if (window.localStorage.getItem("color")) {
+  displayor.style.background = window.localStorage.getItem("color");
+  removeActive()
+  document.querySelector(`[data-color = '${window.localStorage.getItem("color")}']`).classList.add("active")
+}
+
+lis.forEach((li) => {
+  li.addEventListener("click", (e) => {
+    removeActive()
+    e.target.classList.add("active");
+    // window.localStorage.setItem("color", e.target.getAttribute('data-color'))
+    window.localStorage.setItem("color", e.target.dataset.color)
+    displayor.style.background = window.localStorage.getItem("color");
+  })
+})
+
+function removeActive() {
+  lis.forEach((li) => { li.classList.remove("active"); })
+}
+// #113 Session Storage
+/*  Session Storage
+  - setItem
+  - getItem
+  - removeItem
+  - clear
+  - key
+
+  Info
+  - New Tab = New Session
+  - Duplicate Tab = Copy Session
+  - New Tab With Same Url = New Session
+*/
+// window.localStorage.setItem("color", "red");
+// window.sessionStorage.setItem("color", "blue");
+
+document.querySelector(".name").onblur = function () {
+  // console.log(this.value);
+  window.sessionStorage.setItem("input-name", this.value);
 };
