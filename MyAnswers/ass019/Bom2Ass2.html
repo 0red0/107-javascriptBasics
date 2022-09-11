@@ -15,19 +15,21 @@
       <input type="number" name="" id="number">
       <input type="color" name="" id="color">
       <select name="" id="box">
-         <option value="">opt1</option>
-         <option value="">opt2</option>
-         <option value="">opt3</option>
-         <option value="">opt4</option>
-         <option value="">opt5</option>
+         <option value="">SELECT</option>
+         <option value="opt1">opt1</option>
+         <option value="opt2">opt2</option>
+         <option value="opt3">opt3</option>
+         <option value="opt4">opt4</option>
+         <option value="s">opt5</option>
       </select>
    </form>
 </body>
 <script>
-   const txt = document.getElementById("text")
-   const num = document.getElementById("number")
-   const clr = document.getElementById("color")
-   const sBox = document.getElementById("box")
+
+   const txt = document.getElementById(`text`)
+   const num = document.getElementById(`number`)
+   const clr = document.getElementById(`color`)
+   const Box = document.getElementById(`box`)
 
    if (window.sessionStorage.getItem("xtxt")) {
       txt.value = window.sessionStorage.getItem("xtxt");
@@ -38,17 +40,23 @@
    if (window.sessionStorage.getItem("xtxt")) {
       clr.value = window.sessionStorage.getItem("xclr");
    }
-   if (window.sessionStorage.getItem("xsBox")) {
-      sBox.options[sBox.selectedIndex].text = window.sessionStorage.getItem("xsBox");
+   if (window.sessionStorage.getItem("xBox")) {
+      Box.value = window.sessionStorage.getItem("xBox");
    }
+   // txt.onchange = () => window.sessionStorage.setItem("xtxt", txt.value)
+   // num.onchange = () => window.sessionStorage.setItem("xnum", num.value)
+   // clr.onchange = () => window.sessionStorage.setItem("xclr", clr.value)
+   // Box.onchange = () => window.sessionStorage.setItem("xBox", Box.value)
 
-   txt.onblur = () => {
+   document.onchange = () => {
+
       window.sessionStorage.setItem("xtxt", txt.value)
       window.sessionStorage.setItem("xnum", num.value)
       window.sessionStorage.setItem("xclr", clr.value)
-      window.sessionStorage.setItem("xsBox", sBox.options[sBox.selectedIndex].text)
+      window.sessionStorage.setItem("xBox", Box.value)
    }
 
+   // window.localStorage.cleasr()
 </script>
 
 </html>

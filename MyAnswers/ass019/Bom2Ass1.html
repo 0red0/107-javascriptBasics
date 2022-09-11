@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-111-to-114/ -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet">
+</head>
+<style>
+   body {
+      font-family: 'Cairo', sans-serif;
+      font-family: 'Open Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
+   }
+</style>
+
+<body>
+   <select name="box1" id="box1">
+      <option value="open">Open</option>
+      <option value="cairo">Cairo</option>
+      <option value="roboto">Roboto</option>
+   </select>
+   <select name="box2" id="box2">
+      <!-- <option value="none" selected disabled hidden>Select an Option</option> -->
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+      <option value="black">Black</option>
+      <option value="orange">Orange</option>
+   </select>
+   <select name="box3" id="box3">
+      <option value="g">16px</option>
+      <option value="fdg">18px</option>
+      <option value="fdg">20px</option>
+      <option value="dfg">22px</option>
+      <option value="gdf">24px</option>
+      <option value="dfg">26px</option>
+      <option value="dg">28px</option>
+      <option value="dfg">30px</option>
+   </select>
+   <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quos sequi repellendus dicta ratione aut
+      placeat quisquam fugiat, reiciendis perferendis doloremque! Dolor tenetur veniam qui quis asperiores est, amet
+      impedit.
+   </p>
+</body>
+<script>
+   // const selectTags = document.querySelectorAll("select")
+   const optionz = document.querySelectorAll("option")
+   const famillia = document.getElementById("box1")
+   const colors = document.getElementById("box2")
+   const sizes = document.getElementById("box3")
+   const myP = document.querySelector("p")
+
+
+   function doAll(select, optionTags, name) {
+      if (window.localStorage.getItem(name)) {
+         optionTags.forEach(option => {
+            if (option.innerText == window.localStorage.getItem(name)) {
+               option.setAttribute("selected", "")
+               myP.style.cssText = `${name}:${window.localStorage.getItem(name)};`
+            }
+         })
+      }
+      select.addEventListener("change", () => {
+         optionTags.forEach(option => {
+            option.removeAttribute("selected")
+         })
+         select.options[select.selectedIndex].setAttribute("selected", "")
+         window.localStorage.setItem(name, select.options[select.selectedIndex].text)
+         myP.style.cssText = `${name}:${window.localStorage.getItem(name)};`
+      })
+   }
+   doAll(famillia, optionz, "font-family")
+   doAll(colors, optionz, 'color')
+   doAll(sizes, optionz, 'font-size')
+
+   // window.localStorage.clear()
+
+
+   //Trying it without the function which means manually change every id and text for each select box independently
+   //same issue
+   //Font Family
+   // if (window.localStorage.getItem('font-family')) {
+   //    optionz.forEach(option => {
+   //       if (option.innerText == window.localStorage.getItem('font-family')) {
+   //          option.setAttribute("selected", "")
+   //          myP.style.cssText = `font-family:${window.localStorage.getItem('font-family')};`
+   //       }
+   //    })
+   // }
+   // famillia.addEventListener("change", () => {
+   //    optionz.forEach(option => {
+   //       option.removeAttribute("selected")
+   //    })
+   //    famillia.options[famillia.selectedIndex].setAttribute("selected", "")
+   //    window.localStorage.setItem('font-family', famillia.options[famillia.selectedIndex].text)
+   //    myP.style.cssText = `font-family:${window.localStorage.getItem('font-family')};`
+   // })
+
+
+   // //Font Color
+   // if (window.localStorage.getItem('color')) {
+   //    optionz.forEach(option => {
+   //       if (option.innerText == window.localStorage.getItem('color')) {
+   //          option.setAttribute("selected", "")
+   //          myP.style.cssText = `color:${window.localStorage.getItem('color')};`
+   //       }
+   //    })
+   // }
+   // colors.addEventListener("change", () => {
+   //    optionz.forEach(option => {
+   //       option.removeAttribute("selected")
+   //    })
+   //    colors.options[colors.selectedIndex].setAttribute("selected", "")
+   //    window.localStorage.setItem('color', colors.options[colors.selectedIndex].text)
+   //    myP.style.cssText = `color:${window.localStorage.getItem('color')};`
+   // })
+
+
+   // //Font Size
+
+   // if (window.localStorage.getItem('font-size')) {
+   //    optionz.forEach(option => {
+   //       if (option.innerText == window.localStorage.getItem('font-size')) {
+   //          option.setAttribute("selected", "")
+   //          myP.style.cssText = `font-size:${window.localStorage.getItem('font-size')};`
+   //       }
+   //    })
+   // }
+   // sizes.addEventListener("change", () => {
+   //    optionz.forEach(option => {
+   //       option.removeAttribute("selected")
+   //    })
+   //    sizes.options[sizes.selectedIndex].setAttribute("selected", "")
+   //    window.localStorage.setItem('font-size', sizes.options[sizes.selectedIndex].text)
+   //    myP.style.cssText = `font-size:${window.localStorage.getItem('font-size')};`
+   // })
+</script>
+
+</html>

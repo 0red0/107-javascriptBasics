@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Learn Js</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap"
+      rel="stylesheet">
+
+   <script>
+
+   </script>
+
+</head>
+<style>
+   .container {
+      background-color: rgb(214, 214, 214);
+      margin: 50px auto;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+   }
+
+   input {
+      display: block;
+   }
+</style>
+
+<body>
+   <form class="container">
+      <label for="fname">Frist Name</label>
+      <input type="text" id="fname">
+      <label for="mname">Mid Name</label>
+      <input type="text" name="" id="mname">
+      <label for="lname">Last Name</label>
+      <input type="text" name="" id="lname">
+
+      <select name="" id="options">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+      </select>
+   </form>
+   </div>
+   <script src="main.js"></script>
+</body>
+<script>
+   let fName = document.querySelector("#fname");
+   let mName = document.querySelector("#mname");
+   let lName = document.querySelector("#lname");
+   let option = document.querySelector("#options");
+
+   loadFromSession();
+
+
+   fName.onblur = _ => window.sessionStorage.setItem("first name", fName.value);
+   mName.onblur = _ => window.sessionStorage.setItem("mid name", mName.value);
+   lName.onblur = _ => window.sessionStorage.setItem("last name", lName.value);
+   option.onblur = _ => window.sessionStorage.setItem("option", option.value);
+
+   function loadFromSession() {
+      if (sessionStorage.getItem("first name"))
+         fName.value = sessionStorage.getItem("first name");
+      if (sessionStorage.getItem("mid name"))
+         mName.value = sessionStorage.getItem("mid name");
+      if (sessionStorage.getItem("last name"))
+         lName.value = sessionStorage.getItem("last name");
+      if (sessionStorage.getItem("option"))
+         option.value = sessionStorage.getItem("option");
+   }
+</script>
+
+</html>
