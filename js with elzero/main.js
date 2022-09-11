@@ -921,7 +921,7 @@ console.log(finalObject);
 let newObject = Object.assign({}, obj1, { prop5: 5, prop6: 6 });
 console.log(newObject);
 
-DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM
+DOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAQWWOOOOOOOOOOOOOOOOOOOOOOOM
 
 // #086 Document Object Module:
 --The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
@@ -1429,3 +1429,117 @@ document.querySelector(".name").onblur = function () {
   // console.log(this.value);
   window.sessionStorage.setItem("input-name", this.value);
 };
+// #114 BOM Challenge
+
+// #115 - Destructuring Arrays
+extract data from arrays, objects.
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+
+let myFriends = ["Ahmed","Sayed","Ali","Maysa"];
+
+[a = "AA" , b, c, d ,e = "Osama"] = myFriends;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+
+// let [x,y, ,z] = myFriends;//skipping 3rd object
+let [ ,y, ,z] = myFriends;//skipping 1st & 3rd object
+// console.log(x)
+console.log(y)
+console.log(z)
+
+// #116 - Destructuring Arrays
+let myFriends = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
+
+let [,,,[a,,[,b]]] = myFriends
+console.log(a)
+console.log(b)
+
+// #117 - Destructuring Arrays swapping variables
+let book = "Video";
+let video = "Book";
+
+// let stash = book; // Video
+// book = video; // Book
+// video = stash; // Video
+
+[book, video] = [video, book];
+
+console.log(book);
+console.log(video);
+
+// #118 - Destructuring Objects
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  theTitle: "Developer",
+  theCountry: "Egypt",
+};
+// let theName = user.theName; THE OLD WAY OF LOGGING
+// console.log(theName);
+({ theName, theAge, theTitle, theCountry } = user);
+const { theName, theAge, theCountry } = user;
+
+console.log(theName);
+console.log(theAge);
+console.log(theCountry);
+
+// #119 - Destructuring Objects
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  theTitle: "Developer",
+  theCountry: "Egypt",
+  theColor: "Black",
+  skills: {
+    html: 70,
+    css: 80,
+  },
+};
+
+const {
+  theName: n,
+  theAge: a,
+  theCountry,
+  theColor: co = "Red",
+  skills: { html: h, css },
+} = user; // destructuring here
+
+console.log(n);
+console.log(a);
+console.log(theCountry);
+console.log(co);
+console.log(`My HTML Skill Progress Is ${h}`);
+console.log(`My CSS Skill Progress Is ${css}`);
+
+const { html: skillOne, css: skillTwo } = user.skills;
+// with const and not () is better when logging
+console.log(`My HTML Skill Progress Is ${skillOne}`);
+console.log(`My CSS Skill Progress Is ${skillTwo}`);
+
+// #120 - Destructuring Function Parameters
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  skills: {
+    html: 70,
+    css: 80,
+  },
+};
+showDetails(user);
+// function showDetails(obj) {
+//   console.log(`Your Name Is ${obj.theName}`);
+//   console.log(`Your Age Is ${obj.theAge}`);
+//   console.log(`Your CSS Skill Progress Is ${obj.skills.css}`);
+// }
+function showDetails({ theName: n, theAge: a, skills: { css: c } } = user) {
+  console.log(`Your Name Is ${n}`);
+  console.log(`Your Age Is ${a}`);
+  console.log(`Your CSS Skill Progress Is ${c}`);
+}
