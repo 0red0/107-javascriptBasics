@@ -13,6 +13,23 @@
 </body>
 <script>
 
+   let myVar = "country";
+   let user = {
+      theName: "Osama",
+      theAge: 39,
+      height: 955,
+      country: "Egypt",
+      sayWords: function () {//object's method
+         return `Good Morning, MinaSan`;
+      },
+   };
+   // let oarr = .values(user)
+   console.log(Object.values(user));
+   console.log(user.sayWords());
+   console.log(user["country"]);
+   console.log(user[myVar]);
+
+
 
 
 

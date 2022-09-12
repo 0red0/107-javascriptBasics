@@ -785,7 +785,7 @@ let user = {
 };
 console.log(user.theAge);
 console.log(user.sayWords());
-console.log(user["country of"]);
+console.log(user["country"]);
 console.log(user[myVar]);
 
 let objArrV = Object.values(finalObject);//turn object into array of properties' values
@@ -1438,9 +1438,9 @@ let b = 2;
 let c = 3;
 let d = 4;
 
-let myFriends = ["Ahmed","Sayed","Ali","Maysa"];
+let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
 
-[a = "AA" , b, c, d ,e = "Osama"] = myFriends;
+[a = "AA", b, c, d, e = "Osama"] = myFriends;
 
 console.log(a);
 console.log(b);
@@ -1449,7 +1449,7 @@ console.log(d);
 console.log(e);
 
 // let [x,y, ,z] = myFriends;//skipping 3rd object
-let [ ,y, ,z] = myFriends;//skipping 1st & 3rd object
+let [, y, , z] = myFriends;//skipping 1st & 3rd object
 // console.log(x)
 console.log(y)
 console.log(z)
@@ -1457,7 +1457,7 @@ console.log(z)
 // #116 - Destructuring Arrays
 let myFriends = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
 
-let [,,,[a,,[,b]]] = myFriends
+let [, , , [a, , [, b]]] = myFriends
 console.log(a)
 console.log(b)
 
@@ -1509,7 +1509,7 @@ const {
   theCountry,
   theColor: co = "Red",
   skills: { html: h, css },
-} = user; // destructuring here
+} = user; // destructured here
 
 console.log(n);
 console.log(a);
@@ -1543,3 +1543,24 @@ function showDetails({ theName: n, theAge: a, skills: { css: c } } = user) {
   console.log(`Your Age Is ${a}`);
   console.log(`Your CSS Skill Progress Is ${c}`);
 }
+
+// #121 - Destructuring Mixed Content
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  skills: ["HTML", "CSS", "JavaScript"],
+  addresses: {
+    egypt: "Cairo",
+    ksa: "Riyadh",
+  },
+};
+const {
+  theName: n,
+  theAge: a,
+  skills: [, , three],//one,two not required for logging
+  addresses: { egypt: e },//ksa not required for logging
+} = user;
+console.log(`Your Name Is: ${n}`);
+console.log(`Your Age Is: ${a}`);
+console.log(`Your Last Skill Is: ${three}`);
+console.log(`Your Live In: ${e}`);
