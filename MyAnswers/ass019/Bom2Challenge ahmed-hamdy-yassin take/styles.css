@@ -1,0 +1,65 @@
+   #main-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #DDD;
+      border-radius: 20px;
+      width: 550px;
+      height: 60px;
+      margin: 50px auto;
+   }
+
+   #task-name {
+      padding: 10px 240px 10px 30px;
+      margin-left: 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+   }
+
+   #task-submit {
+      background-color: #2196f3;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+   }
+
+   .background {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #2196f3;
+      font-weight: bolder;
+      width: 550px;
+      padding: 10px 0 0 0;
+      background-color: #DDD;
+      border-radius: 20px;
+      margin: 50px auto;
+   }
+
+
+   /* .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 30px;
+    width: 480px;
+    border-radius: 20px;
+    background-color: white;
+} */
+
+
+   /* .del-btn {
+    background-color: #f32156;
+    color: white;
+    font-weight: 400;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-align: right;
+} */

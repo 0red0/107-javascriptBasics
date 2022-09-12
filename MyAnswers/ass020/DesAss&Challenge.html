@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Assignment 1
+
+    // let myNumbers = [1, 2, 3, 4, 5];
+    // const [a, , , , e] = myNumbers;
+    // console.log(a * e); // 5
+
+
+    // Assignment 2
+    // let mySkills = ["HTML", "CSS", "JavaScript", ["PHP", "Python", ["Django", "Laravel"]]];
+
+    // const [a, b, c, [d, e, [f, g]]] = mySkills;
+
+    // console.log(`My Skills: ${a}, ${b}, ${c}, ${d}, ${e}, ${f}, ${g}`);
+
+    // Assingment 3
+    // let arr1 = ["Ahmed", "Sameh", "Sayed"];
+    // let arr2 = ["Mohamed", "Gamal", "Amir"];
+    // let arr3 = ["Haytham", "Shady", "Mahmoud"];
+    // const arr = arr1.concat(arr2.concat(arr3));
+    // const [c, , , , , , , a, b] = arr;
+    // console.log(`My Best Friends: ${a}, ${b}, ${c}`);
+    // My Best Friends: Shady, Mahmoud, Ahmed
+
+
+    // Assingment 4
+    // const member = {
+    //     age: 30,
+    //     working: false,
+    //     country: "Egypt",
+    //     hobbies: ["Reading", "Swimming", "Programming"],
+    // };
+
+    // const { age: a, working: w, country: c, hobbies: [h1, , h3] } = member;
+
+    // console.log(`My Age Is ${a} And Iam ${w ? "" : "Not"} Working`);
+    // // My Age Is 30 And Iam Not Working
+
+    // console.log(`I Live in ${c}`);
+    // // I Live in Egypt
+
+    // console.log(`My Hobbies: ${h1} And ${h3}`);
+    // My Hobbies: Reading And Programming
+
+
+    // Assingment 5
+    // const game = {
+    //     title: "YS",
+    //     developer: "Falcom",
+    //     releases: {
+    //         "Oath In Felghana": ["USA", "Japan"],
+    //         "Ark Of Napishtim": {
+    //             US: "20 USD",
+    //             JAP: "10 USD",
+    //         },
+    //         Origin: "30 USD",
+    //     },
+    // };
+
+    // ({
+    //     title: t,
+    //     developer: d,
+    //     releases: {
+    //         'Oath In Felghana': [u, j],
+    //         'Ark Of Napishtim': { US: u_price, JAP: j_price },
+    //         Origin: or,
+    //     },
+    // } = game);
+
+    // const o = Object.keys(game.releases)[0]
+    // const a = Object.keys(game.releases)[1]
+
+    //Iteration 2 ( Not main#
+    //         const{title:t,developer:d,releases:{Origin:or}} = game
+    // const{"Oath In Felghana":o = "Oath In Felghana"} = game
+    // const{releases:{"Oath In Felghana":[u,j]}} = game
+    // const{"Ark Of Napishtim":a="Ark Of Napishtim"} = game
+    // const{releases:{"Ark Of Napishtim":{US:u_price}}} = game
+    // const{releases:{"Ark Of Napishtim":{JAP:j_price}}} = game
+    //     )
+
+    // console.log(`My Favourite Games Style Is ${t} Style`);
+    // console.log(`And I Love ${d} Games`);
+    // console.log(`My Best Release Is ${o} It Released in ${u} & ${j}`);
+    // console.log(`Although I Love ${a}`);
+    // console.log(`${a} Price in USA Is ${u_price}`);
+    // console.log(`${a} Price in Japan Is ${j_price}`);
+    // console.log(`Origin Price Is ${or}`);
+    // // My Favourite Games Style Is YS Style
+    // // And I Love Falcom Games
+    // // My Best Release Is Oath In Felghana It Released in USA & Japan
+    // // Although I Love Ark Of Napishtim
+    // // Ark Of Napishtim Price in USA Is 20 USD
+    // // Ark Of Napishtim Price in Japan Is 10 USD
+    // // Origin Price Is 30 USD
+
+
+    // Assignment 6
+    let chosen = 1;
+    // chosen = chosen -1 ;
+    let myFriends = [
+        { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
+        { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
+        { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+    ];
+    // let v = myFriends[chosen].available ? "Available" : "Not";
+    // console.log(myFriends[chosen].title);
+    // console.log(myFriends[chosen].age);
+    // console.log(v)
+    // console.log(myFriends[chosen].skills[1]);
+
+    //Iteration 2:-
+    const { title: t, age, available, skills: [, s] } = myFriends[chosen - 1];
+    console.log(t);
+    console.log(age);
+    console.log(available ? "Available" : "Not");
+    console.log(s);
+
+
+
+
+
+        //Iteration 2:-
+</script>
+
+</html>
