@@ -1564,3 +1564,72 @@ console.log(`Your Name Is: ${n}`);
 console.log(`Your Age Is: ${a}`);
 console.log(`Your Last Skill Is: ${three}`);
 console.log(`Your Live In: ${e}`);
+
+// #122 - Destructuring Challenge.
+
+// #123 - Set Data Types. new Set()
+const arri = [1, 1, 1, 2, 3, "a"];
+   // const uniArr = new Set(arri);
+   const uniArr = new Set();
+   uniArr.add(1).add(1).add(1).add(2).add(3).add('a').add('b');
+   // let myUniqueData = new Set().add(1).add(1).add(1).add(2).add(3);
+
+   console.log(arri)
+   console.log(uniArr);
+   console.log(uniArr.size);
+   console.log(arri[5]) // new Stes have no index methods as far as I know
+
+   uniArr.add("b");
+   console.log(uniArr);
+
+   uniArr.delete(3);// 3 iterable deleted
+   console.log(uniArr);
+   console.log(uniArr.delete("b"))//true, it checks availability before deletion
+   console.log(uniArr);//"b" deleted
+
+   //uniArr.clear()
+   console.log(uniArr.has("b"))
+
+   //conversion to array
+[...new Set(iterables)] => array;
+let arr = Array.from(setName) => array;
+   
+// #124 - Set vs WeakSet
+// Values + Keys [Alias For Values]
+let iterator = mySet.keys();
+console.log(iterator.next().value);
+console.log(iterator.next());
+//WeakSet only accepts objects 
+let myws = new WeakSet([{ A: 1, B: 2 }]);
+console.log(myws);
+
+// #125 Map vs Object
+let myObject = {};
+let myEmptyObject = Object.create(null);
+let myMap = new Map();
+
+console.log(myObject);
+console.log(myEmptyObject);
+console.log(myMap);
+
+let myNewObject = {
+  10: "Number",
+  "10": "String",
+};
+
+console.log(myNewObject[10]);
+
+let myNewMap = new Map();
+myNewMap.set(10, "Number");
+myNewMap.set("10", "String");
+myNewMap.set(true, "Boolean");
+myNewMap.set({a: 1, b: 2}, "Object");
+myNewMap.set(function doSomething() {}, "Function");
+
+console.log(myNewMap.get(10));
+console.log(myNewMap.get("10"));
+
+console.log("####");
+
+console.log(myNewObject);
+console.log(myNewMap);
