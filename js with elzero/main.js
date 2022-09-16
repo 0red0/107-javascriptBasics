@@ -1770,3 +1770,161 @@ console.log(check)
    }
    let newobj = { ...obj1, ...obj2, ego: 99 }
    console.log(newobj)
+
+// #134 Regular Expression
+applyed on:
+let str1 = '10 20 100 1000 5000';
+let str2 = 'Os1 Os12 Os123 Os123Os Os12312Os123';
+let invalidEmail = 'Osama@@@gmail....com';
+let validEmail = 'o@nn.sa';//E-mails
+let ip = '192.168.2.1'; // IPv4
+let url = 'elzero.org';//url
+
+// #135 RE Modifiers & .match(Search Methods)
+/* Syntax
+/pattern/modifier(s);
+new RegExp("pattern", "modifier(s)")
+*/
+Modifiers => Flags
+i => case-insensitive
+g => global
+m => Multilines
+
+let myString = "Hello Elzero Web School I Love elzero";
+
+let regex = /elzero/ig;
+
+console.log(myString.match(regex));
+
+// #136 Ranges part1
+(X|Y) => X Or Y
+[0-9] => 0 To 9
+[^0-9] => Any Character Not 0 To 9
+
+let tld = "Com Net Org Info Code Io";
+let tldRe = /(info|org|io)/ig;
+console.log(tld.match(tldRe));
+
+let nums = "12345678910";
+let numsRe = /[0-2]/g;
+console.log(nums.match(numsRe));
+
+let notNums = "12345678910";
+let notNsRe = /[^0-2]/g;
+console.log(notNums.match(notNsRe));
+
+let specialNums = "1!2@3#4$5%678910";
+let specialNumsRe = /[^0-9]/g;
+console.log(specialNums.match(specialNumsRe));
+
+let practice = "Os1 Os1Os Os2 Os8 Os8Os";
+let practiceRe = /Os[5-9]Os/g;
+console.log(practice.match(practiceRe));
+
+// #137 Range part2
+let myString = "AaBbcdefG123!234%^&*";
+^ = not in Regular Expression
+   // let strRe = /[a-z]/g;
+   // let strRe = /[^a-z]/g;
+   // let strRe = /[A-Z]/g;
+   // let strRe = /[^A-Z]/g;
+   // let strRe = /(A|Z)/g;
+   // let strRe = /[A-Z  a-z]/g;// [A-Z]|[a-z] = [A-Z | a-z]
+   // let strRe = /[^A-Z a-z]/g;// special chars and nums
+   // let strRe = /[abce]/g;// within range of this
+   let strRe = /[^A-Z0-9sa-z]/g;
+
+   console.log(myString.match(strRe))
+
+// #138 RE Character Classes
+. => matches any character, except newline or other line terminators.
+\w => matches word characters. [a-z, A-Z, 0-9 And Underscore]
+\W => matches Non word characters
+\d => matches digits from 0 to 9.
+\D => matches non-digit characters.
+\s => matches whitespace character.
+\S => matches non whitespace character.
+*/
+
+let email = 'O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com';
+let dot = /./g;
+let word = /\w/g;
+let validEmail = /\w@\w.(com|net)/g;
+console.log(email.match(dot));
+console.log(email.match(word));
+console.log(email.match(validEmail));
+
+// #139 Character Classes2 & .test(t/f)
+\b => section at the beginning or end of a word.
+\B => section NOT at the beginning/end of a word.
+let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
+let re = /(\bspam|spam\b)/ig;
+console.log(names.match(re));
+
+console.log(re.test(names));
+console.log(/(\bspam|spam\b)/ig.test("Osama"));
+console.log(/(\bspam|spam\b)/ig.test("1Spam"));
+console.log(/(\bspam|spam\b)/ig.test("Spam1"));
+
+
+// #140 RE Quantifiers 
+  (letter/number/symbol/word/charClass) n+    => One Or More
+  n*    => zero or more //somthings there or not
+  n?    => zero or one //somthing there or not
+
+let mails = "o@nn.sa osama@gmail.com elzero@gmail.net osama@mail.ru"; // All Emails
+// let mailsRe = /\w+@\w+.(com|net)/ig;
+let mailsRe = /\w+@\w+.\w+/ig;
+console.log(mails.match(mailsRe));
+
+let nums = "0110 10 150 05120 0560 350 00"; // 0 Numbers Or No 0
+let numsRe = /0\d*0/ig;
+console.log(nums.match(numsRe));
+
+let urls = "https://google.com http://www.website.net web.com"; // http + https
+let urlsRe = /(https?:\/\/)?(www.)?\w+.\w+/ig;
+console.log(urls.match(urlsRe));
+
+// #141 RE Quantifiers Numbers of numbers
+  n{x}   => Number of
+  n{x,y} => Range
+  n{x,}  => At Least x
+let serials = "S100S S3000S S50000S S950000S";
+
+console.log(serials.match(/s\d{3}s/ig)); // S[Three Number]S
+console.log(serials.match(/s\d{4,5}s/ig)); // S[Four Or Five Number]S
+console.log(serials.match(/s\d{4,}s/ig)); // S[At Least Four]S
+
+// #142  Quantifiers 3
+  $  => End With Something
+  ^  => Start With Something
+  ?= => Followed By Something
+  ?! => Not Followed By Something
+
+let myString = "We Love Programming";
+let names = "1OsamaZ 2AhmedZ 3Mohammed 4MoustafaZ 5GamalZ";
+
+console.log(/ing$/ig.test(myString));
+console.log(/^we/ig.test(myString));
+console.log(/lz$/ig.test(names));
+console.log(/^\d/ig.test(names));
+
+console.log(names.match(/\d\w{5}(?=Z)/ig));
+console.log(names.match(/\d\w{8}(?!Z)/ig));
+
+// #143 .replace(pattern, replacer) & replaceAll(,)
+let txt = "We Love Programming And @ Because @ Is Amazing";
+   let regEx = /@/g;
+   console.log(txt.replaceAll(regEx, "Js"))
+
+// #144 RE quick short Form Validation
+document.getElementById("register").onsubmit = function () {
+  let phoneInput = document.getElementById("phone").value;
+  let phoneRe = /\(\d{4}\)\s\d{3}-\d{4}/; // (1234) 567-8910
+  let validationResult = phoneRe.test(phoneInput);
+  if (validationResult === false) {
+    return false;
+  }
+  return true;
+}
+// #145 - Test Your Regular Expression sites
