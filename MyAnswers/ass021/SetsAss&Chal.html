@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-123-to-133/
+</body>
+<script>
+   //A1
+   let setOfNumbers = new Set().add(10);
+   setOfNumbers.add(20).add(setOfNumbers.size);
+   console.log(setOfNumbers);
+   console.log([...setOfNumbers][2])
+   // console.log(Array.from(setOfNumbers)[setOfNumbers.size - 1])
+
+   //A2
+   let myFriends = ["Osama", "Ahmed", "Sayed", "Sayed", "Mahmoud", "Osama"];
+   console.log(Array.from(new Set(myFriends)).sort())
+
+   //A3
+   let myInfo = {
+      username: "Osama",
+      role: "Admin",
+      country: "Egypt",
+   };
+
+   let map = new Map(Object.entries(myInfo));
+   console.log(map)
+   console.log(map.size)
+   console.log(map.has('role'))
+
+   //A4
+   let theNumber = 100020003000;
+   console.log(+Array.from(new Set(theNumber + "")).filter(e => e != false).join(""))
+
+   //A5
+   let theName = "Elzero";
+   //not main;  research needed
+   console.log(Object.values(theName));
+   console.log(Object.assign([], theName));
+   console.log(Object.entries(theName));
+   console.log(new Set(theName).keys());
+   console.log(new Set(theName).values());
+   //not main
+   console.log("//A5")
+   console.log([...theName]);
+   console.log(Array.from(theName));
+   console.log(theName.split(""))
+   console.log([...new Set(theName)])
+   let newArr = [];
+   for (let i = 0; i < theName.length; i++) {
+      newArr.push(theName[i])
+   }
+   console.log(newArr)
+
+   //A6
+   console.log("//A6")
+
+   // let chars = ["A", "B", "C", 20, "D", "E", 10, 15, 6];
+   // let chars = ["A", "B", "C", "D", "E", 10, 15, 6];
+   let chars = ["Z", "Y", "A", "D", "E", 10, 1];
+   chars.sort();
+
+   let counter = 0;
+   chars.map((n) => typeof n === "number" ? counter += 1 : "");
+
+   let firstStr = chars.filter(o => isNaN(o))[0]
+
+   let i = chars.indexOf(firstStr);
+
+   chars.map(y => typeof y === "number" ? chars.copyWithin(chars.indexOf(y), i, i + counter) : y)
+   console.log(chars)
+
+   //A7  
+   let numsOne = [1, 2, 3];
+   let numsTwo = [4, 5, 6];
+
+   console.log([...numsOne, ...numsTwo])
+   console.log(numsOne.concat(numsTwo))
+   let freshArr = [];
+   freshArr.push(...numsOne, ...numsTwo);
+   console.log(freshArr)
+
+   // console.log(Object.assign([], [...numsOne, ...numsTwo]));
+   // console.log([].concat(numsOne, numsTwo));
+   // console.log([numsOne + ',' + numsTwo])
+   // console.log([`${numsOne},${numsTwo}`])
+   // console.log(`[${numsOne},${numsTwo}]`)
+
+   //A8
+   let n1 = [10, 30, 10, 20];
+   let n2 = [30, 20, 10];
+
+   console.log(n1.concat(n2).length * Math.max(...n1));
+
+
+
+
+
+
+
+</script>
+
+</html>

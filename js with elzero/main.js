@@ -1,6 +1,6 @@
 /* 1- WHY HTML ELEMENTS ARE OBJECTS (TYPEOF ID)?
    2- getElementByClassName doesn't work but querySelector works?DOM1Ass3.html
-
+   3- new Set(typeof Set).size ??
 */
 /*
 #001 Introduction
@@ -1633,3 +1633,140 @@ console.log("####");
 
 console.log(myNewObject);
 console.log(myNewMap);
+
+// #126 Map methods
+let newMap = new Map([
+  [name, "Osama"],
+  ['player', "Yhya"],
+  ['country', 'function Eg(kjg)'],
+  [false, "Boolean"]
+]);
+
+console.log(newMap.has(name));
+newMap.set()
+console.log(newMap);
+console.log(newMap.size)
+newMap.delete(name)
+console.log(newMap);
+console.log(newMap.size)
+
+// #127 Map vs WeakMap
+
+  let object1 = { theName: "elzero" };
+  let myMap = new Map();
+  myMap.set(object1, "Ovalue");
+  object1 = null; // override the reference
+  console.log(myMap);
+
+  let object2 = { theName: "elzero" };
+  let myWeakMap = new WeakMap();
+  myWeakMap.set(object2, "Ovalue")
+  object2 = null; // override the reference
+  console.log(myWeakMap)
+
+// #128 Array.from (object, it accepts functions)
+   console.log(Array.from("Osama"))
+   console.log(Array.from("12354", (n) => +n + +n));
+   let arr = [1, 1, 1, 3, 2, 4];
+   let uset = new Set(arr);
+
+   console.log(uset)
+   console.log(Array.from(uset))
+
+   function test() {
+      return arguments;
+   }
+   console.log(test("Osama", "Ahmed", "Sayed", 1, 2, 3));
+   let func = test("Osama", "Ahmed", "Sayed", 1, 2, 3)[1];
+   console.log(func)
+
+// #129 Array.copyWithin()
+   let myArray = [10, 20, 30, 40, 50, "A", "B"];
+
+   myArray.copyWithin(-6, -2, -1)
+   console.log(myArray)
+
+// #130 arr.some()
+   // some kinda like reduce
+
+   let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
+   let myNumber = 22;
+
+   //simple check
+   let check = nums.some((e) => {
+      // console.log("test")//itsa loop, maarioo
+      return e > 5
+   }, myNumber);
+   console.log(check)
+
+   //check equality
+   let equals = nums.some(function (e) {
+      return e === this;
+   }, myNumber);
+   console.log(equals)
+
+   function checkArr(arr, val) {
+      return arr.some((n) => {
+         return n === val;
+      })
+   };
+   console.log(checkArr(nums, 111));
+
+   let rangee = {
+      min: 10,
+      max: 20,
+   }
+   // function inRange() {
+   //    return nums.some((n) => n > rangee.min && n < rangee.max);
+   // }
+   // console.log(inRange())
+
+   let rangeCheck = nums.some(function (e) {
+      return e >= this.min && e <= this.max;
+   }, rangee);
+   console.log(rangeCheck)
+
+// #131 every 
+const locations = {
+  20: "place 1",
+  30: "place 2",
+  10: "place 3",
+  40: "place 4",
+}
+let mainLocation = 15;
+// let stringedArr = arr.map((e) => +e); // parse it.
+let check = Array.from(Object.keys(locations)).every(function (e) {
+  return e > this;
+}, mainLocation)
+console.log(check)
+
+// #132 rest/spread operator 
+   // - use spread operator on String
+   console.log(..."Osama")
+   // - add[] to Stringa
+   console.log([..."Osama"])
+   // - concatenat with spread operator 2Arrays
+   let arr1 = [1, 2, 3];
+   let arr2 = [4, 5, 6];
+   console.log([...arr1, ...arr2])
+   // - copy Array with spread operator
+   let copyarr = [...arr1]
+   console.log(copyarr)
+   // - use ... with push new iterables
+   let newFriends = ["osama", "Ahmed"]
+   arr1.push(...newFriends);
+   console.log(arr1)
+   // - Math object
+   console.log(Math.max(...arr2))//just like that
+
+   // - ... to concatenat objects / merge
+   let obj1 = {
+      name: "samir",
+      age: 14,
+   }
+   let obj2 = {
+      friend: "shahir",
+      address: 15,
+   }
+   let newobj = { ...obj1, ...obj2, ego: 99 }
+   console.log(newobj)
