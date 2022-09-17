@@ -1569,31 +1569,31 @@ console.log(`Your Live In: ${e}`);
 
 // #123 - Set Data Types. new Set()
 const arri = [1, 1, 1, 2, 3, "a"];
-   // const uniArr = new Set(arri);
-   const uniArr = new Set();
-   uniArr.add(1).add(1).add(1).add(2).add(3).add('a').add('b');
-   // let myUniqueData = new Set().add(1).add(1).add(1).add(2).add(3);
+// const uniArr = new Set(arri);
+const uniArr = new Set();
+uniArr.add(1).add(1).add(1).add(2).add(3).add('a').add('b');
+// let myUniqueData = new Set().add(1).add(1).add(1).add(2).add(3);
 
-   console.log(arri)
-   console.log(uniArr);
-   console.log(uniArr.size);
-   console.log(arri[5]) // new Stes have no index methods as far as I know
+console.log(arri)
+console.log(uniArr);
+console.log(uniArr.size);
+console.log(arri[5]) // new Stes have no index methods as far as I know
 
-   uniArr.add("b");
-   console.log(uniArr);
+uniArr.add("b");
+console.log(uniArr);
 
-   uniArr.delete(3);// 3 iterable deleted
-   console.log(uniArr);
-   console.log(uniArr.delete("b"))//true, it checks availability before deletion
-   console.log(uniArr);//"b" deleted
+uniArr.delete(3);// 3 iterable deleted
+console.log(uniArr);
+console.log(uniArr.delete("b"))//true, it checks availability before deletion
+console.log(uniArr);//"b" deleted
 
-   //uniArr.clear()
-   console.log(uniArr.has("b"))
+//uniArr.clear()
+console.log(uniArr.has("b"))
 
-   //conversion to array
+//conversion to array
 [...new Set(iterables)] => array;
 let arr = Array.from(setName) => array;
-   
+
 // #124 - Set vs WeakSet
 // Values + Keys [Alias For Values]
 let iterator = mySet.keys();
@@ -1623,8 +1623,8 @@ let myNewMap = new Map();
 myNewMap.set(10, "Number");
 myNewMap.set("10", "String");
 myNewMap.set(true, "Boolean");
-myNewMap.set({a: 1, b: 2}, "Object");
-myNewMap.set(function doSomething() {}, "Function");
+myNewMap.set({ a: 1, b: 2 }, "Object");
+myNewMap.set(function doSomething() { }, "Function");
 
 console.log(myNewMap.get(10));
 console.log(myNewMap.get("10"));
@@ -1652,79 +1652,79 @@ console.log(newMap.size)
 
 // #127 Map vs WeakMap
 
-  let object1 = { theName: "elzero" };
-  let myMap = new Map();
-  myMap.set(object1, "Ovalue");
-  object1 = null; // override the reference
-  console.log(myMap);
+let object1 = { theName: "elzero" };
+let myMap = new Map();
+myMap.set(object1, "Ovalue");
+object1 = null; // override the reference
+console.log(myMap);
 
-  let object2 = { theName: "elzero" };
-  let myWeakMap = new WeakMap();
-  myWeakMap.set(object2, "Ovalue")
-  object2 = null; // override the reference
-  console.log(myWeakMap)
+let object2 = { theName: "elzero" };
+let myWeakMap = new WeakMap();
+myWeakMap.set(object2, "Ovalue")
+object2 = null; // override the reference
+console.log(myWeakMap)
 
 // #128 Array.from (object, it accepts functions)
-   console.log(Array.from("Osama"))
-   console.log(Array.from("12354", (n) => +n + +n));
-   let arr = [1, 1, 1, 3, 2, 4];
-   let uset = new Set(arr);
+console.log(Array.from("Osama"))
+console.log(Array.from("12354", (n) => +n + +n));
+let arr = [1, 1, 1, 3, 2, 4];
+let uset = new Set(arr);
 
-   console.log(uset)
-   console.log(Array.from(uset))
+console.log(uset)
+console.log(Array.from(uset))
 
-   function test() {
-      return arguments;
-   }
-   console.log(test("Osama", "Ahmed", "Sayed", 1, 2, 3));
-   let func = test("Osama", "Ahmed", "Sayed", 1, 2, 3)[1];
-   console.log(func)
+function test() {
+  return arguments;
+}
+console.log(test("Osama", "Ahmed", "Sayed", 1, 2, 3));
+let func = test("Osama", "Ahmed", "Sayed", 1, 2, 3)[1];
+console.log(func)
 
 // #129 Array.copyWithin()
-   let myArray = [10, 20, 30, 40, 50, "A", "B"];
+let myArray = [10, 20, 30, 40, 50, "A", "B"];
 
-   myArray.copyWithin(-6, -2, -1)
-   console.log(myArray)
+myArray.copyWithin(-6, -2, -1)
+console.log(myArray)
 
 // #130 arr.some()
-   // some kinda like reduce
+// some kinda like reduce
 
-   let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
-   let myNumber = 22;
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 15];
+let myNumber = 22;
 
-   //simple check
-   let check = nums.some((e) => {
-      // console.log("test")//itsa loop, maarioo
-      return e > 5
-   }, myNumber);
-   console.log(check)
+//simple check
+let check = nums.some((e) => {
+  // console.log("test")//itsa loop, maarioo
+  return e > 5
+}, myNumber);
+console.log(check)
 
-   //check equality
-   let equals = nums.some(function (e) {
-      return e === this;
-   }, myNumber);
-   console.log(equals)
+//check equality
+let equals = nums.some(function (e) {
+  return e === this;
+}, myNumber);
+console.log(equals)
 
-   function checkArr(arr, val) {
-      return arr.some((n) => {
-         return n === val;
-      })
-   };
-   console.log(checkArr(nums, 111));
+function checkArr(arr, val) {
+  return arr.some((n) => {
+    return n === val;
+  })
+};
+console.log(checkArr(nums, 111));
 
-   let rangee = {
-      min: 10,
-      max: 20,
-   }
-   // function inRange() {
-   //    return nums.some((n) => n > rangee.min && n < rangee.max);
-   // }
-   // console.log(inRange())
+let rangee = {
+  min: 10,
+  max: 20,
+}
+// function inRange() {
+//    return nums.some((n) => n > rangee.min && n < rangee.max);
+// }
+// console.log(inRange())
 
-   let rangeCheck = nums.some(function (e) {
-      return e >= this.min && e <= this.max;
-   }, rangee);
-   console.log(rangeCheck)
+let rangeCheck = nums.some(function (e) {
+  return e >= this.min && e <= this.max;
+}, rangee);
+console.log(rangeCheck)
 
 // #131 every 
 const locations = {
@@ -1741,35 +1741,35 @@ let check = Array.from(Object.keys(locations)).every(function (e) {
 console.log(check)
 
 // #132 rest/spread operator 
-   // - use spread operator on String
-   console.log(..."Osama")
-   // - add[] to Stringa
-   console.log([..."Osama"])
-   // - concatenat with spread operator 2Arrays
-   let arr1 = [1, 2, 3];
-   let arr2 = [4, 5, 6];
-   console.log([...arr1, ...arr2])
-   // - copy Array with spread operator
-   let copyarr = [...arr1]
-   console.log(copyarr)
-   // - use ... with push new iterables
-   let newFriends = ["osama", "Ahmed"]
-   arr1.push(...newFriends);
-   console.log(arr1)
-   // - Math object
-   console.log(Math.max(...arr2))//just like that
+// - use spread operator on String
+console.log(..."Osama")
+// - add[] to Stringa
+console.log([..."Osama"])
+// - concatenat with spread operator 2Arrays
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+console.log([...arr1, ...arr2])
+// - copy Array with spread operator
+let copyarr = [...arr1]
+console.log(copyarr)
+// - use ... with push new iterables
+let newFriends = ["osama", "Ahmed"]
+arr1.push(...newFriends);
+console.log(arr1)
+// - Math object
+console.log(Math.max(...arr2))//just like that
 
-   // - ... to concatenat objects / merge
-   let obj1 = {
-      name: "samir",
-      age: 14,
-   }
-   let obj2 = {
-      friend: "shahir",
-      address: 15,
-   }
-   let newobj = { ...obj1, ...obj2, ego: 99 }
-   console.log(newobj)
+// - ... to concatenat objects / merge
+let obj1 = {
+  name: "samir",
+  age: 14,
+}
+let obj2 = {
+  friend: "shahir",
+  address: 15,
+}
+let newobj = { ...obj1, ...obj2, ego: 99 }
+console.log(newobj)
 
 // #134 Regular Expression
 applyed on:
@@ -1786,7 +1786,7 @@ let url = 'elzero.org';//url
 new RegExp("pattern", "modifier(s)")
 */
 Modifiers => Flags
-i => case-insensitive
+i => case -insensitive
 g => global
 m => Multilines
 
@@ -1797,9 +1797,9 @@ let regex = /elzero/ig;
 console.log(myString.match(regex));
 
 // #136 Ranges part1
-(X|Y) => X Or Y
-[0-9] => 0 To 9
-[^0-9] => Any Character Not 0 To 9
+(X | Y) => X Or Y
+[0 - 9] => 0 To 9
+[^ 0 - 9] => Any Character Not 0 To 9
 
 let tld = "Com Net Org Info Code Io";
 let tldRe = /(info|org|io)/ig;
@@ -1824,27 +1824,29 @@ console.log(practice.match(practiceRe));
 // #137 Range part2
 let myString = "AaBbcdefG123!234%^&*";
 ^ = not in Regular Expression
-   // let strRe = /[a-z]/g;
-   // let strRe = /[^a-z]/g;
-   // let strRe = /[A-Z]/g;
-   // let strRe = /[^A-Z]/g;
-   // let strRe = /(A|Z)/g;
-   // let strRe = /[A-Z  a-z]/g;// [A-Z]|[a-z] = [A-Z | a-z]
-   // let strRe = /[^A-Z a-z]/g;// special chars and nums
-   // let strRe = /[abce]/g;// within range of this
-   let strRe = /[^A-Z0-9sa-z]/g;
+// let strRe = /[a-z]/g;
+// let strRe = /[^a-z]/g;
+// let strRe = /[A-Z]/g;
+// let strRe = /[^A-Z]/g;
+// let strRe = /(A|Z)/g;
+// let strRe = /[A-Z  a-z]/g;// [A-Z]|[a-z] = [A-Z | a-z]
+// let strRe = /[^A-Z a-z]/g;// special chars and nums
+// let strRe = /[abce]/g;// within range of this
+let strRe = /[^A-Z0-9sa-z]/g;
 
-   console.log(myString.match(strRe))
+console.log(myString.match(strRe))
 
-// #138 RE Character Classes
-. => matches any character, except newline or other line terminators.
-\w => matches word characters. [a-z, A-Z, 0-9 And Underscore]
+  // #138 RE Character Classes
+  . => matches any character, except newline or other line terminators.
+\w => matches word characters. [a - z, A - Z, 0 - 9 And Underscore]
 \W => matches Non word characters
 \d => matches digits from 0 to 9.
-\D => matches non-digit characters.
+\D => matches non - digit characters.
 \s => matches whitespace character.
 \S => matches non whitespace character.
-*/
+\group => Back reference use group in same line.
+/ [asd] / g;  === /(a|s|d)/g;
+* /
 
 let email = 'O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com';
 let dot = /./g;
@@ -1856,7 +1858,7 @@ console.log(email.match(validEmail));
 
 // #139 Character Classes2 & .test(t/f)
 \b => section at the beginning or end of a word.
-\B => section NOT at the beginning/end of a word.
+\B => section NOT at the beginning / end of a word.
 let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
 let re = /(\bspam|spam\b)/ig;
 console.log(names.match(re));
@@ -1868,9 +1870,9 @@ console.log(/(\bspam|spam\b)/ig.test("Spam1"));
 
 
 // #140 RE Quantifiers 
-  (letter/number/symbol/word/charClass) n+    => One Or More
-  n*    => zero or more //somthings there or not
-  n?    => zero or one //somthing there or not
+(letter / number / symbol / word / charClass) +    => One Or More
+n *    => zero or more //somthings there or not
+n ?    => zero or one //somthing there or not
 
 let mails = "o@nn.sa osama@gmail.com elzero@gmail.net osama@mail.ru"; // All Emails
 // let mailsRe = /\w+@\w+.(com|net)/ig;
@@ -1886,9 +1888,9 @@ let urlsRe = /(https?:\/\/)?(www.)?\w+.\w+/ig;
 console.log(urls.match(urlsRe));
 
 // #141 RE Quantifiers Numbers of numbers
-  n{x}   => Number of
-  n{x,y} => Range
-  n{x,}  => At Least x
+  n{ x }   => Number of
+  n{ x, y } => Range
+  n{ x,}  => At Least x
 let serials = "S100S S3000S S50000S S950000S";
 
 console.log(serials.match(/s\d{3}s/ig)); // S[Three Number]S
@@ -1896,10 +1898,12 @@ console.log(serials.match(/s\d{4,5}s/ig)); // S[Four Or Five Number]S
 console.log(serials.match(/s\d{4,}s/ig)); // S[At Least Four]S
 
 // #142  Quantifiers 3
-  $  => End With Something
+$ => End With Something
   ^  => Start With Something
-  ?= => Followed By Something
-  ?! => Not Followed By Something
+    ?= => Followed By Something
+      ? ! => Not Followed By Something
+        ?<= => Preceded By Something
+          ?< ! => Not preceded By Something
 
 let myString = "We Love Programming";
 let names = "1OsamaZ 2AhmedZ 3Mohammed 4MoustafaZ 5GamalZ";
@@ -1914,8 +1918,8 @@ console.log(names.match(/\d\w{8}(?!Z)/ig));
 
 // #143 .replace(pattern, replacer) & replaceAll(,)
 let txt = "We Love Programming And @ Because @ Is Amazing";
-   let regEx = /@/g;
-   console.log(txt.replaceAll(regEx, "Js"))
+let regEx = /@/g;
+console.log(txt.replaceAll(regEx, "Js"))
 
 // #144 RE quick short Form Validation
 document.getElementById("register").onsubmit = function () {
@@ -1928,3 +1932,5 @@ document.getElementById("register").onsubmit = function () {
   return true;
 }
 // #145 - Test Your Regular Expression sites
+// https://elzero.org/javascript-2021-test-your-regular-expression-and-discussions/
+

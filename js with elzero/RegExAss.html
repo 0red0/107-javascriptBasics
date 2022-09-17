@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-134-to-146/ -->
+</head>
+
+<body>
+
+</body>
+<script>
+    //A1
+    let ip = "2001:db8:3333:4444:5555:6666:7777:8888";
+    // let regEx = /\d{4}:\w{3}:\d{4}:\d{4}:\d{4}\:\d{4}:\d{4}:\d{4}/ig;
+    let regEx = /\d{4}:\w{3}(:\d{4}){6}/ig;
+    console.log(ip.match(regEx));
+
+    //A2
+    let specialNames = "Os10O OsO Os100O Osa100O Os1000 Os100m";
+    let regEx2 = /Os\d*O/g;
+    console.log(specialNames.match(regEx2))
+    // Output
+    // ['Os10O', 'OsO', 'Os100O']
+
+    //A3
+    let phone = "+(995)-123 (4567)";
+    let regEx3 = /\+\(\d{3}\)-\d{3}\s\(\d{4}\)/g;
+    console.log(phone.match(regEx3))
+
+    //A4
+    // let re = /https?:\/\/(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?.*/i;
+    // let re = /(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?.*/i;
+
+
+    console.log(test.match(re))
+
+
+
+
+
+
+</script>
+
+</html>
