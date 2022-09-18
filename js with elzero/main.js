@@ -1934,3 +1934,190 @@ document.getElementById("register").onsubmit = function () {
 // #145 - Test Your Regular Expression sites
 // https://elzero.org/javascript-2021-test-your-regular-expression-and-discussions/
 
+// #146 RE Challenge.
+
+// #147 OOP Intro
+
+// #148 - constructor function.
+
+function User(id, userName, salary) {
+  this.i = id;
+  this.u = userName;
+  this.s = salary;
+}
+let userOne = new User(134, "osama", 5000);
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+
+// #149 - constructor function New Syntax.
+class User {
+  constructor(id, userName, salary) {
+     this.i = id;
+     this.u = userName;
+     this.s = salary;
+  }
+}
+let userOne = new User(134, "osama", 5000);
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+
+console.log(userOne instanceof User)
+console.log(userOne.constructor === User)
+
+// #150 Properties and Methods
+class User {
+  constructor(id, userName, salary) {
+     // Object Properties
+     this.i = id;
+     this.u = userName || "Unknown";
+     this.s = salary < 6000 ? salary + 300 : salary;
+     this.msg = function () {
+        return `Hello ${this.u}, Your salary is ${this.s}`;
+     }
+  }
+  //Methods
+  writeMsg() {
+     return `Goodbye ${this.u}, Your id is ${this.i}.`;
+  }
+}
+let userOne = new User(134, "osama", 5000);
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+console.log(userOne.msg());
+console.log(userOne.writeMsg());
+
+// #151 - Update Properties & Built-in Constructors
+class User {
+  constructor(id, userName, salary) {
+     this.i = id;
+     this.u = userName || "Unknown";
+     this.s = salary < 6000 ? salary + 300 : salary;
+  }
+  updateName(newUserName) {
+     return this.u = newUserName;
+  }
+}
+let userOne = new User(134, "osama", 5000);
+
+console.log(userOne.u);
+userOne.updateName("ELZERO");
+console.log(userOne.u);
+
+//built in constructors
+let num = 123;
+let num2 = new Number(133);
+
+console.log(typeof num)
+console.log(typeof num2)
+
+console.log(num instanceof Number)
+console.log(num2 instanceof Number)
+// they use js built-in constructors to exist 
+console.log(num.constructor === Number)
+console.log(num2.constructor === Number)
+
+// #152 - Static Properties and Methods.
+class User {
+  static count = 0;
+  constructor(id, userName, salary) {
+     this.i = id;
+     this.u = userName || "Unknown";
+     this.s = salary < 6000 ? salary + 300 : salary;
+     User.count++;
+  }
+  static usersCount() {
+     return `${User.count} Users Created.`
+  }
+}
+let userOne = new User(134, "osama", 5000);
+let userTwo = new User(134, "osama", 5000);
+let userThree = new User(134, "osama", 5000);
+
+console.log(userOne.u);
+console.log(User.usersCount())
+
+//#153 Class Inheritance.
+   class User {
+    constructor(id, userName) {
+       this.i = id;
+       this.u = userName;
+    }
+    sayHello() {
+       return `Hello ${this.u}.`
+    }
+ }
+ class Admin extends User {
+    constructor(id, userName, permissions) {
+       super(id, userName);
+       this.p = permissions;
+    }
+ }
+ let user1 = new User(23, "Osama");
+ console.log(user1.u)
+ let admin1 = new Admin(434, "Roy", "Low")
+ console.log(admin1.u)
+ console.log(admin1.i)
+ console.log(admin1.p)
+ console.log(admin1.sayHello())
+
+// #154 - Encapsulation
+class User {
+  #e; //private modifier declaration
+  constructor(id, userName, eSalary) {
+     this.i = id;
+     this.u = userName;
+     this.#e = eSalary;
+  }
+  showPrivate() {
+     return parseInt(this.#e);
+  }
+}
+class Admin extends User {
+  #e;
+  constructor(id, userName, eSalary) {
+     super(id, userName, eSalary)
+  }
+  getSalary() {
+     return parseInt(this.#e);
+  }
+}
+let admin1 = new Admin(54, "Tamir", "9120");
+let user1 = new User(23, "Osama", "4000 Gneh");
+console.log(user1.showPrivate() * .3);
+console.log(admin1.showPrivate())
+console.log(admin1.getSalary())//NaN ???
+
+// #155 Prototype
+console.log(User.prototype)
+user1.length;
+user1.ancher;
+
+// #156 - Prototype chain & Extend contructor features.
+class User {
+  constructor(id, userName) {
+     this.i = id;
+     this.u = userName;
+  }
+}
+let user1 = new User(23, "Osama");
+console.log(User.prototype)
+User.prototype.sayWelcome = function (val) {
+  return `Welcome ${val}`
+}
+console.log(user1)
+
+Object.prototype.love = "Elzero Web School";
+
+String.prototype.dotedIt = function (value) {
+  return `.${this}.`;
+}
+let str = "OSos";
+console.log(String.prototype)
+console.log(str.dotedIt('anything'))
+
