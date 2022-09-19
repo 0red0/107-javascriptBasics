@@ -1954,9 +1954,9 @@ console.log(userOne.s);
 // #149 - constructor function New Syntax.
 class User {
   constructor(id, userName, salary) {
-     this.i = id;
-     this.u = userName;
-     this.s = salary;
+    this.i = id;
+    this.u = userName;
+    this.s = salary;
   }
 }
 let userOne = new User(134, "osama", 5000);
@@ -1971,17 +1971,17 @@ console.log(userOne.constructor === User)
 // #150 Properties and Methods
 class User {
   constructor(id, userName, salary) {
-     // Object Properties
-     this.i = id;
-     this.u = userName || "Unknown";
-     this.s = salary < 6000 ? salary + 300 : salary;
-     this.msg = function () {
-        return `Hello ${this.u}, Your salary is ${this.s}`;
-     }
+    // Object Properties
+    this.i = id;
+    this.u = userName || "Unknown";
+    this.s = salary < 6000 ? salary + 300 : salary;
+    this.msg = function () {
+      return `Hello ${this.u}, Your salary is ${this.s}`;
+    }
   }
   //Methods
   writeMsg() {
-     return `Goodbye ${this.u}, Your id is ${this.i}.`;
+    return `Goodbye ${this.u}, Your id is ${this.i}.`;
   }
 }
 let userOne = new User(134, "osama", 5000);
@@ -1995,12 +1995,12 @@ console.log(userOne.writeMsg());
 // #151 - Update Properties & Built-in Constructors
 class User {
   constructor(id, userName, salary) {
-     this.i = id;
-     this.u = userName || "Unknown";
-     this.s = salary < 6000 ? salary + 300 : salary;
+    this.i = id;
+    this.u = userName || "Unknown";
+    this.s = salary < 6000 ? salary + 300 : salary;
   }
   updateName(newUserName) {
-     return this.u = newUserName;
+    return this.u = newUserName;
   }
 }
 let userOne = new User(134, "osama", 5000);
@@ -2026,13 +2026,13 @@ console.log(num2.constructor === Number)
 class User {
   static count = 0;
   constructor(id, userName, salary) {
-     this.i = id;
-     this.u = userName || "Unknown";
-     this.s = salary < 6000 ? salary + 300 : salary;
-     User.count++;
+    this.i = id;
+    this.u = userName || "Unknown";
+    this.s = salary < 6000 ? salary + 300 : salary;
+    User.count++;
   }
   static usersCount() {
-     return `${User.count} Users Created.`
+    return `${User.count} Users Created.`
   }
 }
 let userOne = new User(134, "osama", 5000);
@@ -2043,48 +2043,48 @@ console.log(userOne.u);
 console.log(User.usersCount())
 
 //#153 Class Inheritance.
-   class User {
-    constructor(id, userName) {
-       this.i = id;
-       this.u = userName;
-    }
-    sayHello() {
-       return `Hello ${this.u}.`
-    }
- }
- class Admin extends User {
-    constructor(id, userName, permissions) {
-       super(id, userName);
-       this.p = permissions;
-    }
- }
- let user1 = new User(23, "Osama");
- console.log(user1.u)
- let admin1 = new Admin(434, "Roy", "Low")
- console.log(admin1.u)
- console.log(admin1.i)
- console.log(admin1.p)
- console.log(admin1.sayHello())
+class User {
+  constructor(id, userName) {
+    this.i = id;
+    this.u = userName;
+  }
+  sayHello() {
+    return `Hello ${this.u}.`
+  }
+}
+class Admin extends User {
+  constructor(id, userName, permissions) {
+    super(id, userName);
+    this.p = permissions;
+  }
+}
+let user1 = new User(23, "Osama");
+console.log(user1.u)
+let admin1 = new Admin(434, "Roy", "Low")
+console.log(admin1.u)
+console.log(admin1.i)
+console.log(admin1.p)
+console.log(admin1.sayHello())
 
 // #154 - Encapsulation
 class User {
   #e; //private modifier declaration
   constructor(id, userName, eSalary) {
-     this.i = id;
-     this.u = userName;
-     this.#e = eSalary;
+    this.i = id;
+    this.u = userName;
+    this.#e = eSalary;
   }
   showPrivate() {
-     return parseInt(this.#e);
+    return parseInt(this.#e);
   }
 }
 class Admin extends User {
   #e;
   constructor(id, userName, eSalary) {
-     super(id, userName, eSalary)
+    super(id, userName, eSalary)
   }
   getSalary() {
-     return parseInt(this.#e);
+    return parseInt(this.#e);
   }
 }
 let admin1 = new Admin(54, "Tamir", "9120");
@@ -2101,8 +2101,8 @@ user1.ancher;
 // #156 - Prototype chain & Extend contructor features.
 class User {
   constructor(id, userName) {
-     this.i = id;
-     this.u = userName;
+    this.i = id;
+    this.u = userName;
   }
 }
 let user1 = new User(23, "Osama");
@@ -2121,3 +2121,42 @@ let str = "OSos";
 console.log(String.prototype)
 console.log(str.dotedIt('anything'))
 
+// #157 - Object Meta Data And Descriptor
+const obj = {
+  prop1: "a",
+  prop2: "b",
+};
+Object.defineProperty(obj, "prop3", {
+  // writable: true, //for this => obj.prop3 = 100;
+  // enumerable: true, // => for in loop show-case
+  // configurable: true,  // => delete obj.prop3;
+  value: "c",
+});
+console.log(obj)
+obj.prop3 = 100;
+delete obj.prop3;
+console.log(delete obj.prop3); // true / false
+console.log(obj.prop3);
+for (let propert in obj) {
+  console.log(propert, obj[propert])
+}
+
+// #158 - Object Meta Data And Descriptor
+const obj = {
+  prop1: "a",
+  prop2: "b",
+};
+Object.defineProperties(obj, {
+  prop3: {
+    value: "c",
+  },
+  prop4: {
+    value: "d",
+  },
+  prop5: {
+    value: "e",
+  },
+});
+console.log(obj)
+console.log(Object.getOwnPropertyDescriptor(obj, "prop1"))
+console.log(Object.getOwnPropertyDescriptors(obj))
