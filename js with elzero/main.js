@@ -2160,3 +2160,23 @@ Object.defineProperties(obj, {
 console.log(obj)
 console.log(Object.getOwnPropertyDescriptor(obj, "prop1"))
 console.log(Object.getOwnPropertyDescriptors(obj))
+
+// #159 Date and Time (epoch Unix time)
+let timeNow = new Date();
+Date.now();
+console.log(Date.now())
+console.log(timeNow)
+
+// #160 getDate()
+let birthday = new Date("Feb 24 1997");
+let age = timeNow - birthday;
+let age2 = Date.now() - birthday;
+console.log(age / 1000 / 60 / 60 / 24 / 365)
+console.log(age2)
+console.log(timeNow.getTime())
+console.log(timeNow.getDate()); // day of the month
+console.log(timeNow.getFullYear())
+console.log(timeNow.getMilliseconds())
+console.log(timeNow.getTimezoneOffset())
+console.log(timeNow.getDay()) // day of the week [index dependant]
+console.log(timeNow.getHours())
