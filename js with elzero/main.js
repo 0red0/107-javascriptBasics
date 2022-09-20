@@ -2180,3 +2180,151 @@ console.log(timeNow.getMilliseconds())
 console.log(timeNow.getTimezoneOffset())
 console.log(timeNow.getDay()) // day of the week [index dependant]
 console.log(timeNow.getHours())
+
+// #161 setDate()
+let timeNow = new Date();
+console.log(Date.now())
+console.log(timeNow)
+console.log("#".repeat(44))
+
+timeNow.setTime(0)
+console.log(timeNow)
+
+timeNow.setDate(5)
+console.log(timeNow)
+
+timeNow.setMilliseconds(10000)
+console.log(timeNow)
+
+timeNow.setFullYear(2009, 11)
+console.log(timeNow)
+
+// #162 - Formatting Date And Time
+/*
+  new Date(timestamp)
+  new Date(Date String)
+  new Date(Numeric Values)
+
+  Date.parse("String") // Read Date From A String
+*/
+console.log(Date.parse("Oct 25 1982"));
+//return millasecond for the date.^
+let date2 = new Date(404344800000);
+console.log(date2);
+
+let date3 = new Date("10-25-1982");
+console.log(date3);
+
+let date4 = new Date("1982-10-25");//- "1982-10-25" => ISO 
+console.log(date4);
+
+let date6 = new Date("82");
+console.log(date6);
+
+let date7 = new Date(1982, 9, 25, 2, 10, 0);
+console.log(date7);
+
+let date8 = new Date(1982, 9, 25);
+console.log(date8);
+
+let date9 = new Date("1982-10-25T06:10:00Z");
+console.log(date9);
+
+// #163 - Tracking Operations Time
+let start = new Date();
+
+for (let i = 0; i < 999; i++) {
+  // document.write(`<div>${i}</div>`);
+  let myDiv = document.createElement("div");
+  myDiv.append(document.createTextNode(i));
+  document.body.append(myDiv);
+}
+
+let end = new Date();
+let duration = end - start;
+console.log(duration)
+
+// #164 Generator function
+function* generation() {
+  yield "a";
+  console.log("Hellina");
+  yield "b";
+  yield "c";
+  yield "d";
+}
+
+let generator = generation();
+console.log(generator)
+
+console.log(generator.next())//a
+console.log(generator.next())//b
+
+for (let value of generation()) {
+  console.log(value)
+}
+for (let value of generator) {
+  console.log(value)
+}
+
+// #165 Delegate Generator Function:
+function* generatorNums() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+function* generatorLetters() {
+  yield "a";
+  yield "b";
+  yield "c";
+}
+function* generatorAll() {
+  yield* generatorNums();
+  yield* generatorLetters();
+  yield* [2, 5, 6];
+}
+let generator = generatorAll();
+for (let value of generatorAll()) {
+  console.log(generator.next())
+}
+console.log(generator.return("AllDone"))
+
+// 166 - return and infinite numbers
+
+function* generateInfNums() {
+  // yield 1;
+  // yield 2;
+  // return "A";//will interrupt yielding
+  // yield 3;
+  // yield 4;
+  // yield 5;
+  let index = 0;
+  while (true) {
+    yield index++;
+  }
+}
+let generator = generateInfNums();
+console.log(generator.next())
+console.log(generator.next())
+//numbers to infinity won't show unless logged.
+
+// #167 - Modules Import And Export
+{/* < script src = "main.js" type = "module" ></script > */ }
+{/* <script src="app.js" type="module"></script> */ }
+// export module;
+let a = 10;
+let arr = [1, 2, 3, 4];
+function saySomething() {
+  return `Something`;
+}
+export { a, arr, saySomething };
+// import module
+import { a, arr, saySomething as s } from "./main.js";
+console.log(a);
+console.log(arr);
+console.log(s());
+
+// #168 - Named vs Default Export And Import All
+export default function () {
+  return `Hello`;
+}
+import * as all from "./main.js";
