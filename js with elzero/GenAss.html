@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   https://elzero.org/javascript-bootcamp-assignments-lesson-from-159-to-168/
+</body>
+<script>
+   //A1
+   let birthday = Date.parse("11-8-1991");
+
+   console.log(birthday / 1000 + "  Seconds")
+   console.log(birthday / 1000 / 60 + "  Minutes")
+   console.log(birthday / 1000 / 60 / 60 + "  HOurs")
+   console.log((birthday / 1000 / 60 / 60 / 24).toFixed() + "  Days")
+   console.log((birthday / 1000 / 60 / 60 / 24 / 30).toFixed() + "  Months")
+   console.log((birthday / 1000 / 60 / 60 / 24 / 365).toFixed() + "  Years")
+
+   //A2
+   let timeNow = new Date();
+   timeNow.setTime(0);
+   timeNow.setMilliseconds(1111)
+   timeNow.setHours(0)
+   console.log(timeNow)
+
+
+   //A3
+   let lastMonth = new Date();
+   lastMonth.setDate(-1)
+   let lastDay = lastMonth.getDate()
+   let monthName = lastMonth.toLocaleString('en-US', { month: 'long' });
+   console.log(monthName)
+   console.log(lastDay)
+   console.log(`Previous Month was ${monthName} and Last Day was ${lastDay}.`)
+
+   //A4
+   let ass4 = new Date();
+   let hisbirthday = new Date("Oct 25 1982");
+   console.log(new Date(hisbirthday))
+   console.log(Date.parse("Oct 25 1982"));
+   console.log(lastMonth.setFullYear(1982, 10, 25))
+   console.log(lastMonth.getFullYear(1982, 10, 25))
+   console.log(ass4.setTime(1003707096998))
+
+   // get the date as a string
+   console.log(new Date().toDateString());
+   console.log(new Date().toString());
+   console.log(new Date().toISOString());
+
+   // get the time as a string
+   console.log(new Date().toLocaleTimeString());
+   console.log(new Date(2018, 11, 24, 10, 33, 30, 0));
+
+
+
+
+
+</script>
+
+</html>
