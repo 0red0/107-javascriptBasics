@@ -9,7 +9,10 @@
 </head>
 
 <body>
-   https://elzero.org/javascript-bootcamp-assignments-lesson-from-159-to-168/
+   <!-- https://elzero.org/javascript-bootcamp-assignments-lesson-from-159-to-168/ -->
+   <!-- <script src="mod-one.js" type="module"></script>
+   <script src="mod-two.js" type="module"></script>
+   <script src="mainGen.js" type="module"></script> -->
 </body>
 <script>
    //A1
@@ -104,24 +107,14 @@
    }
 
    function* genAll() {
-      yield Array.from(genNumbers()).filter((e, index) => Array.from(genNumbers()).indexOf(e) == index);
-      yield Array.from(genLetters()).filter((e, index) => Array.from(genLetters()).indexOf(e) == index);
+      yield* Array.from(genNumbers()).filter((e, index) => Array.from(genNumbers()).indexOf(e) == index);
+      yield* Array.from(genLetters()).filter((e, index) => Array.from(genLetters()).indexOf(e) == index);
    }
 
    let generator = genAll();
 
-   console.log(generator.next().value); // {value: 1, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
-   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next()); // {value: 1, done: false}
+   console.log(generator.next()); // {value: 2, done: false}
    console.log(generator.next()); // {value: 3, done: false}
    console.log(generator.next()); // {value: 4, done: false}
    console.log(generator.next()); // {value: 5, done: false}
@@ -130,12 +123,10 @@
    console.log(generator.next()); // {value: "C", done: false}
    console.log(generator.next()); // {value: "D", done: false}
 
-   let arr = [1, 2, 2, 2, 3, 4, 5];
-
-   let filtering = arr.filter((e, index) => arr.indexOf(e) == index);
-   console.log(filtering)
-
-   console.log(genNumbers().next())
+   // let arr = [1, 2, 2, 2, 3, 4, 5];
+   // let filtering = arr.filter((e, index) => arr.indexOf(e) == index);
+   // console.log(filtering)
+   // console.log(genNumbers().next())
 
 
 
