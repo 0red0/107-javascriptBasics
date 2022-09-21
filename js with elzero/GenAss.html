@@ -39,6 +39,8 @@
    console.log(lastDay)
    console.log(`Previous Month was ${monthName} and Last Day was ${lastDay}.`)
 
+   console.log("_".repeat(80))
+
    //A4
    let ass4 = new Date();
    let hisbirthday = new Date("Oct 25 1982");
@@ -49,13 +51,91 @@
    console.log(ass4.setTime(1003707096998))
 
    // get the date as a string
-   console.log(new Date().toDateString());
-   console.log(new Date().toString());
-   console.log(new Date().toISOString());
+   console.log(new Date(404344800000).toDateString());
+   console.log(new Date(404344800000).toString());
+   console.log(new Date(404344800000).toISOString());
 
    // get the time as a string
    console.log(new Date().toLocaleTimeString());
    console.log(new Date(2018, 11, 24, 10, 33, 30, 0));
+
+   console.log("~".repeat(80))
+
+   //A5
+   let start = performance.now()
+   for (let i = 0; i < 999; i++) {
+      // console.log(i)
+   }
+   let end = performance.now()
+   let duration = end - start;
+   console.log("Loop Took " + Math.trunc(duration) + " Milliseconds.");
+
+   //A6
+   // function cald(num) {
+   //    for (let i = 140; i < 999; i += 200) {
+   //       num = (i + num);
+   //       // console.log(num)
+   //    }
+   // }
+
+   function* gen() {
+      let i = 140;
+      let num = 14;
+      while (true) {
+         yield num;
+         num = (i + num);
+         i += 200;
+         // console.log(num)
+      }
+   }
+   // let generator = gen();
+   // console.log(generator.next())
+   // console.log(generator.next())
+   // console.log(generator.next())
+   // console.log(generator.next())
+   // console.log(generator.next())
+
+   //A7
+   function* genNumbers() {
+      yield* [1, 2, 2, 2, 3, 4, 5];
+   }
+   function* genLetters() {
+      yield* ["A", "B", "B", "B", "C", "D"];
+   }
+
+   function* genAll() {
+      yield Array.from(genNumbers()).filter((e, index) => Array.from(genNumbers()).indexOf(e) == index);
+      yield Array.from(genLetters()).filter((e, index) => Array.from(genLetters()).indexOf(e) == index);
+   }
+
+   let generator = genAll();
+
+   console.log(generator.next().value); // {value: 1, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next().value); // {value: 2, done: false}
+   console.log(generator.next()); // {value: 3, done: false}
+   console.log(generator.next()); // {value: 4, done: false}
+   console.log(generator.next()); // {value: 5, done: false}
+   console.log(generator.next()); // {value: "A", done: false}
+   console.log(generator.next()); // {value: "B", done: false}
+   console.log(generator.next()); // {value: "C", done: false}
+   console.log(generator.next()); // {value: "D", done: false}
+
+   let arr = [1, 2, 2, 2, 3, 4, 5];
+
+   let filtering = arr.filter((e, index) => arr.indexOf(e) == index);
+   console.log(filtering)
+
+   console.log(genNumbers().next())
 
 
 
