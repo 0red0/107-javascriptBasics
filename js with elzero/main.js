@@ -2328,3 +2328,126 @@ export default function () {
   return `Hello`;
 }
 import * as all from "./main.js";
+
+// #169 What is JSON
+// #170 JSON Syntax
+JSON = javascript object notation;
+file formate: / test.json ;
+{
+  "jsonUser" : {
+    "property" : 1,
+      "array" : [],
+        "object": {
+      'propt': "dklsjf",
+   },
+    "string": "string",
+}, "jsonUser2": {
+    "property": 345,
+}
+}
+// #171 What is API? Application Programming Interface
+
+// #172 JSON Parse and Stringify
+let JSONobject = '{"Username": "Osama" , "Age": 39}';
+console.log(typeof JSONobject)
+console.log(JSONobject)
+
+let jsObject = JSON.parse(JSONobject);
+console.log(typeof jsObject)
+console.log(jsObject)
+
+jsObject["Username"] = "Elzero";
+jsObject["Age"] = 40;
+
+let JSONobject2 = JSON.stringify(jsObject);
+console.log(typeof JSONobject2)
+console.log(JSONobject2)
+
+// #173 Asynchronous vs synchronous
+// #174 Call Stack LiFo, API methods called last
+setTimeout(() => { // web API method - asynchronous  
+  console.log("Web API");
+}, 0);
+
+function one() {
+  console.log("One");
+}
+function two() {
+  one();
+  console.log("Two");
+}
+function three() {
+  two();
+  console.log("Three");
+}
+
+three();
+// #175 Event Loop: is responable for executing the code, processing
+// Call stack and callback queue.
+//- Callback Queue Follow FIFO
+console.log("One");
+setTimeout(() => { // web API method - asynchronous  
+  console.log("Three");
+}, 0);
+setTimeout(() => {
+  console.log("Four");
+}, 0);
+console.log("Two");
+
+setTimeout(() => {
+  console.log(myVar);
+}, 0);
+
+let myVar = 100;
+myVar += 100;
+
+// #176 AJAX = Asynchronous Javascript And XML
+// - Approach To Use Many Technologies Together[HTML, CSS, Js, DOM]
+// - It Use "XMLHttpRequest" Object To Interact With The Server
+let req = new XMLHttpRequest();
+console.log(req);
+
+// #177 - Request And Response From Real API
+Informational responses(100–199)
+Successful    responses(200–299)
+Redirection   messages(300–399)
+Client error  responses(400–499)
+Server error  responses(500–599)
+[0] Request Not Initialized
+[1] Server Connection Established
+[2] Request Received
+[3] Processing Request
+[4] Request Is Finished And Response Is Ready Status
+[200] Response Is Successful
+[404] Not Found
+
+let myRequest = new XMLHttpRequest();
+myRequest.open("GET", "https://api.github.com/users/elzerowebschool/repos");//Async is ,true[third input] 
+myRequest.send();
+console.log(myRequest);
+
+myRequest.onreadystatechange = function () {
+  // console.log(myRequest.readyState);
+  // console.log(myRequest.status);
+  if (this.readyState === 4 && this.status === 200) {
+    console.log(this.responseText);
+  }
+};
+
+// #178 - Loop On Data
+let myRequest = new XMLHttpRequest();
+myRequest.open("GET", "https://api.github.com/users/elzerowebschool/repos");
+myRequest.send();
+myRequest.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    // console.log(this.responseText);
+    let jsData = JSON.parse(this.responseText);
+    // console.log(jsData);
+    for (let i = 0; i < jsData.length; i++) {
+      let div = document.createElement("div");
+      let repoName = document.createTextNode(jsData[i].full_name);
+      div.appendChild(repoName);
+      document.body.appendChild(div);
+    }
+  }
+};

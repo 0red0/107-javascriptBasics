@@ -35,7 +35,7 @@
 
    //A3
    let lastMonth = new Date();
-   lastMonth.setDate(-1)
+   lastMonth.setDate(0)//not -1
    let lastDay = lastMonth.getDate()
    let monthName = lastMonth.toLocaleString('en-US', { month: 'long' });
    console.log(monthName)
