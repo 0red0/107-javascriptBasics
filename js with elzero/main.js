@@ -2451,3 +2451,204 @@ myRequest.onreadystatechange = function () {
     }
   }
 };
+// #179 - Callback Hell Or Pyramid Of Doom
+setTimeout(() => {
+  console.log("Download Photo From URL");
+  setTimeout(() => {
+    console.log("Resize Photo");
+    setTimeout(() => {
+      console.log("Add Logo To The Photo");
+      setTimeout(() => {
+        console.log("Show The Photo In Website");
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+// #180 - Promise Intro And Syntax
+const myPromise = new Promise((resolveFunction, rejectFunction) => {
+  let connect = false;
+  if (connect) {
+    resolveFunction("Connection Established");
+  } else {
+    rejectFunction(Error("Connection Failed"));
+  }
+});
+
+console.log(myPromise);
+
+let resolver = (resolveValue) => console.log(`Good ${resolveValue}`);
+let rejecter = (rejectValue) => console.log(`Bad ${rejectValue}`);
+
+myPromise.then(resolver, rejecter);
+
+// #181 - Promise – Then, Catch And Finally
+let myPromise = new Promise((resolveFunction, rejectFunction) => {
+  let employees = ["Osama", "Ahmed", "Sayed"];
+  if (employees.length === 4) {
+    resolveFunction(employees);
+  } else {
+    rejectFunction(Error("Employees are less than 4."))
+  }
+}).then((resolve) => {
+  resolve.length = 2;
+  return resolve;
+}).then((resolve) => {
+  resolve.length = 1;
+  return resolve;
+}).then((resolve) => {
+  console.log(`The Chosen Employee is ${resolve}.`)
+}).catch((reject) => console.log(reject))
+  .finally(console.log("Operation done."))
+
+
+//  #182 - Promise And XMLHttpRequest
+const getData = (apiLink) => {
+  return new Promise((ok, crap) => {
+    let rqXML = new XMLHttpRequest();
+    rqXML.onload = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        ok(JSON.parse(this.responseText));
+      } else {
+        crap(Error("Data corrupted or Link's Wrong."))
+      }
+    }
+    rqXML.open("GET", apiLink);
+    rqXML.send();
+  });
+};
+getData("https://api.github.com/users/elzerowebschool/repos")
+  .then((result) => {
+    result.length = 10;
+    return result;
+  }).then((result) => console.log(result[0].name))
+  .catch((crap) => console.log(crap))
+
+// #183 - Fetch API
+Fetch API: - Return A Representation Of the Entire HTTP Response
+json():= the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.
+
+  fetch("https://api.github.com/users/elzerowebschool/repos")
+  .then((result) => {
+    console.log(result);
+    let myData = result.json();
+    console.log(myData);
+    return myData;
+  })
+  .then((full) => {
+    full.length = 10;
+    return full;
+  })
+  .then((ten) => {
+    console.log(ten[0].name);
+  });
+
+// #184 - Promise – All, All Settled, Race
+//Promise.all = will show all if nun rejected: will return fastest rejected
+//Promise.allSettled = show all with all info
+//Promise.race = Whatever faster
+
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    res("Iam First Promise.")
+  }, 500);
+})
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    rej("Iam Second Promise.")
+  }, 400);
+})
+const thirdPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    rej("Iam Third Promise.")
+  }, 300);
+})
+Promise.all([firstPromise, secondPromise, thirdPromise])
+  .then((value) => console.log(value),
+    (rejected) => console.log(`Rej: ${rejected}`))
+  // Promise.allSettled([firstPromise, secondPromise, thirdPromise])
+  //    .then((value) => console.log(value),
+  //       (rejected) => console.log(`Rej: ${rejected}`))
+  // Promise.race([firstPromise, secondPromise, thirdPromise])
+  //    .then((value) => console.log(value),
+  //       (rejected) => console.log(`Rej: ${rejected}`))
+
+
+// #185 Async
+Async Before Function Mean This Function Return A Promise
+Async And Await Help In Creating Asynchronous Promise Behavior With Cleaner Style
+
+async function getData() { // return new Promise((res,rej)=>){}
+  let friends = ["osma"];
+  if (friends.length > 0) {
+    return "Friends found"
+  } else {
+    throw new Error("no Friends found")
+  }
+}
+getData().then((resolve) => console.log(resolve),
+  (reject) => console.log(reject));
+
+
+// #186 - Await And Training
+const myPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    // res("I'm groot.")
+    rej("I'm no groot.")
+  }, 1000);
+})
+
+async function getData() {
+  console.log("before promise");
+  // myPromise.then((resolve) => console.log(resolve));
+  console.log(await myPromise.catch((rej) => rej));
+  console.log("After promise");
+}
+getData()
+
+
+// #187 - Try, Catch, Finally With Fetch
+const myPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    // res("I'm groot.")
+    rej("I'm no groot.")
+  }, 1000);
+})
+
+async function getData() {
+  console.log("before promise");
+
+  try {
+    console.log(await myPromise);
+
+  }
+  catch (reject) {
+    console.log(reject)
+  }
+  finally {
+    console.log("Operation done")
+  }
+
+  console.log("After promise");
+}
+geData()
+
+//use try with real api
+
+async function fetchData() {
+  console.log("before fetch");
+
+  try {
+    let myData = await fetch("https://api.github.com/users/elzerowebschool/repos");
+    console.log(await myData.json())
+  }
+  catch (reject) {
+    console.log(reject)
+  }
+  finally {
+    console.log("Operation done")
+  }
+
+  console.log("After fetch");
+}
+fetchData()
