@@ -13,14 +13,13 @@
 </body>
 <script>
 
-
-
-
-
-
-
-
-
+   function findChildren(dancingBrigade) {
+      let a = dancingBrigade.toLowerCase().split("").sort().map((e, i, arr) => {
+         return arr.indexOf(e) === i ? e.toUpperCase() : e;
+      }).join("")
+      return a;
+   }
+   console.log(findChildren("lksahshKLHJLDSHFjkshadhjfdsjkhf"))
 
 
 

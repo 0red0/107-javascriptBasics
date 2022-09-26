@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="This shows in search engin result about the site"/>
+    <title>New Tags and elements</title>
+    
+  </head>
+  
+  <body>
+    <h1>OPEN THIS IN THE EDITOR</h1>
+    "they all = divs anyway"<br>
+    <hr>
+    <caption>
+    HTML5 semantic tags/elements
+     </caption>
+      <article>
+        <aside>
+          <figcaption>like a paragraph about the image
+            <figure>images and figcaptions
+                <details>
+                <footer>
+                  <header>
+                    <main>
+                    </details>
+                      <mark>highlight text</mark>
+                        <del>line through text</del><br>
+                        <del>100</del> <span>30 price after discount</span><br>
+                          <nav>
+                            <section>
+                              <summary>
+                                <time>for date and time
+
+                                  <!-- small useful tags -->
+
+<b>books</b>  <p>this b tag = bold = strong</p>
+<p> i tag = em tag</p>
+<p> u tag ofc tthe <u>underline tag</u></p>
+<pre> pre tag  allows   spaces </pre>
+
+<!-- links refs and attributes -->
+
+<a href="https://google.com" target="_blank" title="shows when hover on the Html link">Google</a>
+<a href="test.html" title="go to local page same folder"></a>
+<a href="#tab" title="goes to the class/id in same page">pres</a>
+<a href="mailto:o@mnn.sa" title="open mailing straight up ">Contacts</a>
+
+<ol reversed start="100">
+  <li>Name</li>
+  <li>Address
+    <ol type="A">
+      <li><a href="https://google.com" target="_blank" title="shows when hover on the Html link">Google</a></li>
+      <li><a href="https://facebook.com" target="_blank" title="shows when hover on the Html link">facebook</a></li>
+      <li><a href="https://google.com" target="_blank" title="shows when hover on the Html link">Twitter</a></li>
+      <li>Address</li>
+    </ol>
+  </li>
+  <li>Address</li>
+  <li value="978">Address</li>
+</ol>
+
+
+
+dl = description list
+dt = term
+dd = term description
+<dl>
+  <dt>HTML</dt>
+  <dd>Language of the web</dd>
+  <dd>Language ofsdsjlkfdsljkf</dd>
+  <dt>Css</dt>
+  <dd>Language of the wejdhb</dd>
+</dl>
+
+<!-- tables -->
+td = table data cell
+tr = table row
+th = table header cell. makes text bolder <br>
+<br>
+<table border="1">
+  <thead>
+    <tr>
+      <th>first</td>
+        <th>ladks</th>
+        <th>Markl</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>dsfj</td>
+        <td>ladksdad</td>
+        <td>5748</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>dsfj</td>
+        <td>ladksdad</td>
+        <td>5748</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">ladksdad</td>
+        <td>982358</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <br>
+  <br>
+
+  <div>
+
+    <!-- ****FORMS**** -->
+
+
+  <form action="" method="post" target="_blank">
+    <input type="hidden">
+    <div>
+      <label>username</label>
+      <input type="text" 
+             required placeholder="username" 
+             name="user" 
+             value="osama" 
+             disabled>
+    </div>
+    
+    <div>
+      <label>password</label>
+      <input type="password" 
+             required placeholder="type a good password" 
+             name="pass" 
+             autofocus 
+             minlength="4" 
+             maxlength="6">
+    </div>
+    
+    <div>
+      <label>Email</label>
+      <input type="email" 
+             placeholder="enter Email" 
+             value="o@nn.com" 
+             name="mail" 
+             readonly>
+    </div>
+    
+    <div>
+      <label>color</label>
+      <input type="color" name="Color">
+    </div>
+
+    <div>
+      <label>Range</label>
+      <input type="range" 
+             name="Range" 
+             min="0" max="100" 
+             step="10" 
+             title="choose price" 
+             value="0">
+    </div>
+    
+    <div>
+      <label for="num">Number</label>
+      <input id="num" type="number" name="Number" min="2" max="10" step="0">
+    </div>
+
+    <hr>
+    <div>
+      <input id="win1" type="radio" name="OS" value="Windows" checked>
+      <label for="win1">Windows</label>
+    </div>
+    <div>
+      <input type="radio" name="OS" value="Linux">
+      <label>Linux</label>
+    </div>
+    <div>
+      <input type="radio" name="OS" value="MAC">
+      <label>MAC</label>
+    </div>
+    <br>
+
+
+    <hr>
+    <div>
+      <input id="win" type="checkbox" name="OS" value="Windows" checked>
+      <label for="win">Windows</label>
+    </div>
+    <div>
+      <input type="checkbox" name="OS" value="Linux">
+      <label>Linux</label>
+    </div>
+    <div>
+      <input type="checkbox" name="OS" value="MAC">
+      <label>MAC</label>
+    </div>
+    <br>
+    
+    <label for="book">Choose Book:</label>
+    <select name="Book" id="book" multiple>
+      <optgroup label="Horror">
+        <option value="1">Book 1</option>
+        <option value="bo2">Book 2</option>
+        <option value="22333">Book 3</option>
+      </optgroup>
+      <optgroup label="Romantic books">
+        <option value="1" selected>Book 1</option>
+        <option value="bo2">Book 2</option>
+        <option value="22333">Book 3</option>
+      </optgroup>
+      <optgroup label="Adventure">
+        <option value="1">Book 1</option>
+        <option value="bo2">Book 2</option>
+        <option value="22333">Book 3</option>
+      </optgroup>
+    </select>
+    <br>
+    <hr>
+      <textarea name="subject" cols="30" rows="3" placeholder="laksdjgldsgasgf test"></textarea>
+
+    <hr>
+    <br>
+    <div>
+      <label for="">Choose file:</label>
+      <input type="file" name="file" id="">
+    </div>
+    <hr>
+    <div>
+      <label for="">Search</label>
+      <input type="search" name="search" id="">
+    </div>
+    <hr>
+    <div>
+      <label for="">Url</label>
+      <input type="url" name="url" id="">
+    </div>
+    <hr>
+    <div>
+      <label for="">Date</label>
+      <input type="date" name="date" id="">
+    </div>
+    <hr>
+    <div>
+      <label for="">Time</label>
+      <input type="time" name="time" id="">
+    </div>
+    <hr>
+    <div>
+      <label for="">Month</label>
+      <input type="month" name="month" id="">
+    </div>
+    <br>
+    <hr>
+    <div>
+
+      <!-- data lists = select but with search option -->
+      <input list="programming" name="prog">
+      
+      <datalist id="programming">
+        <option value="python">
+        <option value="php">
+        <option value="C#">
+        <option value="c">
+        <option value="c++">
+        <option value="Scala">
+        <option value="js">
+      </datalist>
+    </div>
+    <br>
+    <br>
+    <hr>
+    
+    <input type="reset" value="Reset">
+    <input type="submit" value="save">
+  </form>
+
+</div>
+
+<!-- I say barly used tags -->
+
+  <q>This is a wise word</q>
+  <blockquote>This is a wise word</blockquote>
+  <button>Click</button>
+  <div>
+    https://www.youtube.com/<wbr>watch?v=AzjtVtxoBLc<wbr>&list=P<wbr>LDoPjvoNmBAw_t_XWUFbBX-c9M<wbr>afPk9ji&index=<wbr>33
+  </div>
+
+  <p>السلام 2welcom</p>
+  <p><bdi>السلام</bdi>2 welcome</p>
+
+  <iframe src="https://elzero.org/" width="600" height="600"></iframe>
+
+
+  <pre id="tab"><b>This    text      has    lots of     spaces
+
+    pre works for code too on HTML</b>
+    <br> 
+    let a = 1;
+
+let threeNums = {
+  b: 2,
+  c: 3,
+  d: 4,
+};
+
+let twoNums = {
+  e: 5,
+  f: 6,
+};
+
+// Create Your Object Here in One Line
+
+console.log(finalObject);
+  </pre>
+  <div tabindex="0"> makes the element tab friendly for better Accessability</div>
+</body>
+
+</html>
