@@ -2,13 +2,13 @@
 const mainColors = localStorage.getItem("color-option");
 
 if (mainColors !== null) {
-  document.documentElement.style.setProperty("--mainColor", mainColors);
-  document.querySelectorAll(".colors-list li").forEach((ele) => {
-    ele.classList.remove("active");
-    if (ele.dataset.color === mainColors) {
-      ele.classList.add("active");
-    }
-  });
+   document.documentElement.style.setProperty("--mainColor", mainColors);
+   document.querySelectorAll(".colors-list li").forEach((ele) => {
+      ele.classList.remove("active");
+      if (ele.dataset.color === mainColors) {
+         ele.classList.add("active");
+      }
+   });
 }
 
 //global//background Randomized variables
@@ -18,78 +18,118 @@ let backgroundOption = true;
 //check localStorage for Random background & active button
 let backgroundLocalItem = localStorage.getItem("background_option");
 if (backgroundLocalItem !== null) {
-  if (backgroundLocalItem === "true") {
-    backgroundOption = true;
-    document.querySelector(".random-background .yes").classList.add("active");
-    document.querySelector(".random-background .no").classList.remove("active");
-  } else {
-    backgroundOption = false;
-    document.querySelector(".random-background .no").classList.add("active");
-    document
-      .querySelector(".random-background .yes")
-      .classList.remove("active");
-  }
+   if (backgroundLocalItem === "true") {
+      backgroundOption = true;
+      document.querySelector(".random-background .yes").classList.add("active");
+      document
+         .querySelector(".random-background .no")
+         .classList.remove("active");
+   } else {
+      backgroundOption = false;
+      document.querySelector(".random-background .no").classList.add("active");
+      document
+         .querySelector(".random-background .yes")
+         .classList.remove("active");
+   }
 }
 
 //toggle Settings box
 document.querySelector(".toggle-settings .fa-gear").onclick = function () {
-  this.classList.toggle("fa-spin");
-  document.querySelector(".settings-box").classList.toggle("open");
+   this.classList.toggle("fa-spin");
+   document.querySelector(".settings-box").classList.toggle("open");
 };
 //Switch page colors from Settings box to :root
 const colorsLi = document.querySelectorAll(".colors-list li");
 colorsLi.forEach((li) => {
-  li.addEventListener("click", (e) => {
-    document.documentElement.style.setProperty(
-      "--mainColor",
-      e.target.dataset.color
-    );
-    localStorage.setItem("color-option", e.target.dataset.color);
-    //remove active class from lis
-    e.target.parentElement.querySelectorAll(".active").forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    e.target.classList.add("active");
-  });
+   li.addEventListener("click", (e) => {
+      document.documentElement.style.setProperty(
+         "--mainColor",
+         e.target.dataset.color
+      );
+      localStorage.setItem("color-option", e.target.dataset.color);
+      //remove active class from lis
+      e.target.parentElement.querySelectorAll(".active").forEach((ele) => {
+         ele.classList.remove("active");
+      });
+      e.target.classList.add("active");
+   });
 });
 
 //Toggle Background random
 const randomBackEl = document.querySelectorAll(".random-background span");
 randomBackEl.forEach((span) => {
-  span.addEventListener("click", (e) => {
-    e.target.parentElement.querySelectorAll(".active").forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    e.target.classList.add("active");
-    //randomize background option
-    if (e.target.dataset.background === "yes") {
-      backgroundOption = true;
-      randomizeImgs();
-      localStorage.setItem("background_option", true);
-    } else {
-      backgroundOption = false;
-      clearInterval(backgroundInterval);
-      localStorage.setItem("background_option", false);
-    }
-  });
+   span.addEventListener("click", (e) => {
+      e.target.parentElement.querySelectorAll(".active").forEach((ele) => {
+         ele.classList.remove("active");
+      });
+      e.target.classList.add("active");
+      //randomize background option
+      if (e.target.dataset.background === "yes") {
+         backgroundOption = true;
+         randomizeImgs();
+         localStorage.setItem("background_option", true);
+      } else {
+         backgroundOption = false;
+         clearInterval(backgroundInterval);
+         localStorage.setItem("background_option", false);
+      }
+   });
 });
 
 // change landing page background
 let landingPage = document.querySelector(".landing-page");
 let imgsArray = [
-  "watchingMountains.jpg",
-  "farmer.jpg",
-  "overTheEdge.jpg",
-  "success.jpg",
-  "yatta.jpg",
+   "watchingMountains.jpg",
+   "farmer.jpg",
+   "overTheEdge.jpg",
+   "success.jpg",
+   "yatta.jpg",
 ];
 
 function randomizeImgs() {
-  if (backgroundOption) {
-    backgroundInterval = setInterval(() => {
-      let randomNumber = Math.floor(Math.random() * imgsArray.length);
-      landingPage.style.backgroundImage = `url("imgs/${imgsArray[randomNumber]}")`;
-    }, 5000);
-  }
+   if (backgroundOption) {
+      backgroundInterval = setInterval(() => {
+         let randomNumber = Math.floor(Math.random() * imgsArray.length);
+         landingPage.style.backgroundImage = `url("imgs/${imgsArray[randomNumber]}")`;
+      }, 2000);
+   }
 }
 randomizeImgs();
+
+//Skills' bars Animation
+let ourSkills = document.querySelector(".skills");
+window.addEventListener("scroll", () => {
+   let skillsOffsetTop = ourSkills.offsetTop; //how far section from page top
+   let skillsOuterHeight = ourSkills.offsetHeight; //how high section in px
+   let windowHeight = this.innerHeight; //window height
+   let windowScrollTop = this.scrollY; //scroll bar position now
+
+   if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
+      // console.log("skills");
+      let allSkills = document.querySelectorAll(
+         ".skill-box .skill-progress span"
+      );
+      allSkills.forEach((skill) => {
+         skill.style.width = skill.dataset.progress;
+      });
+   }
+});
+
+//Create popUp with images
+let ourGallery = document.querySelectorAll(".gallery img");
+ourGallery.forEach((img) => {
+   img.addEventListener("click", (e) => {
+      let overlay = document.createElement("div");
+      overlay.className = "popup-overlay";
+      document.body.append(overlay);
+
+      let popupBox = document.createElement("div");
+      popupBox.className = "popup-box";
+
+      let popupImage = document.createElement("img");
+      popupImage.src = img.src;
+
+      popupBox.append(popupImage);
+      document.body.append(popupBox);
+   });
+});
