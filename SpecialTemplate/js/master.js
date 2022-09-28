@@ -126,10 +126,32 @@ ourGallery.forEach((img) => {
       let popupBox = document.createElement("div");
       popupBox.className = "popup-box";
 
+      if (img.alt !== null) {
+         let imgHeading = document.createElement("h3");
+         let imgText = document.createTextNode(img.alt);
+         imgHeading.append(imgText);
+         popupBox.append(imgHeading);
+      }
+
       let popupImage = document.createElement("img");
       popupImage.src = img.src;
 
       popupBox.append(popupImage);
       document.body.append(popupBox);
+
+      // close button
+      let closeBtn = document.createElement("span");
+      let closeTxt = document.createTextNode("+");
+      closeBtn.append(closeTxt);
+      closeBtn.className = "close-btn";
+      popupBox.append(closeBtn);
    });
+});
+
+//close popup
+document.addEventListener("click", function (e) {
+   if (e.target.className == "close-btn") {
+      e.target.parentNode.remove();
+      document.querySelector(".popup-overlay").remove();
+   }
 });
