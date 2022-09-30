@@ -216,3 +216,25 @@ document.querySelector(".reset-options").onclick = function () {
    localStorage.removeItem("background_option");
    window.location.reload();
 };
+
+//Toggle nav menu
+let toggleBars = document.querySelector(".fa-bars");
+let barsContainer = document.querySelector(".icon");
+let tLinks = document.querySelector(".links");
+
+toggleBars.onclick = function () {
+   barsContainer.classList.toggle("menu-active");
+   tLinks.classList.toggle("open");
+};
+//click anywhere to close nav menu
+document.addEventListener("click", (e) => {
+   if (e.target !== toggleBars && e.target !== tLinks) {
+      if (
+         tLinks.classList.contains("open") &&
+         barsContainer.classList.contains("menu-active")
+      ) {
+         tLinks.classList.remove("open");
+         barsContainer.classList.remove("menu-active");
+      }
+   }
+});

@@ -10,7 +10,6 @@ body {
 }
 /* Global stuff */
 .container {
-   width: 1170px;
    padding-left: 15px;
    padding-right: 15px;
    margin: auto;
@@ -168,7 +167,7 @@ body {
 .landing-page {
    min-height: 100vh;
    background-image: url("../imgs/watchingMountains.jpg");
-   background-size: 100%;
+   background-size: cover;
    background-position: top;
    position: relative;
 }
@@ -193,13 +192,68 @@ body {
    padding: 15px;
    font-weight: bold;
 }
+.landing-page .header-area .icon {
+   text-align: right;
+   width: 100%;
+   position: relative;
+   display: none;
+}
+.landing-page .header-area i {
+   display: none;
+   font-size: 1.5rem;
+   margin-top: 15px;
+}
+.landing-page .header-area .icon.menu-active::before {
+   content: "";
+   position: absolute;
+   border: 10px solid transparent;
+   border-bottom-color: #fff;
+   right: 0;
+   bottom: -8px;
+}
 .header-area .links {
+   display: block;
    list-style: none;
    text-align: right;
    padding-left: 0;
-   padding-right: 20px;
    width: 100%;
    font-size: 15px;
+}
+@media (max-width: 991px) {
+   .header-area .links {
+      display: none;
+   }
+   .header-area .links.open {
+      background-color: #fff;
+      padding: 20px;
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 50px;
+      width: 100%;
+      border-radius: 4px;
+   }
+   .header-area .links.open li {
+      display: block;
+      text-align: left;
+      margin: 0;
+   }
+   .header-area .links.open li:hover {
+      background-color: #03a8f41c;
+   }
+   .header-area .links.open li a {
+      color: var(--mainColor);
+      font-weight: bold;
+      display: block;
+      border-bottom: 1px solid var(--mainColor);
+      padding: 10px;
+   }
+   .landing-page .header-area .icon {
+      display: block;
+   }
+   .landing-page .header-area i {
+      display: block;
+   }
 }
 .header-area .links > li {
    display: inline-block;
@@ -235,14 +289,31 @@ body {
    font-size: 35px;
    margin: 0 0 12px;
 }
+@media (max-width: 768px) {
+   .intro h2 {
+      font-size: 24px;
+   }
+   .intro p {
+      font-size: 17px;
+   }
+}
 /* About Us */
 .about-us {
    padding-top: 50px;
    padding-bottom: 50px;
    display: flex;
 }
+@media (max-width: 750px) {
+   .about-us {
+      display: block;
+      text-align: center;
+   }
+   .about-us .info-box {
+      margin-bottom: 40px;
+   }
+}
 .about-us .info-box {
-   flex: 1;
+   flex: 1 1;
 }
 .about-us .info-box h2 {
    font-weight: bold;
@@ -256,7 +327,7 @@ body {
    margin: 0;
 }
 .about-us .image-box {
-   flex: 1;
+   flex: 1 1;
    text-align: center;
 }
 .about-us .image-box img {
@@ -287,8 +358,17 @@ body {
    text-align: center;
    line-height: 30px;
 }
+@media (max-width: 767px) {
+   .skills .skill-box {
+      display: block;
+   }
+   .skills .skill-box .skill-name {
+      width: 100%;
+      margin-bottom: 12px;
+   }
+}
 .skills .skill-box .skill-progress {
-   width: calc(100% - 110px);
+   width: 100%;
    height: 30px;
    background-color: #f6f6f6;
    border-radius: 6px;
@@ -483,9 +563,12 @@ body {
    margin: 0 0 60px;
    text-align: center;
 }
+.features .feat-holder {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 40px;
+}
 .features .feat-box {
-   width: calc(100% / 3);
-   float: left;
    text-align: center;
    margin-bottom: 40px;
 }
@@ -547,11 +630,13 @@ body {
    position: relative;
    z-index: 2;
 }
+.testimonials .ts-holder {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 20px;
+}
 .testimonials .ts-box {
-   position: relative;
    z-index: 2;
-   width: calc(98% / 3);
-   float: left;
    background-color: #fff;
    padding: 20px;
 }
@@ -612,12 +697,14 @@ body {
    padding-left: 100px;
    padding-right: 100px;
    display: flex;
-   gap: 100px;
+   flex-wrap: wrap;
+   gap: 80px;
    justify-content: center;
 }
 .contact form .right,
 .contact form .left {
-   width: 50%;
+   min-width: 300px;
+   flex-basis: 1 1 60%;
 }
 .contact form textarea,
 .contact form input:not([type="submit"]) {
@@ -652,4 +739,37 @@ body {
    background-color: var(--mainColor);
    color: #fff;
    cursor: pointer;
+}
+@media (max-width: 767px) {
+   .contact form {
+      gap: 0;
+   }
+}
+/* Start Footer */
+footer {
+   background-color: #111;
+   color: #eee;
+   padding: 5px;
+   text-align: center;
+}
+/* Start Grid System */
+@media (min-width: 576px) {
+   .container {
+      max-width: 540px;
+   }
+}
+@media (min-width: 768px) {
+   .container {
+      max-width: 720px;
+   }
+}
+@media (min-width: 992px) {
+   .container {
+      max-width: 960px;
+   }
+}
+@media (min-width: 1200px) {
+   .container {
+      max-width: 1140px;
+   }
 }
