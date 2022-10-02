@@ -1,0 +1,17 @@
+01 - create JSON Object for questions
+02 - HTML structure
+03 - add Dummy Data
+04 - Styling CSS
+05 - Fetch Number of questions form JSON Object
+06 - show questions count + questions category
+07 - Bullets of questions count
+08 - Correct and Wrong answers count
+09 - create countDown timer
+10 - Fetch Number of questions form JSON Object
+11 - show first question
+12 - check answer and show next question
+13 - when time runout, mark question as Wrong
+14 - Add "done" class on bullets after the Answer
+15 - show result after all done
+
+

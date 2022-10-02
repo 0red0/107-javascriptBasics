@@ -13,15 +13,30 @@
 </body>
 <script>
 
-   function findChildren(dancingBrigade) {
-      let a = dancingBrigade.toLowerCase().split("").sort().map((e, i, arr) => {
-         return arr.indexOf(e) === i ? e.toUpperCase() : e;
-      }).join("")
-      return a;
-   }
-   console.log(findChildren("lksahshKLHJLDSHFjkshadhjfdsjkhf"))
+   // let target = 9;
+   // let nums = [3, 6, 4];
+   // let nums = [2, 7, 11, 15];
+   // let nums = [1, 11, 3, 3, 50, 8];
 
 
+
+   var twoSum = function (nums, target) {
+      let awe;
+      for (let i = 0; i < nums.length; i++) {
+         let tmp;
+         if (nums[i] < target) {
+            tmp = target - nums[i];
+         }
+
+         // if (target - e === tmp) {
+         awe = [i, nums.indexOf(tmp)]
+
+         // }
+      }
+      return awe;
+   };
+
+   console.log(twoSum([22, 5, 4, 50, 8], 9))
 
    // for(let i=1; i < 100; i++){
    //    var output = "";
