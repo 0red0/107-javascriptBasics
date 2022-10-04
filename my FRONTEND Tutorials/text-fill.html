@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>elzero tutorials</title>
+      <style>
+         h1 {
+            font-family: arial;
+            font-size: calc(4rem + 3vw);
+            margin-left: 50px;
+            width: fit-content;
+            -webkit-text-stroke: 1px red;
+            /* -webkit-text-fill-color: orange; */
+            position: relative;
+         }
+         h1:before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0%;
+            -webkit-text-fill-color: orange;
+            overflow: hidden;
+            transition: 1s ease-in;
+         }
+         h1:hover:before {
+            width: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <h1 data-text="Elzero">Elzero</h1>
+   </body>
+</html>
