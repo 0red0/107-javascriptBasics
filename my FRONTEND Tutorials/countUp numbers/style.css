@@ -1,0 +1,8 @@
+body {
+  background-color: #333;
+}
+.counter {
+  font-size: 3rem;
+  padding: 50px;
+  color: #fff;
+}
