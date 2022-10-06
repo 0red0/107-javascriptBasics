@@ -1,0 +1,34 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+ul,
+li {
+   list-style: none;
+}
+body {
+   background-color: #333;
+   font-family: Helvetica, sans-serif;
+   text-align: center;
+}
+.switcher {
+   margin: 40px auto 60px;
+   display: flex;
+   background-color: #ddd;
+   width: fit-content;
+}
+.switcher li {
+   width: 100px;
+   font-weight: bold;
+   padding: 10px;
+   transition: 0.3s;
+}
+.switcher li.active,
+li:hover {
+   background-color: orange;
+}
+div.gallery {
+   margin: 30px auto;
+   width: 800px;
+}
