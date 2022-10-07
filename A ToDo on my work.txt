@@ -44,12 +44,9 @@ text-align: center;
 . winner out of 5 and 10 pop-up screen
 --------------------------
 05 - my personal portfolio
-make header back ground slash wider
+Add the new projects
 -------------------------
-06 - ToDo list
-center it
--------------------------
-07 - calcolator :
+06 - calcolator :
 Alternative method other than eval():
 
 

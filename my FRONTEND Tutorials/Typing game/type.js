@@ -36,13 +36,13 @@ const words = [
    "Hello",
    "Programming",
    "Code",
-   // "Javascript",
-   // "Town",
-   // "Country",
-   // "Testing",
-   // "Youtube",
-   // "Linkedin",
-   // "Twitter",
+   "Javascript",
+   "Town",
+   "Country",
+   "Testing",
+   "Youtube",
+   "Linkedin",
+   "Twitter",
 ];
 const lvls = {
    Easy: 5,
@@ -62,6 +62,7 @@ const startBtn = document.querySelector("header button");
 const theWord = document.querySelector("aside .word");
 const input = document.querySelector(".input-field");
 const footerTime = document.querySelector("footer .second");
+const scoreText = document.querySelector("footer>p:last-child").textContent;
 const result = document.querySelector("aside .result");
 let randoWord;
 let doorWedge = false;
