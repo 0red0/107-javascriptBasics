@@ -15,17 +15,24 @@
    <h1>Typing Test Game</h1>
    <aside>
       <nav>
-         <p>You are playing on [ <span class="lvl">Normal</span> ] Level & You have [ <span class="second">3</span> ] to
-            type
-            the word.</p>
+         <label for="select">Select Level :</label>
+         <select id="select">
+            <option value="Easy">Easy</option>
+            <option value="Normal">Normal</option>
+            <option value="Hard">Hard</option>
+         </select>
+         <p>You are playing on [ <span class="lvl"></span> ]
+            Level & You have [ <span class="second"></span> ]
+            seconds to type the word.</p>
       </nav>
       <header><button>START</button></header>
       <div class="word">word</div>
       <input type="text" class="input-field">
       <main class="words-arr"></main>
       <footer>
-         <p>Time left : <span class="second">33</span> Sec.</p>
-         <p>Score <data class="correct">5</data> From <data class="arr-length">65</data></p>
+         <p>Time left : <span class="second"></span> Sec.</p>
+         <p>Words left : <span class="words-left"></span></p>
+         <p>Score <data class="correct">0</data> From <data class="arr-length"></data></p>
       </footer>
       <div class="result">Game Over / Well Done</div>
    </aside>
