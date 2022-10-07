@@ -35,14 +35,14 @@
 const words = [
    "Hello",
    "Programming",
-   "Code",
-   "Javascript",
-   "Town",
-   "Country",
-   "Testing",
-   "Youtube",
-   "Linkedin",
-   "Twitter",
+   // "Code",
+   // "Javascript",
+   // "Town",
+   // "Country",
+   // "Testing",
+   // "Youtube",
+   // "Linkedin",
+   // "Twitter",
 ];
 const lvls = {
    Easy: 5,
@@ -62,16 +62,18 @@ const startBtn = document.querySelector("header button");
 const theWord = document.querySelector("aside .word");
 const input = document.querySelector(".input-field");
 const footerTime = document.querySelector("footer .second");
-const scoreText = document.querySelector("footer>p:last-child").textContent;
 const result = document.querySelector("aside .result");
+const scoreDiv = document.querySelector(".scoring .old-score");
 let randoWord;
 let doorWedge = false;
+let arrScore = [];
 
 input.onpaste = function () {
    return false;
 };
 // Default lvl and timeLeft values
-let defaultLvl = "Easy";
+let defaultLvl = "Hard";
+selectBox.value = defaultLvl;
 lvl.innerText = defaultLvl;
 timeLeft.forEach((t) => {
    t.innerText = lvls[defaultLvl];
@@ -93,7 +95,7 @@ startBtn.addEventListener("click", addInitialTime);
 
 function addInitialTime() {
    if (!doorWedge) {
-      footerTime.innerText = lvls[selectBox.value] + 2;
+      footerTime.innerText = lvls[selectBox.value] + 0;
    }
    doorWedge = true;
 }
@@ -140,14 +142,53 @@ function play() {
                result.style.display = "block";
                result.innerText = "Well Done!";
                wordsLeft.innerText = "0";
+               scoring();
             } else {
+               input.value = "";
                everyTurn();
             }
          } else {
             result.style.display = "block";
             result.classList.add("loss");
             result.innerText = "Game Over!  reload";
+            scoring();
          }
       }
    }, 1000);
+}
+// Manage The Score
+function scoring() {
+   const scoreText = document.querySelector(
+      "footer>p:last-of-type"
+   ).textContent;
+   console.log(scoreText);
+   addScoreToArr(scoreText);
+}
+// Manage Localstorage array
+function addScoreToArr(name) {
+   const objScore = {
+      id: Date.now(),
+      theScore: name,
+   };
+   arrScore.push(objScore);
+   window.localStorage.setItem("scores", JSON.stringify(arrScore));
+   appendScoreEle();
+}
+
+function getStamp(mildat) {
+   let timePoint = new Date();
+   let day = timePoint.getDate(mildat);
+   let month = timePoint.getMonth(mildat);
+   let year = timePoint.getFullYear(mildat);
+   let hour = timePoint.getHours(mildat);
+   let minute = timePoint.getMinutes(mildat);
+   let second = timePoint.getSeconds(mildat);
+   return `${day}_${month}_${year} ${hour}:${minute}:${second}`;
+}
+// Append  score elements
+function appendScoreEle() {
+   console.log(`${getStamp(objScore.id)} ${objScore.theScore}`);
+   let p = document.createElement("p");
+   p.innerText = `${getStamp(objScore.id)} ${objScore.theScore}`;
+   scoreDiv.append(p);
 }

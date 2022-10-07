@@ -118,14 +118,45 @@ footer {
    background-color: #fff;
    margin: 10px auto;
    padding: 10px 20px;
+   position: relative;
 }
 aside .result {
+   position: absolute;
+   top: 250%;
+   left: 50%;
+   transform: translate(-50%, -50%);
    text-align: center;
    font-size: 3.5rem;
    font-weight: 600;
+   line-height: 1;
    color: limegreen;
    display: none;
 }
 aside .result.loss {
    color: red;
+}
+aside .scoring {
+   background-color: #fff;
+   width: fit-content;
+   text-align: right;
+   margin-left: auto;
+   padding: 5px 15px;
+   border-radius: 6px;
+   transition: 0.5s;
+}
+aside .scoring button {
+   background-color: var(--mainColor);
+   color: #fff;
+   padding: 2px 7px;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+}
+aside .scoring button:not(:last-of-type) {
+   display: none;
+}
+aside .scoring p {
+   /* display: none; */
+   color: #333;
+   line-height: 1.3;
 }
