@@ -63,21 +63,48 @@ const theWord = document.querySelector("aside .word");
 const input = document.querySelector(".input-field");
 const footerTime = document.querySelector("footer .second");
 const result = document.querySelector("aside .result");
+const clr = document.querySelector(".scoring .clr");
 const scoreDiv = document.querySelector(".scoring .old-score");
+const scoreBtn = document.querySelector(".scoring .open-score");
+const infoBtn = document.querySelector(".instruction button");
+const pInfo = document.querySelectorAll(".instruction p");
 let randoWord;
 let doorWedge = false;
 let arrScore = [];
+let levelInfo;
+
+// Check localStorage for old score
+if (window.localStorage.getItem("scores")) {
+   arrScore = JSON.parse(localStorage.getItem("scores"));
+   arrScore.forEach((o) => {
+      appendScoreEle(o);
+   });
+}
+// Check localStorage for Level and TimeLeft
+if (window.localStorage.getItem("level")) {
+   levelInfo = JSON.parse(localStorage.getItem("level"));
+   console.log(levelInfo.timing);
+   updateLvlTime(levelInfo);
+} else {
+   // Default lvl and timeLeft values
+   let defaultLvl = "Hard";
+   selectBox.value = defaultLvl;
+   lvl.innerText = defaultLvl;
+   timeLeft.forEach((t) => {
+      t.innerText = lvls[defaultLvl];
+   });
+}
+function updateLvlTime(l) {
+   timeLeft.forEach((w) => {
+      w.innerText = l.timing;
+   });
+   lvl.innerText = l.level;
+   selectBox.value = l.level;
+}
 
 input.onpaste = function () {
    return false;
 };
-// Default lvl and timeLeft values
-let defaultLvl = "Hard";
-selectBox.value = defaultLvl;
-lvl.innerText = defaultLvl;
-timeLeft.forEach((t) => {
-   t.innerText = lvls[defaultLvl];
-});
 
 // Update Level and time
 selectBox.onchange = function () {
@@ -85,13 +112,26 @@ selectBox.onchange = function () {
       w.innerText = lvls[selectBox.value];
    });
    lvl.innerText = selectBox.value;
+   let lvlObj = {
+      level: selectBox.value,
+      timing: lvls[selectBox.value],
+   };
+   localStorage.setItem("level", JSON.stringify(lvlObj));
 };
+
 // score count From
 scoreFrom.innerText = words.length;
 
 // Click start
 startBtn.addEventListener("click", everyTurn);
 startBtn.addEventListener("click", addInitialTime);
+// Press Enter to start
+window.addEventListener("keypress", (e) => {
+   if (e.key === "Enter") {
+      everyTurn();
+      addInitialTime();
+   }
+});
 
 function addInitialTime() {
    if (!doorWedge) {
@@ -150,7 +190,7 @@ function play() {
          } else {
             result.style.display = "block";
             result.classList.add("loss");
-            result.innerText = "Game Over!  reload";
+            result.innerText = "Game Over!";
             scoring();
          }
       }
@@ -161,10 +201,10 @@ function scoring() {
    const scoreText = document.querySelector(
       "footer>p:last-of-type"
    ).textContent;
-   console.log(scoreText);
+   // console.log(scoreText);
    addScoreToArr(scoreText);
 }
-// Manage Localstorage array
+// Manage LocalStorage array
 function addScoreToArr(name) {
    const objScore = {
       id: Date.now(),
@@ -172,23 +212,51 @@ function addScoreToArr(name) {
    };
    arrScore.push(objScore);
    window.localStorage.setItem("scores", JSON.stringify(arrScore));
-   appendScoreEle();
 }
-
-function getStamp(mildat) {
-   let timePoint = new Date();
-   let day = timePoint.getDate(mildat);
-   let month = timePoint.getMonth(mildat);
-   let year = timePoint.getFullYear(mildat);
-   let hour = timePoint.getHours(mildat);
-   let minute = timePoint.getMinutes(mildat);
-   let second = timePoint.getSeconds(mildat);
-   return `${day}_${month}_${year} ${hour}:${minute}:${second}`;
+// Prep the score time Stamp
+function getStamp(dd) {
+   let timePoint = new Date(dd);
+   let day = timePoint.getDate();
+   let month = timePoint.getMonth();
+   let year = timePoint.getFullYear();
+   let hour = timePoint.getHours();
+   hour = hour < 10 ? `0${hour}` : hour;
+   let minute = timePoint.getMinutes();
+   minute = minute < 10 ? `0${minute}` : minute;
+   let second = timePoint.getSeconds();
+   second = second < 10 ? `0${second}` : second;
+   return `${day}_${month}_${year} - ${hour}:${minute}:${second}`;
 }
-// Append  score elements
-function appendScoreEle() {
-   console.log(`${getStamp(objScore.id)} ${objScore.theScore}`);
+// Append score elements
+function appendScoreEle(x) {
    let p = document.createElement("p");
-   p.innerText = `${getStamp(objScore.id)} ${objScore.theScore}`;
+   p.innerText = `${getStamp(x.id)} - ${x.theScore}`;
+   p.classList.add("hide");
    scoreDiv.append(p);
+}
+// Score Button
+scoreBtn.addEventListener("click", openScore);
+scoreBtn.addEventListener("click", hideClr);
+function openScore() {
+   for (const child of scoreDiv.children) {
+      child.classList.toggle("hide");
+   }
+}
+// Hide score clear button
+function hideClr() {
+   clr.classList.toggle("hide");
+}
+// Clear Score Button
+clr.addEventListener("click", clearScore);
+function clearScore() {
+   localStorage.removeItem("scores");
+   scoreDiv.innerText = "";
+   clr.classList.toggle("hide");
+}
+// Info button
+infoBtn.addEventListener("click", openInfo);
+function openInfo() {
+   pInfo.forEach((p) => {
+      p.classList.toggle("hide");
+   });
 }
