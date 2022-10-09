@@ -1,11 +1,9 @@
 01 - style title / tiptool attr in css
-
 a {
   position: relative;
   display: inline-block;
   margin-top: 20px;
 }
-
 a[title]:hover::after {
   content: attr(title);
   position: absolute;
@@ -15,26 +13,18 @@ a[title]:hover::after {
 -------------------------
 02 - using svg: brickWall backgrund
 background-image: url('data:image/svg+xml,%3Csvg width="42" height="44" viewBox="0 0 42 44" xmlns="http://www.w3.org/2000/svg"%3E%3Cg id="Page-1" fill="none" fill-rule="evenodd"%3E%3Cg id="brick-wall" fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-
 -----------------------
 03 - NEON FONT COLOR;
 body {
-    background-color: #000000;
-   
- color: #dfe0e4;
-    
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  	  background-color: #000000;
+	 color: #dfe0e4;
+    	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
-
 h1 {
     font-size: 80px;
-   
- color: #fff;
-    
-text-align: center;
-   
- text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    color: #fff;
+   text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
 }
 -----------------------
 04 - rps
@@ -42,7 +32,7 @@ text-align: center;
 . colors
 . icons 
 . winner out of 5 and 10 in a pop-up screen
---------------------------
+
 ------------------------
 06 - calcolator :
 Alternative method other than eval():
@@ -65,6 +55,22 @@ return a * parseInt(o);
 //etc
 }
 }, 0);
+
+//js edition:
+var input = "2+3*4";
+var lastOpp = "+";
+
+    input.split("").reduce((a, o) => {
+      if (String(parseInt(o)) === o) {
+        if (lastOpp === "+") {
+          console.log(a + parseInt(o));
+        }
+        if (lastOpp === "*") {
+          console.log(a * parseInt(o));
+        }
+        //etc
+      }
+    }, 0);
 
 adding parenthesis and order of operations would require more.
 ----------------------------
