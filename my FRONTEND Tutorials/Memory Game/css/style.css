@@ -12,6 +12,21 @@ nav {
    background-color: #607d8bcf;
    z-index: 2;
 }
+nav input {
+   display: block;
+   margin: 20px auto;
+   margin-top: 200px;
+   padding: 10px 20px;
+   font-size: 1.5rem;
+   text-align: center;
+   outline: 2px solid limegreen;
+   border: none;
+   transition: 0.4s;
+}
+nav input[type="text"]:focus::placeholder {
+   opacity: 0;
+   transition: 0.4s;
+}
 nav span {
    position: absolute;
    left: 50%;
@@ -65,16 +80,47 @@ main {
    width: 100%;
    margin: 20px auto;
 }
+.memory-game-blocks.no-clicking {
+   pointer-events: none;
+}
 .memory-game-blocks .game-block {
    transition: transform 0.4s;
    transform-style: preserve-3d;
    cursor: pointer;
-   background-color: rgb(156, 219, 55);
+   background-image: radial-gradient(
+      circle,
+      #006576,
+      #00717c,
+      #007c7e,
+      #00877c,
+      #009278,
+      #0f9b71,
+      #28a368,
+      #40ab5b,
+      #60b34c,
+      #7eba3a,
+      #9ebf24,
+      #c0c300
+   );
    font-size: 106px;
    height: 155px;
 }
 .memory-game-blocks .game-block .front {
-   background-color: rgb(196, 19, 19);
+   background-image: radial-gradient(
+      circle,
+      #c0c300,
+      #9ebf24,
+      #7eba3a,
+      #60b34c,
+      #40ab5b,
+      #28a368,
+      #0f9b71,
+      #009278,
+      #00877c,
+      #007c7e,
+      #00717c,
+      #006576
+   );
 }
 .memory-game-blocks .game-block .front::before {
    content: "?";
@@ -94,6 +140,8 @@ main {
    backface-visibility: hidden;
    border: 5px solid rgb(156, 219, 55);
 }
+.memory-game-blocks .game-block.has-match,
 .memory-game-blocks .game-block.flipped {
    transform: rotateY(0.5turn);
+   pointer-events: none;
 }
