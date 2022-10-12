@@ -1,0 +1,127 @@
+:root {
+   --clrA: white;
+   --clrC: blue;
+}
+body {
+   font-family: "Times New Roman", Times, serif;
+   background-image: url("img\ \(2\).jpg");
+   background-size: cover;
+   height: 100vh;
+   display: grid;
+   place-items: center;
+}
+dir .entries {
+   background-color: var(--clrC);
+   padding: 20px;
+   display: flex;
+   place-items: center;
+   box-shadow: 0 2px 10px 0px #000;
+}
+dir .entries input,
+dir .entries .add {
+   height: 40px;
+   font-family: "Times New Roman", Times, serif;
+   padding: 5px 10px;
+   font-size: 1.5rem;
+   border: none;
+}
+dir .entries input {
+   color: var(--clrA);
+   background-color: #1e1926;
+   min-width: 500px;
+   outline: none;
+   transition: 0.4s;
+}
+dir .entries input::placeholder {
+   transition: 0.4s;
+}
+dir .entries input:focus::placeholder {
+   opacity: 0;
+}
+dir .entries input:focus {
+   font-family: Arial, Helvetica, sans-serif;
+}
+dir .entries .add {
+   background-color: #ffc107;
+   margin-left: -5px;
+   cursor: pointer;
+   outline-offset: -3px;
+   outline: 3px solid #1e1926;
+   transition: 0.4s;
+}
+dir .entries .add:hover {
+   background-color: #e4b014;
+}
+
+dir .holder {
+   background-color: var(--clrC);
+   margin-top: 20px;
+   padding: 10px 30px;
+   font-size: 1.5rem;
+   box-shadow: 0 2px 10px 0px #000;
+}
+dir .holder .task {
+   display: flex;
+   justify-content: space-between;
+   color: var(--clrA);
+   background-color: #006ac6;
+   padding: 10px 20px;
+   margin: 20px 0;
+   box-shadow: 0 1px 6px 0px #000;
+   transition: 0.3s;
+}
+dir .holder .task:hover {
+   background-color: #0078e0;
+}
+dir .holder .task.done {
+   background-color: #1e1926;
+   opacity: 0.7;
+   color: #ddd;
+   box-shadow: none;
+   cursor: pointer;
+}
+dir .holder .task .del {
+   background-color: var(--clrA);
+   width: 35px;
+   height: 35px;
+   border: none;
+   border-radius: 50%;
+   rotate: 45deg;
+   cursor: pointer;
+   font-size: 2rem;
+   font-weight: bold;
+   color: red;
+   box-shadow: 0 2px 6px 0px #000;
+   overflow: hidden;
+   transition: 0.5s;
+   position: relative;
+}
+dir .holder .task .del:hover {
+   background-color: red;
+   color: var(--clrA);
+}
+dir .holder .task .del::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 0;
+   height: 0;
+   background-color: red;
+   z-index: 1;
+}
+dir .holder .task .del:hover::before {
+   animation: flashing 0.4s;
+}
+@keyframes flashing {
+   0%,
+   50% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+      width: 200%;
+      height: 200%;
+   }
+}
