@@ -1,4 +1,4 @@
-01 - style title / tiptool attr in css
+01 - style title / tooltip attr in css
 a {
   position: relative;
   display: inline-block;

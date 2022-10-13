@@ -63,6 +63,7 @@ dir .holder {
 dir .holder .task {
    display: flex;
    justify-content: space-between;
+   align-items: center;
    color: var(--clrA);
    background-color: #006ac6;
    padding: 10px 20px;
