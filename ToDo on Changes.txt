@@ -74,6 +74,3 @@ var lastOpp = "+";
 
 adding parenthesis and order of operations would require more.
 ----------------------------
-07. Connect 4
-https://www.youtube.com/watch?v=aroYjgQH8Tw&list=WL&index=8&t=44s
------------------------------------
