@@ -1,0 +1,31 @@
+//import here
+@use "./layout/_global-rules.css";
+@use "./pages/_contact.css";
+@use "./colors/colors" as *;
+$main-color: red;
+
+.class {
+   background-color: $main-color;
+}
+footer {
+   $alt-color: violet !global;
+   background-color: $alt-color;
+}
+header {
+   background-color: $alt-color;
+}
+div {
+   background-color: $clr1;
+   color: $clr2;
+}
+p {
+   background-color: $clr2;
+}
+$max-mobile: (
+   max-width: 767px,
+);
+@media ($max-mobile) {
+   .sidebar {
+      padding: 20px;
+   }
+}

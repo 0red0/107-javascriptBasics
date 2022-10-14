@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+.contact {
+  padding: 20px;
+}
+
+.class {
+  background-color: red;
+}
+
+footer {
+  background-color: violet;
+}
+
+header {
+  background-color: violet;
+}
+
+div {
+  background-color: yellow;
+  color: navy;
+}
+
+p {
+  background-color: navy;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    padding: 20px;
+  }
+}/*# sourceMappingURL=main.css.map */
