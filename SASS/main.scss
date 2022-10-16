@@ -21,11 +21,260 @@ div {
 p {
    background-color: $clr2;
 }
-$max-mobile: (
-   max-width: 767px,
-);
-@media ($max-mobile) {
-   .sidebar {
-      padding: 20px;
+// prettier-ignore
+// $max-mobile: (max-width: 767px);
+// @media ($max-mobile) {
+//    .sidebar {
+//       padding: 20px;
+//    }
+// }
+.box {
+   > .box1 {
+      color: red;
+   }
+   + .box2 {
+      color: blue;
+   }
+   &.big {
+      font-weight: bold;
+   }
+}
+.content {
+   font: {
+      size: 10px;
+      weight: bold;
+   }
+   margin: auto {
+      top: 20px;
+      bottom: 39px;
+   }
+}
+// SASS placeholder
+%main-box {
+   background-color: white;
+   padding: 15px;
+   border: 1px solid #ccc;
+}
+.ads {
+   @extend %main-box;
+   font-size: 15px;
+   color: yellow;
+}
+.article {
+   @extend .ads;
+   transition: 3s;
+}
+.content {
+   > .box {
+      padding: 15px;
+      > .title {
+         font-size: 18px;
+      }
+   }
+   .cat {
+      margin: 20px;
+   }
+   &.premium {
+      &:before {
+         content: "premium box";
+      }
+      &:hover {
+         background-color: #eee;
+      }
+   }
+}
+.class > {
+   .child {
+      padding: 10px;
+   }
+}
+.class {
+   > .child {
+      padding: 10px;
+   }
+}
+.class {
+   > {
+      .child {
+         padding: 10px;
+      }
+   }
+}
+.parent {
+   & + .sibling {
+      margin: auto {
+         top: 10px;
+      }
+      & ~ .last {
+         padding: 10px;
+      }
+   }
+}
+%widget {
+   background-color: white;
+   padding: 20px;
+}
+%main-border {
+   border: 1px solid #ccc;
+}
+.my-class {
+   font-weight: bold;
+   margin: 20px auto;
+}
+.my-class {
+   @extend %widget;
+   @extend %main-border;
+}
+.box {
+   h2 {
+      font-size: 50px;
+   }
+   p {
+      @extend h2;
+   }
+}
+@media (max-width: 575px) {
+   .box {
+      h2 {
+         font-size: 50px;
+         span {
+            font-weight: bold;
+         }
+      }
+      p {
+         @extend h2;
+         span {
+            @extend span;
+         }
+      }
+   }
+}
+// The Code
+// Do Not Edit Here
+$red: #e91e63;
+$green: #009688;
+
+// Add What You Want Here
+$link-color: $green;
+$link-hover: $red;
+// Do Not Edit Here
+.box a {
+   color: $link-color;
+   &:hover {
+      color: $link-hover;
+   }
+}
+.box {
+   font-size: 3rem;
+   &-holder {
+      width: 1000px;
+      &-content {
+         margin: auto;
+      }
+   }
+}
+$theme: "light";
+page {
+   @if $theme == "light" {
+      background-color: white;
+      color: #444;
+   } @else {
+      background-color: #444;
+      color: white;
+   }
+}
+$rounded: true;
+.box {
+   @extend .my-class;
+   border-radius: if($rounded, 6px, null);
+}
+$direction: "bottom";
+.arrow {
+   @extend .box;
+   width: 300px;
+   height: 300px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 40px auto;
+   position: relative;
+   &::before {
+      content: "";
+      position: absolute;
+      border: 20px solid transparent;
+      @if $direction == "top" {
+         top: -40px;
+         left: 50%;
+         transform: translateX(-50%);
+         border-bottom-color: red;
+      } @else if $direction == "right" {
+         right: -40px;
+         top: 50%;
+         transform: translateY(-50%);
+         border-left-color: red;
+      } @else if $direction == "bottom" {
+         bottom: -40px;
+         left: 50%;
+         transform: translateX(-50%);
+         border-top-color: red;
+      } @else if $direction == "left" {
+         left: -40px;
+         top: 50%;
+         transform: translateY(-50%);
+         border-right-color: red;
+      } @else {
+         @error "Direction #{$direction} is wrong.!";
+      }
+   }
+}
+$company: "falcon";
+.ad-#{$company} {
+   background-image: url("/imgs/#{$company}.png");
+}
+// .ad-#{function()} {
+//    font-weight: normal;
+// }
+$main: "school";
+$child: "box";
+$language: "en"; // English
+$gap: 20px;
+
+.#{$main} {
+   padding: $gap;
+   @if $language == "en" {
+      direction: ltr;
+   } @else if $language == "ar" {
+      direction: rtl;
+   }
+   margin-left: $gap;
+   & &-#{$child} {
+      padding: $gap / 2;
+   }
+   &:hover &-#{$child} {
+      background-color: #eee;
+   }
+}
+$number: 89;
+.class {
+   @if $number > 8 {
+      color: blue;
+   }
+}
+$number: 11;
+$color: red;
+$theme: light;
+.classy {
+   @if (($number > 5) and ($color == "red") not ($theme != "light")) {
+      color: lime;
+   }
+}
+.boxy {
+   @if ($number > 7) {
+      @if $number > 8 {
+         background-color: #009688;
+         @if $number > 9 {
+            text-align: center;
+         }
+      }
    }
 }

@@ -27,8 +27,170 @@ p {
   background-color: navy;
 }
 
-@media (max-width: 767px) {
-  .sidebar {
-    padding: 20px;
+.box > .box1, .arrow > .box1 {
+  color: red;
+}
+.box + .box2, .arrow + .box2 {
+  color: blue;
+}
+.box.big, .big.arrow {
+  font-weight: bold;
+}
+
+.content {
+  font-size: 10px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 39px;
+}
+
+.ads, .article {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.ads, .article {
+  font-size: 15px;
+  color: yellow;
+}
+
+.article {
+  transition: 3s;
+}
+
+.content > .box, .content > .arrow {
+  padding: 15px;
+}
+.content > .box > .title, .content > .arrow > .title {
+  font-size: 18px;
+}
+.content .cat {
+  margin: 20px;
+}
+.content.premium:before {
+  content: "premium box";
+}
+.content.premium:hover {
+  background-color: #eee;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.parent + .sibling {
+  margin: auto;
+  margin-top: 10px;
+}
+.parent + .sibling ~ .last {
+  padding: 10px;
+}
+
+.my-class, .box, .arrow {
+  background-color: white;
+  padding: 20px;
+}
+
+.my-class, .box, .arrow {
+  border: 1px solid #ccc;
+}
+
+.my-class, .box, .arrow {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.box h2, .arrow h2, .box p, .arrow p {
+  font-size: 50px;
+}
+@media (max-width: 575px) {
+  .box h2, .arrow h2, .box p, .arrow p {
+    font-size: 50px;
   }
+  .box h2 span, .arrow h2 span, .box p span, .arrow p span {
+    font-weight: bold;
+  }
+}
+.box a, .arrow a {
+  color: #009688;
+}
+.box a:hover, .arrow a:hover {
+  color: #e91e63;
+}
+
+.box, .arrow {
+  font-size: 3rem;
+}
+.box-holder {
+  width: 1000px;
+}
+.box-holder-content {
+  margin: auto;
+}
+
+page {
+  background-color: white;
+  color: #444;
+}
+
+.box, .arrow {
+  border-radius: 6px;
+}
+
+.arrow {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  position: relative;
+}
+.arrow::before {
+  content: "";
+  position: absolute;
+  border: 20px solid transparent;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: red;
+}
+
+.ad-falcon {
+  background-image: url("/imgs/falcon.png");
+}
+
+.school {
+  padding: 20px;
+  direction: ltr;
+  margin-left: 20px;
+}
+.school .school-box {
+  padding: 10px;
+}
+.school:hover .school-box {
+  background-color: #eee;
+}
+
+.class {
+  color: blue;
+}
+
+.classy {
+  color: lime;
+}
+
+.boxy {
+  background-color: #009688;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
