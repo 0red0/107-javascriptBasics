@@ -278,3 +278,119 @@ $theme: light;
       }
    }
 }
+@mixin r1 {
+   rotate: 1turn;
+}
+@mixin r2 {
+   display: flex;
+   place-content: center;
+}
+.r1Test {
+   @include r1;
+   @include r2;
+}
+@for $i from 1 to 10 {
+   .circle-#{$i} {
+      border-radius: 50%;
+   }
+}
+$dimensions: 0;
+@for $i from 0 through 9 {
+   .circle-#{100 + $dimensions} {
+      width: $dimensions + 100px;
+      height: $dimensions + 100px;
+      border-radius: 50%;
+   }
+   $dimensions: $dimensions + 100;
+}
+$themes: red, blue, yellow;
+@each $theme in $themes {
+   .#{$theme} {
+      background-color: white;
+      color: $theme;
+   }
+}
+$social: (
+   "faceboss": blue,
+   "youtyone": red,
+   "twizzer": violet,
+);
+@each $name, $clr in $social {
+   ##{$name} {
+      background-color: $clr;
+      position: relative;
+      &::before {
+         content: $name;
+      }
+   }
+}
+$start: 1;
+@while $start <= 10 {
+   .box-width-#{$start} {
+      width: $start * 100px;
+      width: $start * 100px / 2;
+   }
+   $start: $start + 1;
+}
+@mixin static-arrow {
+   content: "";
+   position: absolute;
+   border: 20px solid transparent;
+}
+@mixin arrow {
+   left: 50%;
+   transform: translateX(-50%);
+   top: -40px;
+   border-bottom-color: gainsboro;
+}
+.element {
+   &:before {
+      @include static-arrow();
+      @include arrow;
+   }
+}
+
+@for $i from 1 through 16 {
+   .col-#{$i} {
+      // prettier-ignore
+      width: ($i / 16 * 100)"%";
+   }
+}
+
+$names: "books" 20px red 18, "games" 30px green 18, "dvds" 20px blue;
+
+@each $nam, $px, $clr, $sz in $names {
+   .#{$nam} {
+      padding: $px;
+      @if $sz {
+         font-size: $sz;
+      } @else {
+         font-size: 16;
+      }
+      border-bottom: 2px solid $clr;
+      color: #444;
+   }
+}
+
+$init: 1;
+@while $init <= 5 {
+   .triangle-#{$init * 100} {
+      width: $init * 100px;
+      height: $init * 100px;
+      border-radius: $init * 100px / 2;
+   }
+   $init: $init + 1;
+}
+
+@mixin flex-center($c) {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: $c;
+}
+.box-one {
+   @include flex-center(400px);
+}
+.box-5wo {
+   @include flex-center;
+}
