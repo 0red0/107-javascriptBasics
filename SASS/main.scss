@@ -391,6 +391,91 @@ $init: 1;
 .box-one {
    @include flex-center(400px);
 }
-.box-5wo {
-   @include flex-center;
+// .box-5wo {
+//    @include flex-center;
+// }
+
+@function calculate($sizes...) {
+   $total: 0;
+   @each $size in $sizes {
+      $total: $total + $size;
+   }
+   @return $total;
+}
+.container {
+   top: calculate(100px, 200px);
+}
+@mixin overlay($clr, $opc) {
+   position: absolute;
+   top: 100px;
+   left: 100px;
+   margin: auto;
+   background-color: rgba($clr, $opc);
+}
+.yellow-layout {
+   @include overlay(yellow, 0.5);
+}
+
+/// Mixin with ready prefixs
+
+@mixin keyFs($name) {
+   @keyframes #{$name} {
+      @content;
+   }
+   @-webkit-keyframes #{$name} {
+      @content;
+   }
+}
+
+@include keyFs(fade-in) {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+@include keyFs(go-up) {
+   from {
+      top: 0;
+   }
+   to {
+      top: 100;
+   }
+}
+
+// mixin media queries
+
+@mixin breakpoint($screen) {
+   @if ($screen == "mobile") {
+      @media (max-width: 767px) {
+         @content;
+      }
+   } @else if ($screen == "small") {
+      @media (min-width: 768px) and (max-width: 991px) {
+         @content;
+      }
+   } @else if ($screen == "medium") {
+      @media (min-width: 992px) and (max-width: 1199px) {
+         @content;
+      }
+   } @else if($screen == "large") {
+      @media (min-width: 1200px) {
+         @content;
+      }
+   }
+}
+.container {
+   @include breakpoint(mobile) {
+      font-size: 10px;
+   }
+   @include breakpoint(small) {
+      font-size: 15px;
+   }
+   @include breakpoint(medium) {
+      font-size: 20px;
+   }
+   @include breakpoint(large) {
+      font-size: 30px;
+   }
 }

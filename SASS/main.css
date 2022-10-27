@@ -516,4 +516,69 @@ page {
   justify-content: center;
   align-items: center;
   width: 400px;
+}
+
+.container {
+  top: 300px;
+}
+
+.yellow-layout {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  margin: auto;
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes go-up {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100;
+  }
+}
+@-webkit-keyframes go-up {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    font-size: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    font-size: 15px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    font-size: 30px;
+  }
 }/*# sourceMappingURL=main.css.map */
