@@ -1,5 +1,5 @@
 git branch -M main = change branch name
-git config --global credential.helper store = store git password in pc
+git config --global credential.helper store = store git password on pc
 
 push brand new repo/
 git init
