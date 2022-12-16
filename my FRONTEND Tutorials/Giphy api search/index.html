@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Giphy gifs</title>
+</head>
+
+<body>
+   <img src="#" class="img1" style="max-height:500px;">
+   <p style="color:red;"></p>
+   <button>Random Image</button>
+   <br>
+   <br>
+   <input type="text">
+   <button class="search">Search</button>
+
+   <script>
+      const img1 = document.querySelector(".img1")
+      const p = document.querySelector("p")
+      const btn = document.querySelector("button")
+      const input = document.querySelector("input")
+      const search = document.querySelector(".search")
+
+      starting()
+      function starting() {
+         fetch('https://api.giphy.com/v1/gifs/translate?api_key=mf0KUj2sXe1rKLO5fMmEtlFJ6bNfoRSS&s=animals', { mode: 'cors' })
+            .then(response => response.json())
+            .then(response => {
+               img1.src = response.data.images.original.url;
+            }).catch(error => p.innerText = "Error loading image!")
+      }
+
+      btn.addEventListener("click", starting)
+
+      search.addEventListener("click", searching)
+      function searching() {
+         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mf0KUj2sXe1rKLO5fMmEtlFJ6bNfoRSS&s=${input.value}`, { mode: 'cors' })
+            .then(response => response.json())
+            .then(response => {
+               img1.src = response.data.images.original.url;
+            }).catch(error => p.innerText = "Error loading image!");
+         input.value = '';
+      }
+   </script>
+</body>
+
+</html>
