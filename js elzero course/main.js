@@ -197,11 +197,13 @@ theAge < 20
       : console.log("Unknown");
 
 // #036 Nullish Coalescing Operator
+let money = 0;
+const cash = money || 500; 
 /*
   Logical Or ||
-  -- Null + Undefined + Any Falsy Value
+    rejects -> Null + Undefined + Any Falsy Value
   Nullish Coalescing Operator ??
-  -- Null + Undefined
+    rejects -> Null + Undefined
 */
 console.log(Boolean(100)); //true or false test
 console.log(Boolean(-100));
@@ -1465,10 +1467,12 @@ console.log(b)
 let book = "Video";
 let video = "Book";
 
+// traditional way
 // let stash = book; // Video
 // book = video; // Book
 // video = stash; // Video
 
+//Dest way
 [book, video] = [video, book];
 
 console.log(book);
