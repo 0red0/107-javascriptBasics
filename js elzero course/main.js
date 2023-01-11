@@ -125,6 +125,7 @@ console.log(theName.trim().charAt(2).toUpperCase());
 // #028 string methods 2
 let h = "Elzero Web School";
 
+console.log(h.charAt(1))//l
 console.log(h.indexOf("o"));
 console.log(h.lastIndexOf("web"));
 console.log(h.lastIndexOf("o"));
@@ -198,7 +199,7 @@ theAge < 20
 
 // #036 Nullish Coalescing Operator
 let money = 0;
-const cash = money || 500; 
+const cash = money || 500;
 /*
   Logical Or ||
     rejects -> Null + Undefined + Any Falsy Value
@@ -497,7 +498,8 @@ function sayHi(userName, age = "Unknown") {
 }
 console.log(sayHi("Osama"));
 
-// #061 Rest Parameters:(spread operator [...])
+// #061 Rest Parameters: fn(a,...b) the rest of the elements go to ...
+// spread operator: with arrays or objects spread them inside relative elements
 function calc(...numbers) {
   let result = 0;
   for (let i = 0; i < numbers.length; i++) {
